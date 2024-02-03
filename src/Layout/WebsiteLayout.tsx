@@ -11,9 +11,9 @@ const WebsiteLayout = () => {
       <main>
       <Outlet />
       </main>
-      <footer>
+    
       <Footer />
-      </footer>
+     
       </>
    
   );
