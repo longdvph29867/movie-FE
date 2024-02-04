@@ -4,7 +4,7 @@ const ActorItem = () => {
     <>
             <div className="flex items-center mt-7 group/actor">
                   <img
-                    src="/public/actor.jpeg"
+                    src="/actor.jpeg"
                     alt=""
                     className="w-[70px] mr-4 rounded"
                   />
@@ -17,7 +17,7 @@ const ActorItem = () => {
                 </div>
                 <div className="flex items-center mt-7 group/actor">
                   <img
-                    src="/public/actor.jpeg"
+                    src="/actor.jpeg"
                     alt=""
                     className="w-[70px] mr-4 rounded"
                   />
@@ -30,7 +30,7 @@ const ActorItem = () => {
                 </div>
                 <div className="flex items-center mt-7 group/actor">
                   <img
-                    src="/public/actor.jpeg"
+                    src="/actor.jpeg"
                     alt=""
                     className="w-[70px] mr-4 rounded"
                   />
@@ -43,7 +43,7 @@ const ActorItem = () => {
                 </div>
                 <div className="flex items-center mt-7 group/actor">
                   <img
-                    src="/public/actor.jpeg"
+                    src="/actor.jpeg"
                     alt=""
                     className="w-[70px] mr-4 rounded"
                   />

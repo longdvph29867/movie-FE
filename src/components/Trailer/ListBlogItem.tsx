@@ -4,7 +4,7 @@ const ListBlogItem = () => {
     <>
            <div className="max-w-xs">
                   <div className="overflow-hidden rounded-lg">
-                    <img src="/public/blogv1.jpeg" alt="" className="w-full" />
+                    <img src="/blogv1.jpeg" alt="" className="w-full" />
                   </div>
                   <div className="pt-6 text-[#abb7c4] space-y-3">
                     <h3 className="two-line text-lg text-[#4280bf] font-bold">
@@ -19,7 +19,7 @@ const ListBlogItem = () => {
                 </div>
                 <div className="max-w-xs">
                   <div className="overflow-hidden rounded-lg">
-                    <img src="/public/blogv1.jpeg" alt="" className="w-full" />
+                    <img src="/blogv1.jpeg" alt="" className="w-full" />
                   </div>
                   <div className="pt-6 text-[#abb7c4] space-y-3">
                     <h3 className="two-line text-lg text-[#4280bf] font-bold">
@@ -34,7 +34,7 @@ const ListBlogItem = () => {
                 </div>
                 <div className="max-w-xs">
                   <div className="overflow-hidden rounded-lg">
-                    <img src="/public/blogv1.jpeg" alt="" className="w-full" />
+                    <img src="/blogv1.jpeg" alt="" className="w-full" />
                   </div>
                   <div className="pt-6 text-[#abb7c4] space-y-3">
                     <h3 className="two-line text-lg text-[#4280bf] font-bold">
@@ -49,7 +49,7 @@ const ListBlogItem = () => {
                 </div>
                 <div className="max-w-xs">
                   <div className="overflow-hidden rounded-lg">
-                    <img src="/public/blogv1.jpeg" alt="" className="w-full" />
+                    <img src="/blogv1.jpeg" alt="" className="w-full" />
                   </div>
                   <div className="pt-6 text-[#abb7c4] space-y-3">
                     <h3 className="two-line text-lg text-[#4280bf] font-bold">

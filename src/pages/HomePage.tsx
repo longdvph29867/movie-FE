@@ -9,14 +9,14 @@ const HomePage = () => {
     {/* banner */}
       <Banner/>
     {/* end banner */}
-    <MovieList/>
+    <MovieList />
     {/* 123 */}
     {/* trailer */}
-    <Trailer/>
+    <Trailer />
     {/* end trailer */}
     {/* 123 */}
     {/* trailer */}
-    <Trailer/>
+    <Trailer />
   
   </>
   

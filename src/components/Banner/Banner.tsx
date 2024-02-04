@@ -7,7 +7,7 @@ const Banner = () => {
   return (
     <>
       {/* banner */}
-      <section className="pt-44 bg-[url('./public/bg-2.jpg')] pb-16 bg-cover bg-center">
+      <section className="pt-44 bg-[url('./bg-2.jpg')] pb-16 bg-cover bg-center">
         <div className="container mx-auto">
           <div className="flex items-center gap-3">
             <div className="w-full md:w-2/3">
@@ -55,7 +55,7 @@ const Banner = () => {
               </div>
             </div>
             <div className="hidden w-1/3 md:block ">
-              <img src="/public/shin.jpeg" alt="" className="w-72" />
+              <img src="/shin.jpeg" alt="" className="w-72" />
               {/* <img src="./img/poster1.jpeg" alt=""> */}
             </div>
           </div>

@@ -2,14 +2,14 @@ const LoginPage = () => {
   return (
     <>
       <div
-        className="min-h-screen relative"
-        style={{ backgroundImage: "url(/public/bg-2.jpg)" }}
+        className="relative min-h-screen"
+        style={{ backgroundImage: "url(/bg-2.jpg)" }}
       >
         <div className="absolute w-full h-full" />
-        <div className="relative flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="relative flex flex-col justify-center min-h-screen px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <img
-              className="mx-auto h-10 w-auto"
+              className="w-auto h-10 mx-auto"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/FPT_Polytechnic.png/1200px-FPT_Polytechnic.png"
               alt="FPT_Polytechnic"
             />
@@ -74,7 +74,7 @@ const LoginPage = () => {
                 </button>
               </div>
             </form>
-            <p className="mt-10 text-center text-sm text-gray-300">
+            <p className="mt-10 text-sm text-center text-gray-300">
               Not a member?
               <a
                 href="#"
