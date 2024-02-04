@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       container: {
-        padding: "0 16px",
+        center: true,
+        padding: "1rem", // hoặc bất kỳ giá trị bạn muốn
       },
     },
   },

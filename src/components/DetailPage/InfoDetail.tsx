@@ -87,7 +87,7 @@ const InfoDetail = ({ movieDetail }: Props) => {
                 </h6>
                 <p>
                   <a href="#" className="text-[#4280bf] hover:text-[#dcf836]">
-                    {movieDetail?.director}
+                    Mark Cendrowski
                   </a>
                 </p>
               </div>
@@ -97,7 +97,8 @@ const InfoDetail = ({ movieDetail }: Props) => {
                 </h6>
                 <p>
                   <a href="#" className="text-[#4280bf] hover:text-[#dcf836]">
-                    {movieDetail?.cast}
+                    Robert Downey Jr, Chris Evans, Mark Ruffalo, Scarlett
+                    Johansson
                   </a>
                 </p>
               </div>
@@ -105,22 +106,17 @@ const InfoDetail = ({ movieDetail }: Props) => {
                 <h6 className="text-[#abb7c4] font-semibold capitalize mb-1">
                   Genres:{" "}
                 </h6>
-                <div>
-                  {movieDetail?.genre.map((genre, index) => (
-                    <span key={genre._id} className="text-[#4280bf]">
-                      <a href="#" className="hover:text-[#dcf836]">
-                        {genre.categoryName}
-                      </a>
-                      {index < movieDetail.genre.length - 1 && ", "}
-                    </span>
-                  ))}
-                </div>
+                <p>
+                  <a href="#" className="text-[#4280bf] hover:text-[#dcf836]">
+                    Chuck Lorre, Bill Prady
+                  </a>
+                </p>
               </div>
               <div>
                 <h6 className="text-[#abb7c4] font-semibold capitalize mb-1">
                   Run time:{" "}
                 </h6>
-                <p className="text-[#abb7c4]">{movieDetail?.runningTime}</p>
+                <p className="text-[#abb7c4]">120 min</p>
               </div>
               <div>
                 <h6 className="text-[#abb7c4] font-semibold capitalize mb-1">
