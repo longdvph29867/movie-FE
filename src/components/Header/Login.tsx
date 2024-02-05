@@ -7,7 +7,6 @@ const Login = () => {
   <button className="font-semibold teext-sm text-white uppercase py-2.5 px-6 rounded-full bg-[#F27221] ml-3">sign
     up</button>
 </div>
-
   );
 };
 

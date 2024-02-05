@@ -1,5 +1,7 @@
+import { Movie } from "../../types/movies"
 
-const ListBlogItem = () => {
+const ListBlogItem:React.FC<{blog:Movie}> = ({blog}) => {
+  
   return (
     <>
            <div className="max-w-xs">
@@ -8,7 +10,7 @@ const ListBlogItem = () => {
                   </div>
                   <div className="pt-6 text-[#abb7c4] space-y-3">
                     <h3 className="two-line text-lg text-[#4280bf] font-bold">
-                      Godzilla: King Of The Monsters Adds O'Shea Jackson Jr
+                     {blog.name}
                     </h3>
                     <p className="text-xs">27 Mar 2017</p>
                     <p className="text-sm three-line">

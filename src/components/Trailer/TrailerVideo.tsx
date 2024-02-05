@@ -1,6 +1,17 @@
+import { useEffect, useState } from 'react';
+import { Movie } from '../../types/movies';
 import TrailerItemVd from './TrailerItemVd';
+import movieServices from '../../services/moviesSevices';
 
 const TrailerVideo = () => {
+  
+  const [trailers, setTrailer] = useState<Movie[]>([]);
+  useEffect(() => {
+       movieServices.getAll()
+      .then(response => response.data)
+      .then(data => setTrailer(data.results))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
   return (
     <div className="flex flex-col gap-5 mt-6 md:flex-row md:gap-0">
     {/* video */}
@@ -17,9 +28,9 @@ const TrailerVideo = () => {
     </div>
     {/* list trailer */}
     <div className="md:w-1/3 bg-[#0b1a2a] md:h-[368px] h-48 overflow-scroll grid md:grid-cols-1 sm:grid-cols-2">
-     <TrailerItemVd/>
-
-
+     {trailers.map((trailer, index) => (
+              <TrailerItemVd  key={index} trailer={trailer} />
+            ))}
     </div>
   </div>
  
