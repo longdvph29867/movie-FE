@@ -5,7 +5,10 @@ export default {
     extend: {
       container: {
         center: true,
-        padding: "1rem", // hoặc bất kỳ giá trị bạn muốn
+        padding: "1rem",
+        screens: {
+          "2xl": "1280px",
+        }, // hoặc bất kỳ giá trị bạn muốn
       },
     },
   },

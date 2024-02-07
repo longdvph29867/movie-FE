@@ -1,35 +1,35 @@
 const ChangePass = () => {
   return (
     <div>
-      <form className="password">
-        <h4>02. Change password</h4>
-        <div className="row">
-          <div className="col-md-6 form-it">
+      <form className="text-sm">
+        <h4 className="uppercase text-white font-bold">Change password</h4>
+        <div className="">
+          <div className="mt-3">
             <label className="text-[#abb7c4] font-medium">Old Password</label>
             <input
-              className="text-[#abb7c4] bg-[#233a50] h-10 rounded-md pl-2 w-full mt-3"
+              className="text-[#abb7c4] bg-[#233a50] h-10 rounded-md pl-2 w-full mt-2"
               type="text"
               placeholder="**********"
             />
           </div>
         </div>
         <div className="row">
-          <div className="col-md-6 form-it">
+          <div className="mt-3">
             <label className="text-[#abb7c4] font-medium">New Password</label>
             <input
-              className="text-[#abb7c4] bg-[#233a50] h-10 rounded-md pl-2 w-full mt-3"
+              className="text-[#abb7c4] bg-[#233a50] h-10 rounded-md pl-2 w-full mt-2"
               type="text"
               placeholder="***************"
             />
           </div>
         </div>
         <div className="row">
-          <div className="col-md-6 form-it">
+          <div className="mt-3">
             <label className="text-[#abb7c4] font-medium">
               Confirm New Password
             </label>
             <input
-              className="text-[#abb7c4] bg-[#233a50] h-10 rounded-md pl-2 w-full mt-3"
+              className="text-[#abb7c4] bg-[#233a50] h-10 rounded-md pl-2 w-full mt-2"
               type="text"
               placeholder="*************** "
             />
