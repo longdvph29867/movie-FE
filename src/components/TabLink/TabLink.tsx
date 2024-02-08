@@ -1,5 +1,5 @@
 
-const CategoriesTheater = () => {
+const TabLink = () => {
   return (
     <ul className="flex flex-wrap gap-5 my-6 text-sm font-semibold text-white">
     <li>
@@ -26,4 +26,4 @@ const CategoriesTheater = () => {
   )
 }
 
-export default CategoriesTheater
+export default TabLink

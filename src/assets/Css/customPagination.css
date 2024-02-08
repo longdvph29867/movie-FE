@@ -1,0 +1,26 @@
+.pagination-container {
+  display: flex;
+  justify-content: center;
+}
+
+.ant-pagination-item {
+  border: 1px solid #405266 !important;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  height: 33px;
+  width: 33px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  color: white !important; 
+}
+
+
+.ant-pagination-item:hover {
+  border-color: #dcf836 !important;
+}
+
+.ant-pagination-item-active a {
+  background: transparent !important;
+  border-color: #dcf836 !important;
+}

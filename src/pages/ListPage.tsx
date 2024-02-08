@@ -1,6 +1,6 @@
-import ActorList from "../components/Trailer/ActorList";
-import TagList from "../components/Trailer/TagList";
-// import MovieListItem from "../components/MovieList/MovieListItem";
+import ActorList from "../components/TrailerActor/ActorList";
+import TagList from "../components/TrailerTag/TagList";
+import MovieListItem from "../components/MovieList/MovieListItem";
 
 const ListPage = () => {
   return (
@@ -30,9 +30,9 @@ const ListPage = () => {
             <div className="flex flex-col gap-10 xl:gap-16 lg:gap-12 lg:flex-row">
               <div className="lg:w-3/4">
                 {/* list */}
-                {/* <div className="grid gap-6 place-items-center md:grid-cols-4 sm:grid-cols-2 ">
+                <div className="grid gap-6 place-items-center md:grid-cols-4 sm:grid-cols-2 ">
                   <MovieListItem />
-                </div> */}
+                </div>
               </div>
               <div className="text-white lg:w-1/4">
                 {/* list actor */}

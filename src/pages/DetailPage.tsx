@@ -1,8 +1,8 @@
-import Favorite from "../components/Banner/Favorite";
-import Share from "../components/Banner/Share";
+
 import MovieList from "../components/MovieList/MovieList";
-import ActorList from "../components/Trailer/ActorList";
-import TagList from "../components/Trailer/TagList";
+import SocialButton from "../components/SocialButton/SocialButton";
+import ActorList from "../components/TrailerActor/ActorList";
+import TagList from "../components/TrailerTag/TagList";
 
 const DetailPage = () => {
   return (
@@ -17,11 +17,11 @@ const DetailPage = () => {
         >
           <div className="absolute w-full h-full bg-gradient-to-t from-black to-black/60" />
         </div>
-        <div className="container mx-auto relative py-44">
-          <div className="flex xl:gap-16 lg:gap-12 gap-10 lg:flex-row flex-col">
+        <div className="container relative mx-auto py-44">
+          <div className="flex flex-col gap-10 xl:gap-16 lg:gap-12 lg:flex-row">
             <div className="lg:w-3/4">
-              <div className="flex xl:gap-16 lg:gap-12 gap-10 lg:flex-row flex-col">
-                <div className="lg:w-2/5 max-w-xs mx-auto">
+              <div className="flex flex-col gap-10 xl:gap-16 lg:gap-12 lg:flex-row">
+                <div className="max-w-xs mx-auto lg:w-2/5">
                   <div>
                     <img
                       className="rounded-md max-h-[450px] w-full object-cover object-top"
@@ -53,13 +53,13 @@ const DetailPage = () => {
                 {/* center */}
                 <div className="lg:w-3/5">
                   <div>
-                    <h1 className="text-4xl text-white font-semibold mb-6">
+                    <h1 className="mb-6 text-4xl font-semibold text-white">
                       The Big Bang Theory
                     </h1>
                     {/* social */}
                     <div className="text-[#F27221] font-bold flex sm:items-center sm:flex-row flex-col md:gap-8 sm:gap-6 gap-3 uppercase mt-2 mb-10">
-                      <Favorite />
-                      <Share />
+                      <SocialButton />
+                      <SocialButton />
                     </div>
                     {/* rating */}
                     <div className="border-y border-[#405266] text-[#abb7c4] flex justify-start">
@@ -74,7 +74,7 @@ const DetailPage = () => {
                         </p>
                       </div>
                       <div className="flex items-center justify-start border-l border-[#405266] ml-7 pl-7">
-                        <p className="text-lg mr-4">Rate This Movie: </p>
+                        <p className="mr-4 text-lg">Rate This Movie: </p>
                         <i className="text-2xl text-[#f5b50a] fa-solid fa-star" />
                         <i className="text-2xl text-[#f5b50a] fa-solid fa-star" />
                         <i className="text-2xl text-[#f5b50a] fa-solid fa-star" />
@@ -86,7 +86,7 @@ const DetailPage = () => {
                         <i className="text-2xl fa-solid fa-star" />
                       </div>
                     </div>
-                    <div className="mt-8 flex flex-col gap-3">
+                    <div className="flex flex-col gap-3 mt-8">
                       <div>
                         <h6 className="text-[#abb7c4] font-semibold capitalize mb-1">
                           Director:{" "}

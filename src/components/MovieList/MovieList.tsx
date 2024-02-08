@@ -1,11 +1,10 @@
 // MovieList.js
 import MovieListItem from './MovieListItem';
 import TitleTheater from './TitleTheater';
-import CategoriesTheater from './CategoriesTheater';
-
 import { useEffect, useState } from 'react';
 import { Movie } from '../../types/movies';
 import movieServices from '../../services/moviesSevices';
+import TabLink from '../TabLink/TabLink';
 
 const MovieList = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -22,7 +21,7 @@ const MovieList = () => {
       <section className="py-16">
         <div className="container mx-auto">
           <TitleTheater />
-          <CategoriesTheater />
+          <TabLink />
           {/*  list ITEM movie */}
           <div className="grid gap-6 place-items-center lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 ">
             {movies.map((movie, index) => (

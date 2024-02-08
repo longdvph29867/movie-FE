@@ -4,11 +4,11 @@ import Logo from './Logo';
 import Navigation from './Navigation';
 import Search from './Search';
 import Login from './Login';
-import Genre from '../../types/genre';
 import movieServices from '../../services/moviesSevices';
+import genre from '../../types/genre';
 
 const Header = () => {
-  const [categories, setCategories] = useState<Genre[]>([]);
+  const [categories, setCategories] = useState<genre[]>([]);
 
   useEffect(() => {
     movieServices.getCategories()

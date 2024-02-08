@@ -1,9 +1,10 @@
-import Watch from "./Watch";
-import Favorite from "./Favorite";
-import Share from "./Share";
-import ButtonDetail from "./ButtonDetail";
 import Rating from "./Rating";
+import SpanContent from '../Date/SpanContent';
+import CustomButton from "../Button/Button";
+import SocialButton from "../SocialButton/SocialButton";
+
 const Banner = () => {
+  
   return (
     <>
       {/* banner */}
@@ -26,31 +27,22 @@ const Banner = () => {
               <div>
                 {/* social */}
                 <div className="text-[#F27221] font-bold flex sm:items-center sm:flex-row flex-col md:gap-8 sm:gap-6 gap-3 uppercase mt-2">
-                  <Watch />
-                  <Favorite />
-                  <Share />
+                  <SocialButton socialButton="Watch Trailer" styleSocial={<i className="pl-1 fa-solid fa-play" />}  />
+                  <SocialButton socialButton="Add to favorite" styleSocial={<i className="fa-solid fa-heart" />}/>
+                  <SocialButton socialButton="Share" styleSocial={<i className="fa-solid fa-share-nodes" />}/>
                 </div>
                 {/* details */}
                 <div className="flex flex-col mt-4 sm:items-center sm:flex-row">
-                  <Rating />
+                  <Rating rating="3"/>
                   <ul className="text-[#ABB7C4] flex sm:items-center sm:flex-row flex-col">
-                    <li className="flex items-center sm:ml-4">
-                      <span className="w-1 h-1 rounded-full bg-[#ABB7C4] mr-1.5" />
-                      <span>Run Time: 2h21'</span>
-                    </li>
-                    <li className="flex items-center sm:ml-4">
-                      <span className="w-1 h-1 rounded-full bg-[#ABB7C4] mr-1.5" />
-                      <span>Rated: PG-13</span>
-                    </li>
-                    <li className="flex items-center sm:ml-4">
-                      <span className="w-1 h-1 rounded-full bg-[#ABB7C4] mr-1.5" />
-                      <span>Release: 1 May 2015</span>
-                    </li>
+                    <SpanContent content="Run Time: 2h21'"/>
+                    <SpanContent content="Rated: PG-13"/>
+                    <SpanContent content="Release: 1 May 2015"/>
                   </ul>
                 </div>
                 {/* btn */}
                 <div className="mt-8">
-                  <ButtonDetail />
+                <CustomButton contentButton="MORE DETAIL" /> 
                 </div>
               </div>
             </div>
