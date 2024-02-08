@@ -1,6 +1,6 @@
 const ProfileTitle = () => {
   return (
-    <div className="absolute md:relative top-3 left-3">
+    <div className="absolute md:static -top-44 left-4">
       <h1 className="text-4xl font-bold text-white uppercase">
         Edward kennedy’s profile
       </h1>
