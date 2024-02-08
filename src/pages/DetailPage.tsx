@@ -2,7 +2,7 @@
 import MovieList from "../components/MovieList/MovieList";
 import SocialButton from "../components/SocialButton/SocialButton";
 import ActorList from "../components/TrailerActor/ActorList";
-import TagList from "../components/TrailerTag/TagList";
+import TagList from "../components/Tag/TagList";
 
 const DetailPage = () => {
   return (

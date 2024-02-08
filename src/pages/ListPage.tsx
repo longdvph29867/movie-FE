@@ -1,5 +1,5 @@
 import ActorList from "../components/TrailerActor/ActorList";
-import TagList from "../components/TrailerTag/TagList";
+import TagList from "../components/Tag/TagList";
 import MovieListItem from "../components/MovieList/MovieListItem";
 
 const ListPage = () => {

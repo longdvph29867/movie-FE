@@ -2,7 +2,7 @@ import TitleTheater from "../MovieList/TitleTheater";
 import TrailerVideo from "../TrailerVideo/TrailerVideo";
 import ListBlog from "../TrailerBlog/ListBlog";
 import ActorList from "../TrailerActor/ActorList";
-import TagList from "../TrailerTag/TagList";
+import TagList from "../Tag/TagList";
 
 const Trailer = () => {
 
