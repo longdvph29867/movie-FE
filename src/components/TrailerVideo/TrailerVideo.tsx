@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Movie } from '../../types/movies';
 import TrailerItemVd from './TrailerItemVd';
-import movieServices from '../../services/moviesSevices';
+import { movieServices } from '../../services/movieSevice';
+
 
 const TrailerVideo = () => {
   
   const [trailers, setTrailer] = useState<Movie[]>([]);
   useEffect(() => {
-       movieServices.getAll()
+       movieServices.getMovies()
       .then(response => response.data)
       .then(data => setTrailer(data.results))
       .catch(error => console.error('Error fetching data:', error));

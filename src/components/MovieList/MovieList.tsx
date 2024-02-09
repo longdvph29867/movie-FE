@@ -3,13 +3,13 @@ import MovieListItem from './MovieListItem';
 import TitleTheater from './TitleTheater';
 import { useEffect, useState } from 'react';
 import { Movie } from '../../types/movies';
-import movieServices from '../../services/moviesSevices';
 import TabLink from '../TabLink/TabLink';
+import { movieServices } from '../../services/movieSevice';
 
 const MovieList = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   useEffect(() => {
-       movieServices.getAll()
+       movieServices.getMovies()
       .then(response => response.data)
       .then(data => setMovies(data.results))
       .catch(error => console.error('Error fetching data:', error));

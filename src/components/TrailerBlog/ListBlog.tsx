@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import ListBlogItem from './ListBlogItem';
 import { Movie } from '../../types/movies';
-import movieServices from '../../services/moviesSevices';
+import { movieServices } from '../../services/movieSevice';
+
 
 const ListBlog = () => {
     
   const [listBlog, setListBlog] = useState<Movie[]>([]);
   useEffect(() => {
-       movieServices.getAll()
+       movieServices.getMovies()
       .then(response => response.data)
       .then(data => setListBlog(data.results))
       .catch(error => console.error('Error fetching data:', error));

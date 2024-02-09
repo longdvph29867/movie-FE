@@ -1,11 +1,11 @@
-import { https } from "./config"
+import { https } from "../config/axios"
 
 
-const movieServices = {
+export const movieServices = {
     getDetail(id:string){
       return  https.get(`/movies/${id}`)
     },
-   getAll(){
+   getMovies(){
     return  https.get(`/movies`)
    },
    getCategories(){
@@ -13,5 +13,3 @@ const movieServices = {
    }
 
 }
-
-export default movieServices
