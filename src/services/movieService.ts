@@ -1,7 +1,0 @@
-import { https } from "../config/axios"
-
-export const movieService = {
-  getMovies: () => {
-    return https.get('/movie')
-  }
-}
