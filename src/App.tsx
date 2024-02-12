@@ -7,6 +7,8 @@ import LoginPage from "./pages/LoginPage";
 import DetailPage from "./pages/DetailPage";
 import ListPage from "./pages/ListPage";
 import PageBlog from "./pages/PageBlog";
+import DashBoard from "./pages/Admin/DashBoard";
+import AdminLayout from "./Layout/AdminLayout";
 
 function App() {
   return (
@@ -21,7 +23,10 @@ function App() {
             <Route path="/blog" element={<PageBlog />} />
           </Route>
           <Route path="/login" element={<LoginPage />} />
-         
+          <Route path="admin" element={<AdminLayout/>}>
+            <Route index element={<DashBoard />} />
+          
+          </Route>
           </Routes>
       </>
     </BrowserRouter>
