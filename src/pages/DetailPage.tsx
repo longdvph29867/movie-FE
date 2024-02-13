@@ -1,15 +1,16 @@
 import { useState } from "react";
 import InfoDetail from "../components/DetailPage/InfoDetail";
 // import { useParams } from "react-router-dom";
-import movieSevices from "../services/movieSevices";
+
 import { Movie } from "../types/movies";
+import { movieService } from "../services/movieService";
 
 const DetailPage = () => {
   // const { id } = useParams();
   const id = "659682f87ccc34bb2e8e75b4";
   const [movieDetail, setMovieDetail] = useState<Movie | null>(null);
   useState(() => {
-    movieSevices
+    movieService
       .getDetail(id as string)
       .then((response) => {
         setMovieDetail(response.data);
