@@ -10,7 +10,7 @@ const GenreList = () => {
       .getAllGenre()
       .then((res) => setGenres(res.data))
       .catch((err) => console.error(err));
-  });
+  }, []);
 
   const deleteGenre = (id: string) => {
     // genreSevice
