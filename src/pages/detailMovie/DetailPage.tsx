@@ -73,7 +73,7 @@ const DetailPage = () => {
                 </div>
               ),
               children: (
-                <div className="grid grid-cols-1 sm:grid-cols-4 xl:grid-cols-5 gap-2 ">
+                <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-2 ">
                   {branch.listTime.map((time) => {
                     return (
                       <div
