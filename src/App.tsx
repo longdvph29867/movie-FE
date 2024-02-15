@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AdminLayout from "./Layout/AdminLayout";
 import GenreList from "./pages/admin/genre/GenreList";
 import CreateGenre from "./pages/admin/genre/CreateGenre";
-import DetailPage from "./pages/DetailPage";
+import DetailPage from "./pages/detailMovie/DetailPage";
 
 function App() {
   return (

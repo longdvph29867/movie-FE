@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
-import InfoDetail from "../components/DetailPage/InfoDetail";
+import InfoDetail from "../../components/DetailPage/InfoDetail";
 // import { useParams } from "react-router-dom";
 
-import { Movie } from "../types/movies";
-import { movieService } from "../services/movieService";
+import { Movie } from "../../types/movies";
+import { movieService } from "../../services/movieService";
 import { Collapse, Tabs, TabsProps } from "antd";
-import showingSevice from "../services/showingSevice";
-import { Showing } from "../types/showing";
-import { convertDate } from "../util";
+import showingSevice from "../../services/showingSevice";
+import { Showing } from "../../types/showing";
+import moment from "moment";
+import "./detailMovie.css";
+import { convertVND } from "../../util";
 
 const DetailPage = () => {
   // const { id } = useParams();
-  const id = "659682f87ccc34bb2e8e75c0";
+  const id = "659682f87ccc34bb2e8e75c2";
   const [movieDetail, setMovieDetail] = useState<Movie | null>(null);
   const [cinemasShowing, setcinemasShowing] = useState<Showing[]>([]);
   useEffect(() => {
@@ -47,7 +49,12 @@ const DetailPage = () => {
       key: cinema.id,
       label: (
         <div className="text-white group">
-          <img width={30} height={30} src={cinema.logo} />
+          <img
+            className="mx-auto mb-1"
+            width={30}
+            height={30}
+            src={cinema.logo}
+          />
           <p>{cinema.cinemaName}</p>
         </div>
       ),
@@ -59,7 +66,9 @@ const DetailPage = () => {
               key: branch.idBranch,
               label: (
                 <div>
-                  <p className="font-bold">{branch.cinemaBranchName}</p>
+                  <p className="font-bold text-[#F27221]">
+                    {branch.cinemaBranchName}
+                  </p>
                   <p className="text-sm">{branch.location}</p>
                 </div>
               ),
@@ -67,21 +76,26 @@ const DetailPage = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-4 xl:grid-cols-5 gap-2 ">
                   {branch.listTime.map((time) => {
                     return (
-                      <div className="border border-gray-300 shadow rounded-lg text-center p-2 hover:shadow-2xl hover:bg-gray-200 cursor-pointer">
+                      <div
+                        key={time.idShowing}
+                        className="border border-gray-300 shadow rounded-lg text-center p-2 hover:shadow-2xl hover:bg-gray-200 cursor-pointer"
+                      >
                         <p className="font-bold">
-                          {convertDate.date(time.showTime)}
+                          {moment(time.showTime).format("DD-MM-YYYY")}
                         </p>
                         <p className="font-bold">
-                          {convertDate.time(time.showTime)}
+                          {moment(time.showTime)
+                            .utcOffset("+00:00")
+                            .format("HH:mm")}
                         </p>
                         <div className="flex justify-between items-center text-sm">
                           <div>
                             <p>Vé thường</p>
-                            <span>{time.normalPrice}</span>
+                            <span>{convertVND(time.normalPrice)}</span>
                           </div>
                           <div>
                             <p>Vé Vip</p>
-                            <span>{time.vipPrice}</span>
+                            <span>{convertVND(time.vipPrice)}</span>
                           </div>
                         </div>
                       </div>
@@ -91,7 +105,7 @@ const DetailPage = () => {
               ),
             };
           })}
-          defaultActiveKey={["1"]}
+          defaultActiveKey={cinema.listBranch.map((branch) => branch.idBranch)}
           onChange={onChangeCollape}
         />
       ),
