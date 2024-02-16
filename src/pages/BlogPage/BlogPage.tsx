@@ -1,11 +1,10 @@
-import ArticleList from "../components/BlogComponents/ArticleList";
-import BlogSearch from "../components/BlogComponents/BlogSearch";
-import PageNavigation from "../components/Pagination/Pagination";
-import TagItem from "../components/Tag/TagItem";
-import BlogCategories from '../components/BlogComponents/BlogCategories';
+import ArticleList from "../../components/BlogComponents/ArticleList";
+import BlogSearch from "../../components/BlogComponents/BlogSearch";
+import PageNavigation from "../../components/Pagination/Pagination";
+import TagItem from "../../components/Tag/TagItem";
+import BlogCategories from "../../components/BlogComponents/BlogCategories";
 
-
-const PageBlog = () => {
+const BlogPage = () => {
   return (
     <section className="relative font-['Dosis', sans-serif'] ">
       <div
@@ -32,24 +31,24 @@ const PageBlog = () => {
           <div className="flex flex-col gap-10 xl:gap-16 lg:gap-12 lg:flex-row">
             <div className="lg:w-3/4">
               {/* list blog*/}
-               <ArticleList />
+              <ArticleList />
               <PageNavigation />
             </div>
             <div className=" lg:w-1/4">
               <div className="ml-[60px]">
-               <BlogSearch />
-               <BlogCategories />
-               
+                <BlogSearch />
+                <BlogCategories />
+
                 <div className="text-white mb-[60px] ">
                   <h4 className=" text-lg text-white uppercase font-bold mb-[30px] pb-[15px] border-b border-[#405266]">
                     TAGS
                   </h4>
                   <ul className="flex items-center justify-start flex-wrap font-light capitalize text-[#abb7c4] mt-2.5">
-                  <TagItem />
+                    <TagItem />
                   </ul>
                   <div></div>
                 </div>
-                
+
                 <div className="mb-[60px]">
                   <img src="/ads1.png" alt="" />
                 </div>
@@ -62,4 +61,4 @@ const PageBlog = () => {
   );
 };
 
-export default PageBlog;
+export default BlogPage;

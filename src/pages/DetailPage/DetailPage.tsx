@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
-import InfoDetail from "../components/DetailPage/InfoDetail";
-// import { useParams } from "react-router-dom";
-
-import { Movie } from "../types/movies";
-import { movieService } from "../services/movieService";
 import { Collapse, Tabs, TabsProps } from "antd";
-import showingSevice from "../services/showingSevice";
-import { Showing } from "../types/showing";
+import InfoDetail from "../../components/DetailPage/InfoDetail";
 import moment from "moment";
-import "../../styles/detailMovie.css";
-import { convertVND } from "../util";
-import MovieList from "../components/MovieList/MovieList";
-import ActorList from "../components/TrailerActor/ActorList";
-import TagList from "../components/Tag/TagList";
+import MovieList from "../../components/MovieList/MovieList";
+import ActorList from "../../components/TrailerActor/ActorList";
+import TagList from "../../components/Tag/TagList";
+import { Movie } from "../../types/movies";
+import { movieService } from "../../services/movieService";
+import showingSevice from "../../services/showingSevice";
+import { Showing } from "../../types/showing";
+import { convertVND } from "../../util";
+import "./detailPage.css";
 
 const DetailPage = () => {
   // const { id } = useParams();
