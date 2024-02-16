@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pagination } from 'antd';
-import './../../assets/Css/customPagination.css'; // Import CSS trước JSX
+import './../../assets/Css/customPagination.css'; 
 
 const PageNavigation: React.FC = () => (
     <div className="pagination-container">
