@@ -6,5 +6,8 @@ export const movieService = {
   },
   getMovieDetail: (id:string) => {
     return https.get(`/movies/${id}`)
+  },
+  getTrailer: () => {
+    return https.get(`/movies/trailer`)
   }
 }

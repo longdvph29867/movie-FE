@@ -1,13 +1,13 @@
-import { Movie } from "../../../types/movies";
-import TrailerItem from "./TrailerItem/Traileritem";
+import { TrailerType } from "../../../types/movies";
+import TrailerItem from "./TrailerItem/TrailerItem";
 
 type Props = {
-  trailers: Movie[];
+  trailers: TrailerType[];
 };
 
 const TrailerList = ({ trailers }: Props) => {
   return (
-    <div>
+    <div className="grid md:grid-cols-1 sm:grid-cols-2">
       {trailers.map((trailer, index) => (
         <TrailerItem key={index} trailer={trailer} />
       ))}
