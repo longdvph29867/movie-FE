@@ -1,12 +1,122 @@
+import { useEffect, useState } from "react";
+import InfoDetail from "../components/DetailPage/InfoDetail";
+// import { useParams } from "react-router-dom";
 
+import { Movie } from "../types/movies";
+import { movieService } from "../services/movieService";
+import { Collapse, Tabs, TabsProps } from "antd";
+import showingSevice from "../services/showingSevice";
+import { Showing } from "../types/showing";
+import moment from "moment";
+import "../../styles/detailMovie.css";
+import { convertVND } from "../util";
 import MovieList from "../components/MovieList/MovieList";
-import SocialButton from "../components/SocialButton/SocialButton";
 import ActorList from "../components/TrailerActor/ActorList";
 import TagList from "../components/Tag/TagList";
 
 const DetailPage = () => {
+  // const { id } = useParams();
+  const id = "659682f87ccc34bb2e8e75c2";
+  const [movieDetail, setMovieDetail] = useState<Movie | null>(null);
+  const [cinemasShowing, setcinemasShowing] = useState<Showing[]>([]);
+  useEffect(() => {
+    movieService
+      .getMovieDetail(id as string)
+      .then((response) => {
+        setMovieDetail(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    showingSevice
+      .getCinemaVyMovie(id)
+      .then((response) => {
+        console.log(response.data);
+        setcinemasShowing(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  const onChangeTabs = (key: string) => {
+    console.log(key);
+  };
+  const onChangeCollape = (key: string | string[]) => {
+    console.log(key);
+  };
+
+  const items: TabsProps["items"] = cinemasShowing.map((cinema) => {
+    return {
+      key: cinema.id,
+      label: (
+        <div className="text-white group">
+          <img
+            className="mx-auto mb-1"
+            width={30}
+            height={30}
+            src={cinema.logo}
+          />
+          <p>{cinema.cinemaName}</p>
+        </div>
+      ),
+      children: (
+        <Collapse
+          className="bg-white"
+          items={cinema.listBranch.map((branch) => {
+            return {
+              key: branch.idBranch,
+              label: (
+                <div>
+                  <p className="font-bold text-[#F27221]">
+                    {branch.cinemaBranchName}
+                  </p>
+                  <p className="text-sm">{branch.location}</p>
+                </div>
+              ),
+              children: (
+                <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-2 ">
+                  {branch.listTime.map((time) => {
+                    return (
+                      <div
+                        key={time.idShowing}
+                        className="border border-gray-300 shadow rounded-lg text-center p-2 hover:shadow-2xl hover:bg-gray-200 cursor-pointer"
+                      >
+                        <p className="font-bold">
+                          {moment(time.showTime).format("DD-MM-YYYY")}
+                        </p>
+                        <p className="font-bold">
+                          {moment(time.showTime)
+                            .utcOffset("+00:00")
+                            .format("HH:mm")}
+                        </p>
+                        <div className="flex justify-between items-center text-sm">
+                          <div>
+                            <p>Vé thường</p>
+                            <span>{convertVND(time.normalPrice)}</span>
+                          </div>
+                          <div>
+                            <p>Vé Vip</p>
+                            <span>{convertVND(time.vipPrice)}</span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              ),
+            };
+          })}
+          defaultActiveKey={cinema.listBranch.map((branch) => branch.idBranch)}
+          onChange={onChangeCollape}
+        />
+      ),
+    };
+  });
+
   return (
-    <>
+    <div className="bg-[#020d18]">
       <section className="relative">
         <div
           className="h-[598px] absolute top-0 left-0 w-full bg-cover bg-top"
@@ -17,186 +127,18 @@ const DetailPage = () => {
         >
           <div className="absolute w-full h-full bg-gradient-to-t from-black to-black/60" />
         </div>
-        <div className="container relative mx-auto py-44">
-          <div className="flex flex-col gap-10 xl:gap-16 lg:gap-12 lg:flex-row">
+        <div className="container mx-auto relative py-44">
+          <div className="flex xl:gap-16 lg:gap-12 gap-10 lg:flex-row flex-col">
             <div className="lg:w-3/4">
-              <div className="flex flex-col gap-10 xl:gap-16 lg:gap-12 lg:flex-row">
-                <div className="max-w-xs mx-auto lg:w-2/5">
-                  <div>
-                    <img
-                      className="rounded-md max-h-[450px] w-full object-cover object-top"
-                      src="http://busterhtml.mbkip3ms9u-e92498n216kr.p.temp-site.link/images/uploads/series-img.jpg"
-                      alt=""
-                    />
-                    <div className="flex flex-col gap-3 text-center p-4 border-[3px] border-[#0c1c2c] mt-5 rounded">
-                      <a
-                        href="http://"
-                        className="text-white uppercase block py-3 rounded-md bg-[#dd003f]"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i className="mr-3 fa-solid fa-play" />
-                        WATCH TRAILER
-                      </a>
-                      <a
-                        href="http://"
-                        className="text-[#020d18] uppercase block py-3 rounded-md bg-[#dcf836]"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i className="mr-3 fa-solid fa-play" />
-                        BUY TIKET
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                {/* center */}
-                <div className="lg:w-3/5">
-                  <div>
-                    <h1 className="mb-6 text-4xl font-semibold text-white">
-                      The Big Bang Theory
-                    </h1>
-                    {/* social */}
-                    <div className="text-[#F27221] font-bold flex sm:items-center sm:flex-row flex-col md:gap-8 sm:gap-6 gap-3 uppercase mt-2 mb-10">
-                      <SocialButton />
-                      <SocialButton />
-                    </div>
-                    {/* rating */}
-                    <div className="border-y border-[#405266] text-[#abb7c4] flex justify-start">
-                      <div className="flex items-center justify-center">
-                        <i className="text-2xl text-[#f5b50a] fa-solid fa-star" />
-                        <p className="ml-2.5 text-sm py-1">
-                          <span className="text-xl text-white">9</span> /10
-                          <br />
-                          <span className="text-white hover:text-[#4280bf] text-sm">
-                            56 Reviews
-                          </span>
-                        </p>
-                      </div>
-                      <div className="flex items-center justify-start border-l border-[#405266] ml-7 pl-7">
-                        <p className="mr-4 text-lg">Rate This Movie: </p>
-                        <i className="text-2xl text-[#f5b50a] fa-solid fa-star" />
-                        <i className="text-2xl text-[#f5b50a] fa-solid fa-star" />
-                        <i className="text-2xl text-[#f5b50a] fa-solid fa-star" />
-                        <i className="text-2xl text-[#f5b50a] fa-solid fa-star" />
-                        <i className="text-2xl text-[#f5b50a] fa-solid fa-star" />
-                        <i className="text-2xl text-[#f5b50a] fa-solid fa-star" />
-                        <i className="text-2xl text-[#f5b50a] fa-solid fa-star" />
-                        <i className="text-2xl text-[#f5b50a] fa-solid fa-star" />
-                        <i className="text-2xl fa-solid fa-star" />
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-3 mt-8">
-                      <div>
-                        <h6 className="text-[#abb7c4] font-semibold capitalize mb-1">
-                          Director:{" "}
-                        </h6>
-                        <p>
-                          <a
-                            href="#"
-                            className="text-[#4280bf] hover:text-[#dcf836]"
-                          >
-                            Mark Cendrowski
-                          </a>
-                        </p>
-                      </div>
-                      <div>
-                        <h6 className="text-[#abb7c4] font-semibold capitalize mb-1">
-                          Stars:{" "}
-                        </h6>
-                        <p>
-                          <a
-                            href="#"
-                            className="text-[#4280bf] hover:text-[#dcf836]"
-                          >
-                            Robert Downey Jr, Chris Evans, Mark Ruffalo,
-                            Scarlett Johansson
-                          </a>
-                        </p>
-                      </div>
-                      <div>
-                        <h6 className="text-[#abb7c4] font-semibold capitalize mb-1">
-                          Genres:{" "}
-                        </h6>
-                        <p>
-                          <a
-                            href="#"
-                            className="text-[#4280bf] hover:text-[#dcf836]"
-                          >
-                            Chuck Lorre, Bill Prady
-                          </a>
-                        </p>
-                      </div>
-                      <div>
-                        <h6 className="text-[#abb7c4] font-semibold capitalize mb-1">
-                          Run time:{" "}
-                        </h6>
-                        <p className="text-[#abb7c4]">120 min</p>
-                      </div>
-                      <div>
-                        <h6 className="text-[#abb7c4] font-semibold capitalize mb-1">
-                          Description:{" "}
-                        </h6>
-                        <p className="text-[#abb7c4]">
-                          Leonard Hofstadter and Sheldon Cooper are both
-                          brilliant physicists working at Cal Tech in Pasadena,
-                          California. They are colleagues, best friends, and
-                          roommates, although in all capacities their
-                          relationship is always tested primarily by Sheldon's
-                          regimented, deeply eccentric, and non-conventional
-                          ways.
-                        </p>
-                      </div>
-                      <div>
-                        <h6 className="text-[#abb7c4] font-semibold capitalize mb-1">
-                          Plot Keywords:{" "}
-                        </h6>
-                        <p className="text-[#abb7c4] ">
-                          <span className="time">
-                            <a
-                              href="#"
-                              className="py-[2px] px-[5px] bg-[#233a50]"
-                            >
-                              superhero
-                            </a>
-                          </span>
-                          <span className="time">
-                            <a
-                              href="#"
-                              className="py-[2px] px-[5px] bg-[#233a50]"
-                            >
-                              marvel universe
-                            </a>
-                          </span>
-                          <span className="time">
-                            <a
-                              href="#"
-                              className="py-[2px] px-[5px] bg-[#233a50]"
-                            >
-                              comic
-                            </a>
-                          </span>
-                          <span className="time">
-                            <a
-                              href="#"
-                              className="py-[2px] px-[5px] bg-[#233a50]"
-                            >
-                              blockbuster
-                            </a>
-                          </span>
-                          <span className="time">
-                            <a
-                              href="#"
-                              className="py-[2px] px-[5px] bg-[#233a50]"
-                            >
-                              final battle
-                            </a>
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <InfoDetail movieDetail={movieDetail} />
+              <div className="bg-[#152a3e] p-5 mt-10 text-white">
+                <h1 className="font-bold text-xl">Lịch chiếu</h1>
+                <Tabs
+                  defaultActiveKey="1"
+                  items={items}
+                  onChange={onChangeTabs}
+                  className="text-white"
+                />
               </div>
               {/* list movie */}
               <MovieList />
@@ -212,7 +154,7 @@ const DetailPage = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
