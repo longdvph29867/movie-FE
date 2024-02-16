@@ -9,7 +9,10 @@ import ListPage from "./pages/ListPage";
 import PageBlog from "./pages/PageBlog";
 import DashBoard from "./pages/Admin/DashBoard";
 import AdminLayout from "./Layout/AdminLayout";
+<<<<<<< HEAD
 import DetailBlog from "./pages/DetailBlog";
+=======
+>>>>>>> 672513e6e81f9fd7f7ab8d4cff2c79defa7f22cf
 
 function App() {
   return (
@@ -22,7 +25,10 @@ function App() {
             <Route path="/detail" element={<DetailPage />} />
             <Route path="/list" element={<ListPage />} />
             <Route path="/blog" element={<PageBlog />} />
+<<<<<<< HEAD
             <Route path="/blog-detail" element={<DetailBlog />} />
+=======
+>>>>>>> 672513e6e81f9fd7f7ab8d4cff2c79defa7f22cf
           </Route>
           <Route path="/login" element={<LoginPage />} />
           <Route path="admin" element={<AdminLayout/>}>
