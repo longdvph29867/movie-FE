@@ -4,6 +4,7 @@ const Rating: React.FC<{ rating: string }> = ({ rating }) => {
       <i className="fa-solid fa-star text-[#f4b508]" />
       <span>{rating}</span>
       <span className="text-sm font-light">/10</span>
+      
     </p>
   );
 };
