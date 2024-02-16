@@ -1,4 +1,5 @@
 import { Movie } from "../../types/movies";
+import SocialButton from "../SocialButton/SocialButton";
 interface Props {
   movieDetail: Movie | null;
 }
@@ -41,18 +42,14 @@ const InfoDetail = ({ movieDetail }: Props) => {
           </h1>
           {/* social */}
           <div className="text-[#F27221] font-bold flex sm:items-center sm:flex-row flex-col md:gap-8 sm:gap-6 gap-3 uppercase mt-2 mb-10">
-            <div className="flex items-center gap-2.5">
-              <span className="w-10 h-10 flex items-center justify-center border border-[#F27221] rounded-full">
-                <i className="fa-solid fa-heart" />
-              </span>
-              <span className="text-sm">Add to favorite</span>
-            </div>
-            <div className="flex items-center gap-2.5">
-              <span className="w-10 h-10 flex items-center justify-center border border-[#F27221] rounded-full">
-                <i className="fa-solid fa-share-nodes" />
-              </span>
-              <span className="text-sm">Share</span>
-            </div>
+            <SocialButton
+              styleSocial={<i className="fa-solid fa-heart"></i>}
+              socialButton="Add to favorite"
+            />
+            <SocialButton
+              styleSocial={<i className="fa-solid fa-share-nodes"></i>}
+              socialButton="Share"
+            />
           </div>
           {/* rating */}
           <div className="border-y border-[#405266] text-[#abb7c4] sm:flex justify-start py-1 sm:py-0">

@@ -1,10 +1,10 @@
 // import CreateGenre from "../pages/admin/genre/CreateGenre";
 import { FC } from "react";
 
-type Componenet = {
+type Props = {
   Component: FC;
 };
-const AdminLayout = ({ Component }: Componenet) => {
+const AdminLayout = ({ Component }: Props) => {
   return (
     <div className="flex min-h-screen w-full bg-[#f8f9fa]">
       <div className="lg:w-64 lg:px-4 pl-4 lg:min-w-[256px] duration-500">
