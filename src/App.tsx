@@ -19,33 +19,31 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <>
-          <Routes>
-            <Route path="/" element={<WebsiteLayout />}>
-              <Route index element={<HomePage />} />
-              <Route path="/detail" element={<DetailPage />} />
-              <Route path="/list" element={<ListPage />} />
-              <Route path="/blog" element={<PageBlog />} />
-            </Route>
-            <Route path="/login" element={<LoginPage />} />
-            <Route
-              path="/admin"
-              element={<AdminLayout Component={DashBoard} />}
-            />
-            <Route
-              path="/admin/genres"
-              element={<AdminLayout Component={GenreList} />}
-            />
-            <Route
-              path="/admin/genres/add"
-              element={<AdminLayout Component={CreateGenre} />}
-            />
-            <Route
-              path="/admin/genre/:genreSlug"
-              element={<AdminLayout Component={UpdateGenre} />}
-            />
-          </Routes>
-        </>
+        <Routes>
+          <Route path="/" element={<WebsiteLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/detail" element={<DetailPage />} />
+            <Route path="/list" element={<ListPage />} />
+            <Route path="/blog" element={<PageBlog />} />
+          </Route>
+          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/admin"
+            element={<AdminLayout Component={DashBoard} />}
+          />
+          <Route
+            path="/admin/genres"
+            element={<AdminLayout Component={GenreList} />}
+          />
+          <Route
+            path="/admin/genres/add"
+            element={<AdminLayout Component={CreateGenre} />}
+          />
+          <Route
+            path="/admin/genre/:genreSlug"
+            element={<AdminLayout Component={UpdateGenre} />}
+          />
+        </Routes>
       </BrowserRouter>
     </>
   );

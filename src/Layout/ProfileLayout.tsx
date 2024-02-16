@@ -1,8 +1,6 @@
-import NavbarUser from "../components/profile/NavbarUser";
-import ProfileTitle from "../components/profile/ProfileTitle";
-// import RatedMovie from "../components/profile/RatedMovie";
-// import ProfileDetailForm from "../components/profile/ProfileDetailForm";
-import FavoriteItem from "../components/profile/FavoriteItem";
+import NavbarUser from "../components/Profile/NavbarUser";
+import ProfileTitle from "../components/Profile/ProfileTitle";
+import FavoriteItem from "../components/Profile/FavoriteItem";
 
 const ProfileLayout = () => {
   return (

@@ -1,18 +1,13 @@
 // Header.tsx
-import { useEffect, useState } from 'react';
-import Logo from './Logo';
-import Navigation from './Navigation';
-import Search from './Search';
-import Login from './Login';
-import genre from '../../types/genre';
-import { movieServices } from '../../services/movieSevice';
+import { useEffect, useState } from "react";
+import Logo from "./Logo";
+import Navigation from "./Navigation";
+import Search from "./Search";
+import Login from "./Login";
+import genre from "../../types/genre";
 const Header = () => {
   const [categories, setCategories] = useState<genre[]>([]);
-  useEffect(() => {
-   
-    
-     
-  }, []);
+  useEffect(() => {}, []);
   return (
     <header className="py-8 absolute w-full left-0 top-0 z-40 lg:bg-transparent bg-[#0f2133]">
       <div className="container mx-auto">

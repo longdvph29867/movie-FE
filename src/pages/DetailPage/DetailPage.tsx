@@ -3,14 +3,13 @@ import { Collapse, Tabs, TabsProps } from "antd";
 import InfoDetail from "../../components/DetailPage/InfoDetail";
 import moment from "moment";
 import MovieList from "../../components/MovieList/MovieList";
-import ActorList from "../../components/TrailerActor/ActorList";
-import TagList from "../../components/Tag/TagList";
 import { Movie } from "../../types/movies";
 import { movieService } from "../../services/movieService";
 import showingSevice from "../../services/showingSevice";
 import { Showing } from "../../types/showing";
 import { convertVND } from "../../util";
 import "./detailPage.css";
+import SideBar from "../../components/Sidebar/SideBar";
 
 const DetailPage = () => {
   // const { id } = useParams();
@@ -30,7 +29,6 @@ const DetailPage = () => {
     showingSevice
       .getCinemaVyMovie(id)
       .then((response) => {
-        console.log(response.data);
         setcinemasShowing(response.data);
       })
       .catch((error) => {
@@ -138,16 +136,10 @@ const DetailPage = () => {
                   className="text-white"
                 />
               </div>
-              {/* list movie */}
               <MovieList />
             </div>
             <div className="lg:w-1/4 lg:pt-[440px]">
-              {/* list actor */}
-              <ActorList />
-              {/* list actor end */}
-              {/* list tag */}
-              <TagList />
-              {/* list tag end */}
+              <SideBar />
             </div>
           </div>
         </div>

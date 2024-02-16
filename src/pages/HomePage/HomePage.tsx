@@ -1,22 +1,28 @@
 import Banner from "../../components/Banner/Banner";
+import BlogList from "../../components/BlogList/BlogList";
 
 import MovieList from "../../components/MovieList/MovieList";
+import SideBar from "../../components/Sidebar/SideBar";
 import Trailer from "../../components/Trailer/Trailer";
 
 const HomePage = () => {
   return (
     <>
-      {/* banner */}
       <Banner />
-      {/* end banner */}
       <MovieList />
-      {/* 123 */}
-      {/* trailer */}
-      <Trailer />
-      {/* end trailer */}
-      {/* 123 */}
-      {/* trailer */}
-      <Trailer />
+      <section className="py-16 bg-[#06121e]">
+        <div className="container mx-auto">
+          <div className="flex flex-col gap-10 xl:gap-16 lg:gap-12 lg:flex-row">
+            <div className="lg:w-3/4">
+              <Trailer />
+              <BlogList />
+            </div>
+            <div className="text-white lg:w-1/4">
+              <SideBar />
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

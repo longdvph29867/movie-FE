@@ -1,8 +1,8 @@
 import ArticleList from "../../components/BlogComponents/ArticleList";
 import BlogSearch from "../../components/BlogComponents/BlogSearch";
 import PageNavigation from "../../components/Pagination/Pagination";
-import TagItem from "../../components/Tag/TagItem";
 import BlogCategories from "../../components/BlogComponents/BlogCategories";
+import TagItem from "../../components/Sidebar/TagList/TagItem/TagItem";
 
 const BlogPage = () => {
   return (
@@ -30,7 +30,6 @@ const BlogPage = () => {
         <div className="container mx-auto">
           <div className="flex flex-col gap-10 xl:gap-16 lg:gap-12 lg:flex-row">
             <div className="lg:w-3/4">
-              {/* list blog*/}
               <ArticleList />
               <PageNavigation />
             </div>

@@ -1,17 +1,15 @@
-import ActorList from "../../components/TrailerActor/ActorList";
-import TagList from "../../components/Tag/TagList";
 import MovieListItem from "../../components/MovieList/MovieListItem";
 import { useEffect, useState } from "react";
 import { Movie } from "../../types/movies";
-import { movieServices } from "../../services/movieSevice";
+import SideBar from "../../components/Sidebar/SideBar";
+import { movieService } from "../../services/movieService";
 
 const ListPage = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   useEffect(() => {
-    movieServices
+    movieService
       .getMovies()
-      .then((response) => response.data)
-      .then((data) => setMovies(data.results))
+      .then((data) => setMovies(data.data.results))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
   return (
@@ -40,7 +38,6 @@ const ListPage = () => {
           <div className="container mx-auto">
             <div className="flex flex-col gap-10 xl:gap-16 lg:gap-12 lg:flex-row">
               <div className="lg:w-3/4">
-                {/* list */}
                 <div className="grid gap-6 place-items-center md:grid-cols-4 sm:grid-cols-2 ">
                   {movies.map((movie, index) => (
                     <MovieListItem key={index} movie={movie} />
@@ -48,12 +45,7 @@ const ListPage = () => {
                 </div>
               </div>
               <div className="text-white lg:w-1/4">
-                {/* list actor */}
-                <ActorList />
-                {/* list actor end */}
-                {/* list tag */}
-                <TagList />
-                {/* list tag end */}
+                <SideBar />
               </div>
             </div>
           </div>
