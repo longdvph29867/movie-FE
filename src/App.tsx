@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import AdminLayout from "./Layout/AdminLayout";
-import GenreList from "./pages/Admin/genre/GenreList";
-import CreateGenre from "./pages/Admin/genre/CreateGenre";
+import GenreList from "./pages/Admin/Genre/GenreList";
+import CreateGenre from "./pages/Admin/Genre/CreateGenre";
 import DetailPage from "./pages/DetailPage/DetailPage";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,7 +13,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import ListPage from "./pages/ListPage/ListPage";
 import PageBlog from "./pages/BlogPage/BlogPage";
 import DashBoard from "./pages/Admin/DashBoard/DashBoard";
-import UpdateGenre from "./pages/Admin/genre/UpdateGenre";
+import UpdateGenre from "./pages/Admin/Genre/UpdateGenre";
 
 function App() {
   return (
