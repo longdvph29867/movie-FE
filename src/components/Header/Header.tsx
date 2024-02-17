@@ -23,7 +23,9 @@ const Header = () => {
   const handleOpenNav = (): void => {
     setNavOpen(!navOpen);
   };
-  useOutsideClick(wrapperRef, handleOpenNav);
+  useOutsideClick(wrapperRef, () => {
+    setNavOpen(false);
+  });
 
   return (
     <header

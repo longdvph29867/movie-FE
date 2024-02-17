@@ -56,7 +56,7 @@ const BannerItem = ({ movie, index }: Props) => {
                   <SpanContent content="Release: 1 May 2014" />
                 </ul>
               </div>
-              <div className="mt-8">
+              <div className="mt-8 mb-3">
                 <Link to={`/movies/${movie?._id}`}>
                   <span className="font-semibold text-sm text-white uppercase py-2.5 px-6 rounded-full bg-[#F27221]">
                     MORE DETAIL
