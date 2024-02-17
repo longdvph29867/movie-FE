@@ -1,12 +1,13 @@
 import BlogCategories from "../components/BlogComponents/BlogCategories";
 import BlogSearch from "../components/BlogComponents/BlogSearch";
-import TagItem from "../components/Tag/TagItem";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faGooglePlusG } from "@fortawesome/free-brands-svg-icons";
 import { faPinterest } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import TagItem from "../components/Sidebar/TagList/TagItem/TagItem";
 
 const DetailBlog = () => {
   return (

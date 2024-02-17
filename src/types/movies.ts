@@ -1,8 +1,3 @@
-//index
-
-import genre from "./genre";
-
-
 export interface Movie {
   _id:string
   name: string,
@@ -13,6 +8,20 @@ export interface Movie {
   runningTime: number,
   language: string,
   rated: string,
+  trailer: string,
+  imgBanner: string,
+}
+
+interface genre {
+  _id: string,
+  categoryName: string,
+  categorySlug: string
+}
+
+export interface TrailerType {
+  _id: string,
+  name: string,
+  language: string,
   trailer: string,
   imgBanner: string,
 }
