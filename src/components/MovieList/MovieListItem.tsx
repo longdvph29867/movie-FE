@@ -1,5 +1,5 @@
 import { Movie } from "../../types/movies";
-import Rating from "../Banner/Rating";
+import Rating from "../Rating/Rating";
 const MovieListItem: React.FC<{ movie: Movie }> = ({ movie }) => {
   return (
     <div className="relative max-w-[190px] group/item-movie w-full">
