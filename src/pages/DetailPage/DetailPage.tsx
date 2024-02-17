@@ -5,7 +5,7 @@ import moment from "moment";
 import MovieList from "../../components/MovieList/MovieList";
 import { Movie } from "../../types/movies";
 import { movieService } from "../../services/movieService";
-import showingSevice from "../../services/showingSevice";
+import showingService from "../../services/showingService";
 import { Showing } from "../../types/showing";
 import { convertVND } from "../../util";
 import "./detailPage.css";
@@ -26,7 +26,7 @@ const DetailPage = () => {
         console.log(error);
       });
 
-    showingSevice
+    showingService
       .getCinemaVyMovie(id)
       .then((response) => {
         setcinemasShowing(response.data);

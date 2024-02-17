@@ -25,3 +25,14 @@ export interface TrailerType {
   trailer: string,
   imgBanner: string,
 }
+
+export type DetailScheduleType = {
+  movie: Movie,
+  cinemaBranch: {
+    cinemaBranchName: string,
+    slug: string,
+    location: string,
+    id: string
+  },
+  showTime: string
+}
