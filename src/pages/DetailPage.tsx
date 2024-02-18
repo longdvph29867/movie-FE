@@ -8,7 +8,7 @@ import { Collapse, Tabs, TabsProps } from "antd";
 import showingSevice from "../services/showingSevice";
 import { Showing } from "../types/showing";
 import moment from "moment";
-import "../../styles/detailMovie.css";
+import "../styles/detailMovie.css";
 import { convertVND } from "../util";
 import MovieList from "../components/MovieList/MovieList";
 import ActorList from "../components/TrailerActor/ActorList";

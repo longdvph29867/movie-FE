@@ -2,8 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import AdminLayout from "./Layout/AdminLayout";
-import GenreList from "./pages/admin/genre/GenreList";
-import CreateGenre from "./pages/admin/genre/CreateGenre";
+
 import DetailPage from "./pages/DetailPage";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,8 +11,13 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ListPage from "./pages/ListPage";
 import PageBlog from "./pages/PageBlog";
-import DashBoard from "./pages/admin/DashBoard";
-import UpdateGenre from "./pages/admin/genre/UpdateGenre";
+import DashBoard from "./pages/Admin/DashBoard";
+import GenreList from "./pages/Admin/genre/GenreList";
+import CreateGenre from "./pages/Admin/genre/CreateGenre";
+import UpdateGenre from "./pages/Admin/genre/UpdateGenre";
+import ProfileLayout from "./Layout/ProfileLayout";
+import InfoProfilePage from "./pages/InfoProfilePage";
+import ChangePassword from "./pages/ChangePassword";
 
 function App() {
   return (
@@ -28,6 +32,15 @@ function App() {
               <Route path="/blog" element={<PageBlog />} />
             </Route>
             <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/profile"
+              element={<ProfileLayout Component={InfoProfilePage} />}
+            />
+            <Route
+              path="/profile/change-password"
+              element={<ProfileLayout Component={ChangePassword} />}
+            />
+            {/* admin */}
             <Route
               path="/admin"
               element={<AdminLayout Component={DashBoard} />}

@@ -1,7 +1,9 @@
-const ChangePass = () => {
+import React from "react";
+
+const ChangePassword = () => {
   return (
-    <div>
-      <form className="text-sm">
+    <div className="p-7 border-2 border-[#0f2133]">
+      <form className="text-sm w-1/2">
         <h4 className="uppercase text-white font-bold">Change password</h4>
         <div className="">
           <div className="mt-3">
@@ -49,4 +51,4 @@ const ChangePass = () => {
   );
 };
 
-export default ChangePass;
+export default ChangePassword;
