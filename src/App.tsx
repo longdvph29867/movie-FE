@@ -1,23 +1,25 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import AdminLayout from "./Layout/AdminLayout";
 
-import DetailPage from "./pages/DetailPage";
+import DetailPage from "./pages/DetailPage/DetailPage";
+import WebsiteLayout from "./Layout/WebsiteLayout";
+import HomePage from "./pages/HomePage/HomePage";
+import LoginPage from "./pages/LoginPage/Login/LoginPage";
+import ListPage from "./pages/ListPage/ListPage";
+import PageBlog from "./pages/BlogPage/BlogPage";
+import DashBoard from "./pages/Admin/DashBoard/DashBoard";
+
+import LoginLayout from "./Layout/LoginLayout";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
-import WebsiteLayout from "./Layout/WebsiteLayout";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import ListPage from "./pages/ListPage";
-import PageBlog from "./pages/PageBlog";
-import DashBoard from "./pages/Admin/DashBoard";
+import RegisterPage from "./pages/LoginPage/Register/RegisterPage";
+import BookingPage from "./pages/BookingPage/BookingPage";
+import ProfileLayout from "./Layout/ProfileLayout";
 import GenreList from "./pages/Admin/genre/GenreList";
 import CreateGenre from "./pages/Admin/genre/CreateGenre";
 import UpdateGenre from "./pages/Admin/genre/UpdateGenre";
-import ProfileLayout from "./Layout/ProfileLayout";
-import InfoProfilePage from "./pages/InfoProfilePage";
-import ChangePassword from "./pages/ChangePassword";
+import ProfileDetail from "./pages/ProfilePage/ProfileDetail/ProfileDetail";
 
 function App() {
   return (
@@ -30,15 +32,16 @@ function App() {
               <Route path="/detail" element={<DetailPage />} />
               <Route path="/list" element={<ListPage />} />
               <Route path="/blog" element={<PageBlog />} />
+              <Route path="/booking" element={<BookingPage />} />
             </Route>
             <Route path="/login" element={<LoginPage />} />
             <Route
-              path="/profile"
-              element={<ProfileLayout Component={InfoProfilePage} />}
+              path="/register"
+              element={<LoginLayout Component={RegisterPage} />}
             />
             <Route
-              path="/profile/change-password"
-              element={<ProfileLayout Component={ChangePassword} />}
+              path="/profile"
+              element={<ProfileLayout Component={ProfileDetail} />}
             />
             {/* admin */}
             <Route

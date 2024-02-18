@@ -34,13 +34,11 @@ const InfoDetail = ({ movieDetail }: Props) => {
           </div>
         </div>
       </div>
-      {/* center */}
       <div className="lg:w-3/5">
         <div>
           <h1 className="text-4xl text-white font-semibold mb-6">
             {movieDetail?.name}
           </h1>
-          {/* social */}
           <div className="text-[#F27221] font-bold flex sm:items-center sm:flex-row flex-col md:gap-8 sm:gap-6 gap-3 uppercase mt-2 mb-10">
             <SocialButton
               styleSocial={<i className="fa-solid fa-heart"></i>}
@@ -51,7 +49,6 @@ const InfoDetail = ({ movieDetail }: Props) => {
               socialButton="Share"
             />
           </div>
-          {/* rating */}
           <div className="border-y border-[#405266] text-[#abb7c4] sm:flex justify-start py-1 sm:py-0">
             <div className="flex items-center sm:justify-center">
               <i className="text-2xl text-[#f5b50a] fa-solid fa-star" />

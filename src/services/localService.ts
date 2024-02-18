@@ -1,6 +1,8 @@
+import { InforUserType } from "../types/login";
+
 const USER_INFO_MOVIE = 'USER_INFO_MOVIE';
 export const localUserService = {
-  get: (): object | null => {
+  get: (): InforUserType | null => {
     const jsonData = localStorage.getItem(USER_INFO_MOVIE);
     return JSON.parse((jsonData as string));
   },
@@ -10,5 +12,5 @@ export const localUserService = {
   },
   remove: () => {
     localStorage.removeItem(USER_INFO_MOVIE);
-  }
+  },
 }

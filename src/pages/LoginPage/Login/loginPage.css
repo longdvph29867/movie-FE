@@ -1,0 +1,9 @@
+:where(.css-dev-only-do-not-override-1rqnfsa).ant-form-item .ant-form-item-label >label {
+  display: flex;
+}
+:where(.css-dev-only-do-not-override-1rqnfsa).ant-form-vertical .ant-form-item-label >label::after, :where(.css-dev-only-do-not-override-1rqnfsa).ant-col-24.ant-form-item-label >label::after, :where(.css-dev-only-do-not-override-1rqnfsa).ant-col-xl-24.ant-form-item-label >label::after {
+    display: none;
+}
+:where(.css-dev-only-do-not-override-1rqnfsa).ant-input-outlined:hover {
+  border-color: white;
+}

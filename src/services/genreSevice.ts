@@ -2,10 +2,10 @@ import { https } from "../config/axios";
 
 const genreSevice={
     getAllGenre(){
-        return https.get('genres')
+        return https.get('/genres')
     },
     getGenreDetail(slug: string){
-        return https.get(`genres/${slug}`)
+        return https.get(`/genres/${slug}`)
     },
     createGenre(data:object){
         return https.post('/genres',data)
