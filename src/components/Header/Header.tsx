@@ -5,6 +5,7 @@ import Login from "./Login/Login";
 import { Genre } from "../../types/genres";
 import genreSevice from "../../services/genreSevice";
 import useOutsideClick from "../../hooks/useOutsideClick";
+import { Link } from "react-router-dom";
 const Header = () => {
   const wrapperRef = useRef(null);
   const [genreList, setGenreList] = useState<Genre[]>([]);
@@ -35,10 +36,12 @@ const Header = () => {
       <div className="container mx-auto">
         <div className="flex flex-col lg:items-center lg:flex-row">
           <div className="flex items-center justify-between">
-            <img
-              className="w-40"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/FPT_Polytechnic.png/1200px-FPT_Polytechnic.png"
-            />
+            <Link to="/">
+              <img
+                className="w-40"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/FPT_Polytechnic.png/1200px-FPT_Polytechnic.png"
+              />
+            </Link>
             {/* mobile */}
             <div className="block lg:hidden">
               <button

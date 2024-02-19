@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Collapse, Tabs, TabsProps } from "antd";
 import InfoDetail from "../../components/DetailPage/InfoDetail";
 import moment from "moment";
@@ -10,10 +10,10 @@ import { Showing } from "../../types/showing";
 import { convertVND } from "../../util";
 import "./detailPage.css";
 import SideBar from "../../components/Sidebar/SideBar";
+import { useParams } from "react-router-dom";
 
 const DetailPage = () => {
-  // const { id } = useParams();
-  const id = "659682f87ccc34bb2e8e75c2";
+  const { id = "659682f87ccc34bb2e8e75c2" } = useParams();
   const [movieDetail, setMovieDetail] = useState<Movie | null>(null);
   const [cinemasShowing, setcinemasShowing] = useState<Showing[]>([]);
   useEffect(() => {
@@ -41,6 +41,14 @@ const DetailPage = () => {
   };
   const onChangeCollape = (key: string | string[]) => {
     console.log(key);
+  };
+
+  const myRef = useRef<HTMLDivElement>(null);
+
+  const scrollToComponent = () => {
+    if (myRef.current) {
+      myRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const items: TabsProps["items"] = cinemasShowing.map((cinema) => {
@@ -117,8 +125,7 @@ const DetailPage = () => {
         <div
           className="h-[598px] absolute top-0 left-0 w-full bg-cover bg-top"
           style={{
-            backgroundImage:
-              'url("http://busterhtml.mbkip3ms9u-e92498n216kr.p.temp-site.link/images/uploads/sr-single.jpg")',
+            backgroundImage: `url("${movieDetail?.imgBanner}")`,
           }}
         >
           <div className="absolute w-full h-full bg-gradient-to-t from-black to-black/60" />
@@ -126,8 +133,15 @@ const DetailPage = () => {
         <div className="container mx-auto relative py-44">
           <div className="flex xl:gap-16 lg:gap-12 gap-10 lg:flex-row flex-col">
             <div className="lg:w-3/4">
-              <InfoDetail movieDetail={movieDetail} />
-              <div className="bg-[#152a3e] p-5 mt-10 text-white">
+              <InfoDetail
+                movieDetail={movieDetail}
+                scrollToComponent={scrollToComponent}
+              />
+              <div
+                ref={myRef}
+                id="booking-tabs"
+                className="bg-[#152a3e] p-5 mt-10 text-white"
+              >
                 <h1 className="font-bold text-xl">Lịch chiếu</h1>
                 <Tabs
                   defaultActiveKey="1"

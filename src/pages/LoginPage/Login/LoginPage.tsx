@@ -22,7 +22,7 @@ const LoginPage = () => {
           message.success("Login successfully!");
           if (infoUser.user.role === "admin") {
             setTimeout(() => {
-              window.location.href = "/admin/products";
+              window.location.href = "/";
             }, 1200);
           } else {
             setTimeout(() => {

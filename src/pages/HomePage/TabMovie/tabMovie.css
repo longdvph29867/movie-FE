@@ -1,0 +1,11 @@
+.tabs-movie-home .ant-tabs-nav-more {
+  color: white !important;
+  padding: 8px !important;
+}
+
+.tabs-movie-home .ant-tabs-tab {
+  padding-left: 0 !important;
+}
+.tabs-movie-home .ant-tabs-ink-bar {
+  /* background-color: #22C55E !important; */
+}

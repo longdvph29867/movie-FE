@@ -9,12 +9,12 @@ const Navigation: React.FC<NavigationProps> = ({ genreList }) => {
     <nav className="lg:ml-4 text-[#ABB7C4] uppercase lg:mr-auto">
       <ul className="flex flex-col items-center gap-3 sm:flex-row sm:gap-0">
         <li className="hover:text-[#DCF836]">
-          <a
-            href="#"
+          <Link
+            to="/"
             className="xl:px-4 px-3 py-2.5 font-semibold duration-300"
           >
             HOME
-          </a>
+          </Link>
         </li>
         <li className="relative group/item hover:text-[#DCF836]">
           <a

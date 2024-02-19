@@ -24,10 +24,10 @@ function App() {
         <Routes>
           <Route path="/" element={<WebsiteLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="/detail" element={<DetailPage />} />
+            <Route path="/detail/:id" element={<DetailPage />} />
             <Route path="/list" element={<ListPage />} />
             <Route path="/blog" element={<PageBlog />} />
-            <Route path="/booking" element={<BookingPage />} />
+            <Route path="/booking/:id" element={<BookingPage />} />
           </Route>
           <Route
             path="/login"
