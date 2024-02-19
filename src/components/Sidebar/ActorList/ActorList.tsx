@@ -22,7 +22,7 @@ const ActorList = () => {
         spotlight celebrities
       </h4>
       <div className="grid grid-cols-1 lg:grid-cols-1 md:grid-cols-3 sm:grid-cols-2">
-        {actorList.slice(0, 4).map((actor, index) => (
+        {actorList.slice(0, 6).map((actor, index) => (
           <ActorItem key={index} actor={actor} />
         ))}
       </div>

@@ -4,11 +4,14 @@ import InfoMovie from "./InfoMovie/InfoMovie";
 import ListChair from "./ListChair/ListChair";
 import { clearSelectedChair } from "../../Toolkits/chairSlice";
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const BookingPage = () => {
-  const idShowing = "65c8e0357be78149f194e1ce";
+  const params = useParams();
+  const idShowing = params.id ? params.id : "65c8e0357be78149f194e1ce";
   const dispatch = useDispatch();
   useEffect(() => {
+    window.scrollTo(0, 0);
     return () => {
       dispatch(clearSelectedChair(null));
     };
