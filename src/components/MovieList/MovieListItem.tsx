@@ -15,9 +15,11 @@ const MovieListItem: React.FC<{ movie: Movie }> = ({ movie }) => {
         <Rating rating={movie.rated} />
       </div>
       <div className="absolute top-0 left-0 flex items-center justify-center w-full h-full py-5 duration-1000 px-7 group-hover/item-movie:bg-black/50">
-        <button className="w-28 h-10 uppercase text-sm text-white font-bold bg-[#F27221] rounded-full invisible opacity-0 duration-500 group-hover/item-movie:visible group-hover/item-movie:opacity-100">
-          read more <i className="fa-solid fa-caret-right" />
-        </button>
+        <a href={`/detail/${movie._id}`}>
+          <button className="w-28 h-10 uppercase text-sm text-white font-bold bg-[#F27221] rounded-full invisible opacity-0 duration-500 group-hover/item-movie:visible group-hover/item-movie:opacity-100">
+            read more <i className="fa-solid fa-caret-right" />
+          </button>
+        </a>
       </div>
     </div>
   );

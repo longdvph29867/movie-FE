@@ -10,10 +10,10 @@ import { Showing } from "../../types/showing";
 import { convertVND } from "../../util";
 import "./detailPage.css";
 import SideBar from "../../components/Sidebar/SideBar";
+import { useParams } from "react-router-dom";
 
 const DetailPage = () => {
-  // const { id } = useParams();
-  const id = "659682f87ccc34bb2e8e75c2";
+  const { id } = useParams();
   const [movieDetail, setMovieDetail] = useState<Movie | null>(null);
   const [cinemasShowing, setcinemasShowing] = useState<Showing[]>([]);
   useEffect(() => {
@@ -27,7 +27,7 @@ const DetailPage = () => {
       });
 
     showingService
-      .getCinemaVyMovie(id)
+      .getCinemaVyMovie(id as string)
       .then((response) => {
         setcinemasShowing(response.data);
       })
