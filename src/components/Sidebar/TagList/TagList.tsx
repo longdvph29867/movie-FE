@@ -2,7 +2,7 @@ import TagItem from "./TagItem/TagItem";
 
 const TagList = () => {
   return (
-    <div className="pt-12 text-white">
+    <div>
       <h4 className="text-white text-lg font-bold pb-4 border-b border-[#405266]">
         TAGS
       </h4>

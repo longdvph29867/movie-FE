@@ -24,7 +24,7 @@ const Trailer = () => {
 
   return (
     <>
-      <TitleTheater />
+      <TitleTheater content="Trailer" />
       <div className="flex flex-col gap-5 mt-6 md:flex-row md:gap-0">
         <div className="md:w-2/3">
           <TrailerShow />

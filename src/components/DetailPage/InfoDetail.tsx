@@ -1,9 +1,16 @@
+import { useDispatch } from "react-redux";
 import { Movie } from "../../types/movies";
 import SocialButton from "../SocialButton/SocialButton";
+import { setOptionVideo } from "../../Toolkits/watchVideoSlice";
 interface Props {
   movieDetail: Movie | null;
+  scrollToComponent: () => void;
 }
-const InfoDetail = ({ movieDetail }: Props) => {
+const InfoDetail = ({ movieDetail, scrollToComponent }: Props) => {
+  const dispatch = useDispatch();
+  const handleOptionVideo = () => {
+    dispatch(setOptionVideo({ isOpen: true, url: movieDetail?.trailer }));
+  };
   return (
     <div className="flex xl:gap-16 lg:gap-12 gap-10 lg:flex-row flex-col">
       <div className="lg:w-2/5 max-w-xs mx-auto">
@@ -13,24 +20,22 @@ const InfoDetail = ({ movieDetail }: Props) => {
             src={movieDetail?.poster}
           />
           <div className="flex flex-col gap-3 text-center p-4 border-[3px] border-[#0c1c2c] mt-5 rounded">
-            <a
-              href="http://"
-              className="text-white uppercase block py-3 rounded-md bg-[#dd003f]"
-              target="_blank"
+            <button
+              onClick={handleOptionVideo}
+              className="text-white uppercase block py-3 rounded-md bg-[#F27221]"
               rel="noopener noreferrer"
             >
               <i className="mr-3 fa-solid fa-play" />
               WATCH TRAILER
-            </a>
-            <a
-              href="http://"
+            </button>
+            <button
+              onClick={scrollToComponent}
               className="text-[#020d18] uppercase block py-3 rounded-md bg-[#dcf836]"
-              target="_blank"
               rel="noopener noreferrer"
             >
               <i className="mr-3 fa-solid fa-play" />
               BUY TIKET
-            </a>
+            </button>
           </div>
         </div>
       </div>
