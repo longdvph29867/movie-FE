@@ -3,9 +3,10 @@ import BlogItem from "./BlogItem/BlogItem";
 import { useSelector } from "react-redux";
 
 const BlogList = () => {
-  const listBlog: Movie[] = useSelector(
-    (state: any) => state.movieSlice.movieList
-  );
+  const listBlog: Movie[] = useSelector((state: any) => state.movieSlice.movieList);
+  const sortedListBlog = [...listBlog].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  const latestBlogs = [...sortedListBlog.slice(0, 4)];
+
   return (
     <div className="pt-16">
       <div className="flex items-center justify-between">
@@ -15,7 +16,7 @@ const BlogList = () => {
         </div>
       </div>
       <div className="grid gap-5 mt-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-items-center">
-        {listBlog.slice(0, 1).map((blog, index) => (
+        {latestBlogs.map((blog, index) => (
           <BlogItem key={index} blog={blog} />
         ))}
       </div>

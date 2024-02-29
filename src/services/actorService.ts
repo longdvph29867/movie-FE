@@ -1,8 +1,9 @@
+import { https } from "../config/axios";
 
-import { https } from "../config/axios"
-export const actorServices = {
-   getActors(){
-    return  https.get(`/actors`)
-   }
-
+const actorService={
+    getAllActor(){
+        return https.get('/actors')
+    },
 }
+
+export default actorService

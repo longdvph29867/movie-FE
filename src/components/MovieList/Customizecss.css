@@ -1,0 +1,11 @@
+.tab-text {
+  color: #FFF; 
+}
+
+.ant-tabs-tab-active .tab-text {
+  color: #DCF836; 
+}
+.ant-tabs-tab-active .tab-text,
+.ant-tabs-tab:hover .tab-text {
+  color: #DCF836;
+}

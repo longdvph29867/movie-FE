@@ -1,1 +1,22 @@
+.container {
+    padding: 0 16px;
+    }
 
+    @media (max-width: 1024px) {
+    .container {
+        max-width: 100% !important;
+    }
+    }
+
+    .two-line,
+    .three-line {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 40px;
+    }
+
+    .three-line {
+    -webkit-line-clamp: 3;
+    }

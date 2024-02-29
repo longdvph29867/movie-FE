@@ -1,62 +1,72 @@
-import Rating from "./Rating";
-import SpanContent from "../Date/SpanContent";
-import CustomButton from "../Button/Button";
-import SocialButton from "../SocialButton/SocialButton";
-
+import { useSelector } from "react-redux";
+import Slider from "react-slick";
+import BannerItem from "./BannerItem/BannerItem";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "animate.css";
+import "./banner.css";
+import { Movie } from "../../types/movies";
 const Banner = () => {
+  const movies: Movie[] = useSelector(
+    (state: any) => state.movieSlice.movieList
+  );
+  const settings = {
+    dots: true,
+    infinite: true,
+    arrows: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    cssEase: "linear",
+    autoplay: false,
+    autoplaySpeed: 3000,
+    pauseOnHover: false,
+    beforeChange: (current: number, next: number) => {
+      // Chèn lớp animate.css trước khi chuyển đổi slide
+      const currentSlideText = document.getElementById(
+        `slick-slide-text-${current}`
+      );
+      const currentSlideImg = document.getElementById(
+        `slick-slide-img-${current}`
+      );
+      const nextSlideText = document.getElementById(`slick-slide-text-${next}`);
+      const nextSlideImg = document.getElementById(`slick-slide-img-${next}`);
+      if (currentSlideText) {
+        currentSlideText.classList.remove(
+          "animate__animated",
+          "animate__fadeInLeft",
+          "animate__fast"
+        );
+        (currentSlideImg as HTMLElement).classList.remove(
+          "animate__animated",
+          "animate__fadeInUp",
+          "animate__fast"
+        );
+      }
+      if (nextSlideText) {
+        nextSlideText.classList.add(
+          "animate__animated",
+          "animate__fadeInLeft",
+          "animate__fast"
+        );
+        (nextSlideImg as HTMLElement).classList.add(
+          "animate__animated",
+          "animate__fadeInUp",
+          "animate__fast"
+        );
+      }
+    },
+  };
   return (
-    <>
-      <section className="pt-44 bg-[url('./bg-2.jpg')] pb-16 bg-cover bg-center">
-        <div className="container mx-auto">
-          <div className="flex items-center gap-3">
-            <div className="w-full md:w-2/3">
-              <div className="flex items-center gap-1 text-xs font-semibold text-white uppercase">
-                <span className="px-1.5 py-1 rounded bg-[#1692bb]">Sci-fi</span>
-                <span className="px-1.5 py-1 rounded bg-[#f5b50a]">Action</span>
-                <span className="px-1.5 py-1 rounded bg-[#dd003f]">
-                  advanture
-                </span>
-              </div>
-              <h1 className="mt-2 text-4xl font-bold text-white uppercase sm:text-6xl">
-                guardians of the <br />
-                galaxy{" "}
-                <span className="text-[#abb7c4] text-4xl font-light">2023</span>
-              </h1>
-              <div>
-                <div className="text-[#F27221] font-bold flex sm:items-center sm:flex-row flex-col md:gap-8 sm:gap-6 gap-3 uppercase mt-2">
-                  <SocialButton
-                    socialButton="Watch Trailer"
-                    styleSocial={<i className="pl-1 fa-solid fa-play" />}
-                  />
-                  <SocialButton
-                    socialButton="Add to favorite"
-                    styleSocial={<i className="fa-solid fa-heart" />}
-                  />
-                  <SocialButton
-                    socialButton="Share"
-                    styleSocial={<i className="fa-solid fa-share-nodes" />}
-                  />
-                </div>
-                <div className="flex flex-col mt-4 sm:items-center sm:flex-row">
-                  <Rating rating="3" />
-                  <ul className="text-[#ABB7C4] flex sm:items-center sm:flex-row flex-col">
-                    <SpanContent content="Run Time: 2h21'" />
-                    <SpanContent content="Rated: PG-13" />
-                    <SpanContent content="Release: 1 May 2015" />
-                  </ul>
-                </div>
-                <div className="mt-8">
-                  <CustomButton contentButton="MORE DETAIL" />
-                </div>
-              </div>
-            </div>
-            <div className="hidden w-1/3 md:block ">
-              <img src="/shin.jpeg" alt="" className="w-72" />
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+    <section className="pt-44 bg-[url('./bg-2.jpg')] pb-16 bg-cover bg-center">
+      <Slider {...settings} className="">
+        {movies.slice(0, 5).map((movie, index) => (
+          <BannerItem key={index} movie={movie} index={index} />
+        ))}
+        {movies.length === 0 && <BannerItem />}
+      </Slider>
+    </section>
   );
 };
 

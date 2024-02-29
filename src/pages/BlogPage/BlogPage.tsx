@@ -56,7 +56,10 @@ const BlogPage = () => {
           </div>
         </div>
       </div>
+     
+
     </section>
+    
   );
 };
 

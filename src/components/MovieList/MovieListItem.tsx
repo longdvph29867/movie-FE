@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { Movie } from "../../types/movies";
-import Rating from "../Banner/Rating";
+import Rating from "../Rating/Rating";
 const MovieListItem: React.FC<{ movie: Movie }> = ({ movie }) => {
   return (
     <div className="relative max-w-[190px] group/item-movie w-full">
@@ -15,9 +16,12 @@ const MovieListItem: React.FC<{ movie: Movie }> = ({ movie }) => {
         <Rating rating={movie.rated} />
       </div>
       <div className="absolute top-0 left-0 flex items-center justify-center w-full h-full py-5 duration-1000 px-7 group-hover/item-movie:bg-black/50">
-        <button className="w-28 h-10 uppercase text-sm text-white font-bold bg-[#F27221] rounded-full invisible opacity-0 duration-500 group-hover/item-movie:visible group-hover/item-movie:opacity-100">
+        <Link
+          to={"/detail/" + movie._id}
+          className="flex items-center justify-center w-28 h-10 uppercase text-sm text-white font-bold bg-[#F27221] rounded-full invisible opacity-0 duration-500 group-hover/item-movie:visible group-hover/item-movie:opacity-100"
+        >
           read more <i className="fa-solid fa-caret-right" />
-        </button>
+        </Link>
       </div>
     </div>
   );

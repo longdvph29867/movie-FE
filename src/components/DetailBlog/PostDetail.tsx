@@ -1,40 +1,14 @@
-import BlogCategories from "../components/BlogComponents/BlogCategories";
-import BlogSearch from "../components/BlogComponents/BlogSearch";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faGooglePlusG } from "@fortawesome/free-brands-svg-icons";
 import { faPinterest } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import TagItem from "../components/Sidebar/TagList/TagItem/TagItem";
-
-const DetailBlog = () => {
+import Comments from '../../components/DetailBlog/Comments';
+const PostDetail = () => {
   return (
-    <section className="relative font-['Dosis', sans-serif'] ">
-      <div
-        className="h-[300px] bg-cover bg-top flex items-center justify-center"
-        style={{ backgroundImage: 'url("./img//banner-bg.jpeg")' }}
-      >
-        <div className="pt-14">
-          <h1 className="text-4xl font-semibold text-white uppercase">
-            BLOG DETAIL
-          </h1>
-          <ul className="flex items-center justify-center gap-4 mt-3">
-            <li className="">
-              <a href="#" className="uppercase text-[#4280bf]">
-                HOME
-              </a>
-            </li>
-            <i className="text-[#abb7c4] fa-solid fa-chevron-right" />
-            <li className="uppercase text-[#abb7c4]"> BLOG LISTING</li>
-          </ul>
-        </div>
-      </div>
-      <div className="py-16 bg-[#06121e]">
-        <div className="container mx-auto">
-          <div className="flex flex-col gap-10 xl:gap-16 lg:gap-12 lg:flex-row">
-            <div className="lg:w-3/4">
+    <>
+       <div className="lg:w-3/4">
               <h1 className="mb-[25px] text-[36px] text-white font-bold " style={{ fontFamily: 'Nunito, sans-serif' }}>
                 New Character Posters For Pirates Of The Caribbean
               </h1>
@@ -138,32 +112,11 @@ const DetailBlog = () => {
 						</div>
     
               </div>
+<Comments />
+              
             </div>
-            <div className=" lg:w-1/4">
-              <div className="ml-[60px]">
-                <BlogSearch />
-                <BlogCategories />
+    </>
+  )
+}
 
-                <div className="text-white mb-[60px] ">
-                  <h4 className=" text-lg text-white uppercase font-bold mb-[30px] pb-[15px] border-b border-[#405266]">
-                    TAGS
-                  </h4>
-                  <ul className="flex items-center justify-start flex-wrap font-light capitalize text-[#abb7c4] mt-2.5">
-                    <TagItem />
-                  </ul>
-                  <div></div>
-                </div>
-
-                <div className="mb-[60px]">
-                  <img src="/ads1.png" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default DetailBlog;
+export default PostDetail
