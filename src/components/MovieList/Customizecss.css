@@ -9,3 +9,6 @@
 .ant-tabs-tab:hover .tab-text {
   color: #DCF836;
 }
+.ant-tabs-ink-bar {
+  display: none;
+}
