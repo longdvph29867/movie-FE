@@ -1,54 +1,120 @@
-import React from "react";
+import { useState } from "react";
+import { Button, Form, Input, message } from "antd";
+import { localUserService } from "../../../services/localService";
+import loginService from "../../../services/loginService";
+import { Changepassword } from "../../../types/changePassword";
+import authService from "../../../services/authService";
 
 const ChangePassword = () => {
+  const [form] = Form.useForm();
+  useState(() => {
+    form.setFieldsValue({
+      oldPassword: "",
+      newPassword: "",
+      confirmNewPassword: "",
+    });
+  });
+
+  const onFinish = async (value: Changepassword) => {
+    const user = localUserService.get()?.user;
+    if (user && user.email) {
+      const dataLogin = { email: user.email, password: value.oldPassword };
+      try {
+        await loginService.login(dataLogin);
+      } catch (err) {
+        return message.error("The old password is incorrect.");
+      }
+      try {
+        await authService.resetPassword({ password: value.newPassword });
+      } catch (err) {
+        return message.error("The old password is incorrect.");
+      }
+    }
+  };
   return (
-    <div className="p-7 border-2 border-[#0f2133]">
-      <form className="text-sm w-1/2">
-        <h4 className="uppercase text-white font-bold">Change password</h4>
-        <div className="">
-          <div className="mt-3">
-            <label className="text-[#abb7c4] font-medium">Old Password</label>
-            <input
-              className="text-[#abb7c4] bg-[#233a50] h-10 rounded-md pl-2 w-full mt-2"
-              type="text"
-              placeholder="**********"
-            />
-          </div>
-        </div>
-        <div className="row">
-          <div className="mt-3">
-            <label className="text-[#abb7c4] font-medium">New Password</label>
-            <input
-              className="text-[#abb7c4] bg-[#233a50] h-10 rounded-md pl-2 w-full mt-2"
-              type="text"
-              placeholder="***************"
-            />
-          </div>
-        </div>
-        <div className="row">
-          <div className="mt-3">
-            <label className="text-[#abb7c4] font-medium">
+    <div className="p-7 border-2 border-[#0f2133] h-[400px]">
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold text-white">Change Password</h2>
+      </div>
+      <Form
+        form={form}
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        name="nest-messages"
+        onFinish={onFinish}
+        layout="vertical"
+        style={{ maxWidth: 600 }}
+        requiredMark={false}
+      >
+        <Form.Item
+          name={"oldPassword"}
+          label={
+            <label
+              htmlFor="email"
+              className="w-full font-medium leading-6 text-[#cfddeb]"
+            >
+              Old Password
+            </label>
+          }
+          rules={[
+            { required: true, message: "Please enter your old password!" },
+          ]}
+        >
+          <Input.Password />
+        </Form.Item>
+        <Form.Item
+          name={"newPassword"}
+          label={
+            <label
+              htmlFor="email"
+              className="w-full font-medium leading-6 text-[#cfddeb]"
+            >
+              New Password
+            </label>
+          }
+          rules={[
+            { required: true, message: "Please enter your new password!" },
+          ]}
+        >
+          <Input.Password />
+        </Form.Item>
+        <Form.Item
+          name={"confirmNewPassword"}
+          dependencies={["newPassword"]}
+          label={
+            <label
+              htmlFor="email"
+              className="w-full font-medium leading-6 text-[#cfddeb]"
+            >
               Confirm New Password
             </label>
-            <input
-              className="text-[#abb7c4] bg-[#233a50] h-10 rounded-md pl-2 w-full mt-2"
-              type="text"
-              placeholder="*************** "
-            />
-          </div>
-        </div>
-        <div className="">
-          <div className="mt-4">
-            <div className="">
-              <button className="px-10 py-3 bg-[#dd003f] text-white font-bold text-sm uppercase rounded-full hover:text-black duration-300">
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
-      </form>
+          }
+          rules={[
+            {
+              required: true,
+              message: "Please enter your confirm new password!",
+            },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || getFieldValue("newPassword") === value) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(
+                  new Error("The new password that you entered do not match!")
+                );
+              },
+            }),
+          ]}
+        >
+          <Input.Password />
+        </Form.Item>
+        <Form.Item className="mt-5">
+          <Button type="primary" htmlType="submit" danger>
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
   );
 };
-
 export default ChangePassword;

@@ -1,5 +1,6 @@
 // import CreateGenre from "../pages/admin/genre/CreateGenre";
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 type Props = {
   Component: FC;
@@ -36,9 +37,9 @@ const AdminLayout = ({ Component }: Props) => {
                 </a>
               </li>
               <li>
-                <a
+                <Link
                   className="text-sm flex items-center lg:px-4 py-2.5 rounded-lg"
-                  href="#"
+                  to="/admin/genres"
                 >
                   <div className="lg:mr-2 flex h-8 w-8 items-center justify-center rounded-lg">
                     <svg
@@ -57,9 +58,9 @@ const AdminLayout = ({ Component }: Props) => {
                     </svg>
                   </div>
                   <span className="ml-1 opacity-100 hidden lg:block">
-                    Categories
+                    Genre
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
                 <a
@@ -70,19 +71,6 @@ const AdminLayout = ({ Component }: Props) => {
                     <i className="fa-solid fa-user" />
                   </div>
                   <span className="ml-1 opacity-100 hidden lg:block">Uers</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-sm flex items-center lg:px-4 py-2.5 rounded-lg"
-                  href="#"
-                >
-                  <div className="lg:mr-2 flex h-8 w-8 items-center justify-center rounded-lg">
-                    <i className="fa-solid fa-user" />
-                  </div>
-                  <span className="ml-1 opacity-100 hidden lg:block">
-                    Genre
-                  </span>
                 </a>
               </li>
             </ul>

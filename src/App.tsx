@@ -15,53 +15,76 @@ import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import RegisterPage from "./pages/LoginPage/Register/RegisterPage";
 import BookingPage from "./pages/BookingPage/BookingPage";
-import ProfileLayout from "./Layout/ProfileLayout";
 import GenreList from "./pages/Admin/genre/GenreList";
 import CreateGenre from "./pages/Admin/genre/CreateGenre";
 import UpdateGenre from "./pages/Admin/genre/UpdateGenre";
+import ProfileLayout from "./Layout/ProfileLayout";
 import ProfileDetail from "./pages/ProfilePage/ProfileDetail/ProfileDetail";
+import ChangePassword from "./pages/ProfilePage/ChangePassword/ChangePassword";
+import BlogPage from "./pages/BlogPage/BlogPage";
+import FavoritePage from "./pages/ProfilePage/FavoritePage/FavoritePage";
+import RatedPage from "./pages/ProfilePage/RatedPage/RatedPage";
+import BlogDetailPage from "./pages/BlogPage/BlogDetailPage";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <>
-          <Routes>
-            <Route path="/" element={<WebsiteLayout />}>
-              <Route index element={<HomePage />} />
-              <Route path="/detail/:id" element={<DetailPage />} />
-              <Route path="/list" element={<ListPage />} />
-              <Route path="/blog" element={<PageBlog />} />
-              <Route path="/booking" element={<BookingPage />} />
-            </Route>
-            <Route path="/login" element={<LoginPage />} />
-            <Route
-              path="/register"
-              element={<LoginLayout Component={RegisterPage} />}
-            />
-            <Route
-              path="/profile"
-              element={<ProfileLayout Component={ProfileDetail} />}
-            />
-            {/* admin */}
-            <Route
-              path="/admin"
-              element={<AdminLayout Component={DashBoard} />}
-            />
-            <Route
-              path="/admin/genres"
-              element={<AdminLayout Component={GenreList} />}
-            />
-            <Route
-              path="/admin/genres/add"
-              element={<AdminLayout Component={CreateGenre} />}
-            />
-            <Route
-              path="/admin/genre/:genreSlug"
-              element={<AdminLayout Component={UpdateGenre} />}
-            />
-          </Routes>
-        </>
+        <Routes>
+          <Route path="/" element={<WebsiteLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/detail/:id" element={<DetailPage />} />
+            <Route path="/list" element={<ListPage />} />
+            <Route path="/blog" element={<PageBlog />} />
+            <Route path="/blog-detail" element={<BlogDetailPage />} />
+            <Route path="/booking/:id" element={<BookingPage />} />
+          </Route>
+          <Route
+            path="/login"
+            element={<LoginLayout Component={LoginPage} />}
+          />
+          <Route
+            path="/register"
+            element={<LoginLayout Component={RegisterPage} />}
+          />
+          <Route
+            path="/profile"
+            element={<ProfileLayout Component={ProfileDetail} />}
+          />
+          <Route
+            path="/profile/farovite"
+            element={<ProfileLayout Component={FavoritePage} />}
+          />
+          <Route
+            path="/profile/rated-movies"
+            element={<ProfileLayout Component={RatedPage} />}
+          />
+          <Route path="/verify-email/:token" element={<BlogPage />} />
+          <Route
+            path="/profile/change-password"
+            element={<ProfileLayout Component={ChangePassword} />}
+          />
+          <Route
+            path="/admin"
+            element={<AdminLayout Component={DashBoard} />}
+          />
+          <Route
+            path="/admin/genres"
+            element={<AdminLayout Component={GenreList} />}
+          />
+          <Route
+            path="/admin/genres/add"
+            element={<AdminLayout Component={CreateGenre} />}
+          />
+          <Route
+            path="/admin/genre/:genreSlug"
+            element={<AdminLayout Component={UpdateGenre} />}
+          />
+          <Route
+            path="/admin/genre/:genreSlug"
+            element={<AdminLayout Component={UpdateGenre} />}
+          />
+        </Routes>
       </BrowserRouter>
     </>
   );

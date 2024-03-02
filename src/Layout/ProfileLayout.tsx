@@ -1,5 +1,5 @@
-import NavbarUser from "../components/profile/NavbarUser";
-import ProfileTitle from "../components/profile/ProfileTitle";
+import NavbarUser from "../components/Profile/NavbarUser";
+import ProfileTitle from "../components/Profile/ProfileTitle";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { FC } from "react";
@@ -23,7 +23,7 @@ const ProfileLayout = ({ Component }: Props) => {
           {/*profile user */}
           <div className="w-full md:w-3/4">
             <ProfileTitle />
-            <div className=" bg-[#020d18] mt-10  md:mt-32">
+            <div className=" bg-[#020d18] mt-10  md:mt-28 relative">
               <Component />
             </div>
           </div>

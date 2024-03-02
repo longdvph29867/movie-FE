@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const NavbarUser = () => {
   return (
     <div className="px-5 md:px-0 w-full md:w-56 border-2 border-[#0f2133] bg-[#020d18] h-max">
@@ -12,7 +14,7 @@ const NavbarUser = () => {
         </a>
         <a
           href="#"
-          className="px-4 py-2 sm:px-6 sm:py-3 bg-[#dd003f] text-white font-bold text-xs sm:text-sm uppercase rounded-md hover:text-black duration-300"
+          className="px-4 py-2 sm:px-6 sm:py-3 bg-[#ff4d4f] text-white font-bold text-xs sm:text-sm uppercase rounded-md hover:text-black duration-300"
         >
           Change avatar
         </a>
@@ -22,28 +24,28 @@ const NavbarUser = () => {
           <p className="text-sm text-[#abb7c4] pb-3">Account Details</p>
           <ul className=" text-white font-bold uppercase text-sm">
             <li className="mb-3">
-              <a
+              <Link
                 className="mb-3 text-[#dcf836] hover:text-[#dcf836] duration-300"
-                href="userprofile.html"
+                to="profile"
               >
                 Profile
-              </a>
+              </Link>
             </li>
             <li className="mb-3">
-              <a
+              <Link
                 className="mb-3 hover:text-[#dcf836] duration-300"
-                href="userfavoritelist.html"
+                to="/profile/farovite"
               >
                 Favorite movies
-              </a>
+              </Link>
             </li>
             <li className="mb-3">
-              <a
+              <Link
                 className="hover:text-[#dcf836] duration-300"
-                href="userrate.html"
+                to="/profile/rated-movies"
               >
                 Rated movies
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -51,9 +53,12 @@ const NavbarUser = () => {
           <p className="text-sm text-[#abb7c4] pb-3">Others</p>
           <ul className=" text-white font-bold uppercase text-sm">
             <li className="mb-3">
-              <a className="hover:text-[#dcf836] duration-300" href="#">
+              <Link
+                className="hover:text-[#dcf836] duration-300"
+                to="/profile/change-password"
+              >
                 Change password
-              </a>
+              </Link>
             </li>
             <li className="mb-3">
               <a className="hover:text-[#dcf836] duration-300" href="#">
