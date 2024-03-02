@@ -2,7 +2,6 @@ import { Button, Form, Input, Modal, message } from "antd";
 import { localUserService } from "../../../services/localService";
 import { useState } from "react";
 import userService from "../../../services/userSevice";
-import { UserUpdateView } from "../../../types/users";
 import authService from "../../../services/authService";
 import { MdMarkEmailRead } from "react-icons/md";
 
@@ -17,12 +16,11 @@ const ProfileDetail = () => {
     });
   });
 
-  const onFinish = async (values: any) => {
+  const onFinish = async (values: object) => {
     try {
       if (infoUser) {
-        const data: UserUpdateView = { ...values, role: infoUser.role };
-        const res = await userService.updateUser(infoUser.id, data);
-        message.success("Cập nhật thông tin thành công");
+        const res = await userService.updateUser(infoUser.id, values);
+        message.success("Update information successfully");
         localUserService.set({ ...USER, user: res.data });
       }
     } catch (error) {

@@ -3,8 +3,8 @@ const authService = {
     forgotPassword(email:object){
         return https.post(`/auth/forgot-password`,email)
     },
-    resetPassword(data:object){
-        return https.post(`/auth/reset-password`,data)
+    resetPassword(token:string,data:object){
+        return https.post(`/auth/reset-password/${token}`,data)
     },
     sendVerifyEmail(){
         return https.post('/auth/send-verification-email')

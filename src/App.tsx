@@ -15,9 +15,9 @@ import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import RegisterPage from "./pages/LoginPage/Register/RegisterPage";
 import BookingPage from "./pages/BookingPage/BookingPage";
-import GenreList from "./pages/Admin/genre/GenreList";
-import CreateGenre from "./pages/Admin/genre/CreateGenre";
-import UpdateGenre from "./pages/Admin/genre/UpdateGenre";
+import GenreList from "./pages/Admin/Genres/GenreList";
+import CreateGenre from "./pages/Admin/Genres/CreateGenre";
+import UpdateGenre from "./pages/Admin/Genres/UpdateGenre";
 import ProfileLayout from "./Layout/ProfileLayout";
 import ProfileDetail from "./pages/ProfilePage/ProfileDetail/ProfileDetail";
 import ChangePassword from "./pages/ProfilePage/ChangePassword/ChangePassword";
@@ -52,7 +52,7 @@ function App() {
             element={<ProfileLayout Component={ProfileDetail} />}
           />
           <Route
-            path="/profile/farovite"
+            path="/profile/farovite-movie"
             element={<ProfileLayout Component={FavoritePage} />}
           />
           <Route

@@ -35,7 +35,7 @@ const CreateGenre = () => {
           <Input placeholder="genre name" />
         </Form.Item>
         <Form.Item>
-          <Button className="mt-3" htmlType="submit">
+          <Button className="mt-3 bg-blue-600" htmlType="submit" type="primary">
             Submit
           </Button>
         </Form.Item>

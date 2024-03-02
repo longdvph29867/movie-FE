@@ -39,10 +39,7 @@ const GenreList = () => {
       key: "action",
       render: (recod: Genre) => (
         <Space size="middle">
-          <Button
-            className="bg-yellow-400 hover:bg-yellow-600/95"
-            type="default"
-          >
+          <Button className="bg-blue-600" type="primary">
             <a href={`/admin/genre/${recod.genreSlug}`}>Edit</a>
           </Button>
           <Button onClick={() => deleteGenre(recod._id)} type="primary" danger>
@@ -55,7 +52,7 @@ const GenreList = () => {
   return (
     <div>
       <div className="mb-10 ml-2">
-        <button className="px-3 py-1 rounded-md cursor-pointer text-white font-medium bg-green-500 hover:bg-green-300">
+        <button className="px-3 py-1 rounded-md cursor-pointer text-white font-medium bg-green-600 hover:bg-green-500">
           <Link to="/admin/genres/add">Add new genre</Link>
         </button>
       </div>

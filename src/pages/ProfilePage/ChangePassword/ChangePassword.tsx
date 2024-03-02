@@ -3,7 +3,7 @@ import { Button, Form, Input, message } from "antd";
 import { localUserService } from "../../../services/localService";
 import loginService from "../../../services/loginService";
 import { Changepassword } from "../../../types/changePassword";
-import authService from "../../../services/authService";
+import userService from "../../../services/userSevice";
 
 const ChangePassword = () => {
   const [form] = Form.useForm();
@@ -17,17 +17,21 @@ const ChangePassword = () => {
 
   const onFinish = async (value: Changepassword) => {
     const user = localUserService.get()?.user;
-    if (user && user.email) {
-      const dataLogin = { email: user.email, password: value.oldPassword };
+    if (user) {
+      const dataLogin = {
+        email: user.email,
+        password: value.oldPassword,
+      };
       try {
         await loginService.login(dataLogin);
       } catch (err) {
-        return message.error("The old password is incorrect.");
+        return message.error("The old password is incorrect");
       }
       try {
-        await authService.resetPassword({ password: value.newPassword });
+        await userService.updateUser(user.id, { password: value.newPassword });
+        message.success("Password updated successfully");
       } catch (err) {
-        return message.error("The old password is incorrect.");
+        return message.error(err.response.data.message);
       }
     }
   };

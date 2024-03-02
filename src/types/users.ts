@@ -1,5 +1,6 @@
 export interface UserUpdateView{
-    name: string;
-    email: string;
-    role: string;
+    name?: string;
+    email?: string;
+    role?: string;
+    password?: string;
 }

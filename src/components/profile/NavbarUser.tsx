@@ -1,6 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const NavbarUser = () => {
+  const location = useLocation();
+  const path = location.pathname;
+
   return (
     <div className="px-5 md:px-0 w-full md:w-56 border-2 border-[#0f2133] bg-[#020d18] h-max">
       {/*nav profile user */}
@@ -25,23 +28,29 @@ const NavbarUser = () => {
           <ul className=" text-white font-bold uppercase text-sm">
             <li className="mb-3">
               <Link
-                className="mb-3 text-[#dcf836] hover:text-[#dcf836] duration-300"
-                to="profile"
+                className={`${
+                  path == "/profile" && "text-[#dcf836]"
+                } mb-3 hover:text-[#dcf836] duration-300`}
+                to="/profile"
               >
                 Profile
               </Link>
             </li>
             <li className="mb-3">
               <Link
-                className="mb-3 hover:text-[#dcf836] duration-300"
-                to="/profile/farovite"
+                className={`${
+                  path == "/profile/farovite-movie" && "text-[#dcf836]"
+                } mb-3 hover:text-[#dcf836] duration-300`}
+                to="/profile/farovite-movie"
               >
                 Favorite movies
               </Link>
             </li>
             <li className="mb-3">
               <Link
-                className="hover:text-[#dcf836] duration-300"
+                className={`${
+                  path == "/profile/rated-movies" && "text-[#dcf836]"
+                } mb-3 hover:text-[#dcf836] duration-300`}
                 to="/profile/rated-movies"
               >
                 Rated movies
@@ -54,16 +63,13 @@ const NavbarUser = () => {
           <ul className=" text-white font-bold uppercase text-sm">
             <li className="mb-3">
               <Link
-                className="hover:text-[#dcf836] duration-300"
+                className={`${
+                  path == "/profile/change-password" && "text-[#dcf836]"
+                } mb-3 hover:text-[#dcf836] duration-300`}
                 to="/profile/change-password"
               >
                 Change password
               </Link>
-            </li>
-            <li className="mb-3">
-              <a className="hover:text-[#dcf836] duration-300" href="#">
-                Log out
-              </a>
             </li>
           </ul>
         </div>
