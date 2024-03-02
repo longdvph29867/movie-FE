@@ -1,6 +1,5 @@
 import Rating from "../../Rating/Rating";
 import SpanContent from "../../Date/SpanContent";
-import CustomButton from "../../Button/Button";
 import SocialButton from "../../SocialButton/SocialButton";
 import { Movie } from "../../../types/movies";
 import { Link } from "react-router-dom";
