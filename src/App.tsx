@@ -9,7 +9,6 @@ import LoginPage from "./pages/LoginPage/Login/LoginPage";
 import ListPage from "./pages/ListPage/ListPage";
 import PageBlog from "./pages/BlogPage/BlogPage";
 import DashBoard from "./pages/Admin/DashBoard/DashBoard";
-
 import LoginLayout from "./Layout/LoginLayout";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -25,6 +24,9 @@ import BlogPage from "./pages/BlogPage/BlogPage";
 import FavoritePage from "./pages/ProfilePage/FavoritePage/FavoritePage";
 import RatedPage from "./pages/ProfilePage/RatedPage/RatedPage";
 import BlogDetailPage from "./pages/BlogPage/BlogDetailPage";
+import UserList from "./pages/Admin/Users/UserList";
+import CreateUser from "./pages/Admin/Users/CreateUser";
+import UpdateUser from "./pages/Admin/Users/UpdateUser";
 
 function App() {
   return (
@@ -77,12 +79,20 @@ function App() {
             element={<AdminLayout Component={CreateGenre} />}
           />
           <Route
-            path="/admin/genre/:genreSlug"
+            path="/admin/genres/:genreSlug"
             element={<AdminLayout Component={UpdateGenre} />}
           />
           <Route
-            path="/admin/genre/:genreSlug"
-            element={<AdminLayout Component={UpdateGenre} />}
+            path="/admin/users"
+            element={<AdminLayout Component={UserList} />}
+          />
+          <Route
+            path="/admin/users/add"
+            element={<AdminLayout Component={CreateUser} />}
+          />
+          <Route
+            path="/admin/users/:userId"
+            element={<AdminLayout Component={UpdateUser} />}
           />
         </Routes>
       </BrowserRouter>

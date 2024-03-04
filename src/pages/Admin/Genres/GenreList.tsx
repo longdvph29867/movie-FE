@@ -1,4 +1,4 @@
-import { Button, Space, Table, TableProps, message } from "antd";
+import { Button, Popconfirm, Space, Table, TableProps, message } from "antd";
 import { useEffect, useState } from "react";
 import { Genre } from "../../../types/genres";
 import genreSevice from "../../../services/genreSevice";
@@ -7,15 +7,18 @@ import { Link } from "react-router-dom";
 const GenreList = () => {
   const [genres, setGenres] = useState<Genre[]>([]);
   useEffect(() => {
+    fetchGenres();
+  }, []);
+  const fetchGenres = () => {
     genreSevice
       .getAllGenre()
       .then((res) => setGenres(res.data))
       .catch((err) => console.error(err));
-  }, []);
-
+  };
   const deleteGenre = async (id: string) => {
     try {
       await genreSevice.deleteGenre(id);
+      fetchGenres();
     } catch (error) {
       message.error(error.response.data);
     }
@@ -40,11 +43,20 @@ const GenreList = () => {
       render: (recod: Genre) => (
         <Space size="middle">
           <Button className="bg-blue-600" type="primary">
-            <a href={`/admin/genre/${recod.genreSlug}`}>Edit</a>
+            <a href={`/admin/genres/${recod.genreSlug}`}>Edit</a>
           </Button>
-          <Button onClick={() => deleteGenre(recod._id)} type="primary" danger>
-            Delete
-          </Button>
+          <Popconfirm
+            title="Delete genre"
+            description="Are you sure you want to delete this genre?"
+            onConfirm={() => deleteGenre(recod._id)}
+            okType="default"
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button type="primary" danger>
+              Delete
+            </Button>
+          </Popconfirm>
         </Space>
       ),
     },
@@ -56,7 +68,12 @@ const GenreList = () => {
           <Link to="/admin/genres/add">Add new genre</Link>
         </button>
       </div>
-      <Table columns={columns} dataSource={genres} rowKey={renderRowKey} />
+      <Table
+        pagination={false}
+        columns={columns}
+        dataSource={genres}
+        rowKey={renderRowKey}
+      />
     </div>
   );
 };

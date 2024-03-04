@@ -10,8 +10,8 @@ const genreSevice={
     createGenre(data:object){
         return https.post('/genres',data)
     },
-    updateGenre(data:object){
-        return https.put('/genres',data)
+    updateGenre(id:string,data:object){
+        return https.put(`/genres/${id}`,data)
     },
     deleteGenre(id:string){
         return https.delete(`/genres/${id}`)
