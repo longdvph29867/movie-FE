@@ -3,25 +3,27 @@ import ProfileTitle from "../components/Profile/ProfileTitle";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { FC } from "react";
+import { localUserService } from "../services/localService";
 
 type Props = {
   Component: FC;
 };
 const ProfileLayout = ({ Component }: Props) => {
+  const user = localUserService.get()?.user;
   return (
     <div>
       <Header />
-      <div className="bg-[#020d18] relative py-48">
+      <div className="bg-[#020d18] relative">
         <div
-          className="absolute w-full h-[320px] top-0 left-0"
+          className="absolute w-full h-[350px] top-0 left-0"
           style={{ backgroundImage: "url(/bg-2.jpg)" }}
         ></div>
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between container lg:gap-0 gap-x-4 relative z-10">
+        <div className="pt-60 py-20 flex mt-5 flex-col lg:flex-row items-center md:items-start justify-between container lg:gap-0 gap-x-4 relative z-10">
           <NavbarUser />
           {/*profile user */}
-          <div className="w-full md:w-3/4">
-            <ProfileTitle />
-            <div className=" bg-[#020d18] mt-10  md:mt-28 relative">
+          <div className="w-full lg:w-3/4">
+            <ProfileTitle userName={user?.name} />
+            <div className=" bg-[#020d18] mt-10 lg:mt-20 relative">
               <Component />
             </div>
           </div>

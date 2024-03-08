@@ -5,27 +5,27 @@ const NavbarUser = () => {
   const path = location.pathname;
 
   return (
-    <div className="px-5 md:px-0 w-full md:w-56 border-2 border-[#0f2133] bg-[#020d18] h-max">
+    <div className="px-5 lg:px-0 flex lg:flex-col flex-wrap sm:flex-nowrap gap-5  w-full lg:w-56 border-2 border-[#0f2133] bg-[#020d18] h-max">
       {/*nav profile user */}
-      <div className="flex gap-5 w-full md:flex-col items-center mt-5 md:my-8">
+      <div className="gap-5 flex-none flex m-auto sm:m-0 flex-col items-center mt-5 md:my-8">
         <a href="#">
           <img
-            className="sm:w-[120px] sm:h-[120px] w-[80px] h-[80px] rounded-full"
+            className="lg:h-[120px] lg:w-[120px] w-[80px] h-[80px] rounded-full m-auto"
             src="https://i.pinimg.com/236x/dc/cb/ee/dccbee93d3b5334a002e7e5aa9d89b5a.jpg"
           />
           <br />
         </a>
         <a
           href="#"
-          className="px-4 py-2 sm:px-6 sm:py-3 bg-[#ff4d4f] text-white font-bold text-xs sm:text-sm uppercase rounded-md hover:text-black duration-300"
+          className="px-3 py-1 sm:px-4 sm:py-2 lg:px-6 bg-[#ff4d4f] text-white font-bold text-xs sm:text-sm uppercase rounded-md hover:text-black duration-300"
         >
           Change avatar
         </a>
       </div>
-      <div className="flex flex-wrap md:block">
+      <div className="flex flex-wrap lg:block">
         <div className="md:border-t border-[#0f2133]  p-6">
           <p className="text-sm text-[#abb7c4] pb-3">Account Details</p>
-          <ul className=" text-white font-bold uppercase text-sm">
+          <ul className=" text-white font-bold uppercase sm:text-sm">
             <li className="mb-3">
               <Link
                 className={`${
@@ -34,6 +34,16 @@ const NavbarUser = () => {
                 to="/profile"
               >
                 Profile
+              </Link>
+            </li>
+            <li className="mb-3">
+              <Link
+                className={`${
+                  path == "/profile/purcharsed-tickets" && "text-[#dcf836]"
+                } mb-3 hover:text-[#dcf836] duration-300`}
+                to="/profile/purcharsed-tickets"
+              >
+                Favorite movies
               </Link>
             </li>
             <li className="mb-3">

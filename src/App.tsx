@@ -27,6 +27,7 @@ import BlogDetailPage from "./pages/BlogPage/BlogDetailPage";
 import UserList from "./pages/Admin/Users/UserList";
 import CreateUser from "./pages/Admin/Users/CreateUser";
 import UpdateUser from "./pages/Admin/Users/UpdateUser";
+import PurchasedTicketsPage from "./pages/ProfilePage/PurchasedTicketsPage/PurchasedTicketsPage";
 
 function App() {
   return (
@@ -52,6 +53,10 @@ function App() {
           <Route
             path="/profile"
             element={<ProfileLayout Component={ProfileDetail} />}
+          />
+          <Route
+            path="/profile/purcharsed-tickets"
+            element={<ProfileLayout Component={PurchasedTicketsPage} />}
           />
           <Route
             path="/profile/farovite-movie"

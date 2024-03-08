@@ -57,9 +57,9 @@ const DetailPage = () => {
       label: (
         <div className="text-white group">
           <img
-            className="mx-auto mb-1"
-            width={30}
-            height={30}
+            className="mx-auto mb-1 rounded-full"
+            width={50}
+            height={50}
             src={cinema.logo}
           />
           <p>{cinema.cinemaName}</p>
@@ -68,9 +68,9 @@ const DetailPage = () => {
       children: (
         <Collapse
           className="bg-white"
-          items={cinema.listBranch.map((branch) => {
+          items={cinema.listBranch.map((branch, index) => {
             return {
-              key: branch.idBranch,
+              key: index,
               label: (
                 <div>
                   <p className="font-bold text-[#F27221]">
@@ -87,21 +87,24 @@ const DetailPage = () => {
                         key={time.idShowing}
                         className="border border-gray-300 shadow rounded-lg text-center p-2 hover:shadow-2xl hover:bg-gray-200 cursor-pointer"
                       >
-                        <p className="font-bold">
-                          {moment(time.showTime).format("DD-MM-YYYY")}
-                        </p>
-                        <p className="font-bold">
-                          {moment(time.showTime)
-                            .utcOffset("+00:00")
-                            .format("HH:mm")}
-                        </p>
-                        <div className="flex justify-between items-center text-sm">
+                        <div className="flex items-center justify-center gap-1">
+                          <p className="font-semibold text-orange-500">
+                            {moment(time.showTime)
+                              .utcOffset("+00:00")
+                              .format("HH:mm")}
+                          </p>{" "}
+                          <span>~</span>
+                          <p className="font-semibold text-green-500">
+                            {moment(time.showTime).format("DD-MM-YYYY")}
+                          </p>
+                        </div>
+                        <div className="flex justify-between items-center text-xs">
                           <div>
-                            <p>Vé thường</p>
+                            <p className="font-semibold">Ticket Nomal</p>
                             <span>{convertVND(time.normalPrice)}</span>
                           </div>
                           <div>
-                            <p>Vé Vip</p>
+                            <p className="font-semibold">Ticket Vip</p>
                             <span>{convertVND(time.vipPrice)}</span>
                           </div>
                         </div>
@@ -112,7 +115,7 @@ const DetailPage = () => {
               ),
             };
           })}
-          defaultActiveKey={cinema.listBranch.map((branch) => branch.idBranch)}
+          defaultActiveKey={["0"]}
           onChange={onChangeCollape}
         />
       ),
@@ -142,7 +145,7 @@ const DetailPage = () => {
                 id="booking-tabs"
                 className="bg-[#152a3e] p-5 mt-10 text-white"
               >
-                <h1 className="font-bold text-xl">Lịch chiếu</h1>
+                <h1 className="font-bold text-xl">Show time</h1>
                 <Tabs
                   defaultActiveKey="1"
                   items={items}
