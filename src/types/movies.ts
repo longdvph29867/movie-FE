@@ -1,24 +1,33 @@
-export interface Movie {
+type Cast = {
+  id: string,
+  name: string
+}
+export type Movie = {
   _id:string
   name: string,
   poster: string,
   director: string,
-  cast: string,
-  genre: genre[]
+  cast: Cast[],
+  genre: Genre[]
   runningTime: number,
   language: string,
+  country: string,
   rated: string,
   trailer: string,
   imgBanner: string,
+  description: string
 }
 
-interface genre {
+export type FormMovieType = Omit<Movie, '_id' | 'cast' | 'genre' | 'poster' | 'imgBanner' | 'rated'> & {cast: string[], genre: string[], poster: string, imgBanner: string }
+export type FormMovieValue = Omit<Movie, '_id' | 'cast' | 'genre' | 'poster' | 'imgBanner' | 'rated'> & {cast: string, genre: string[], imagePoster: File[], imgBanner: File[] }
+
+type Genre = {
   _id: string,
-  categoryName: string,
-  categorySlug: string
+  genreName: string,
+  genreSlug: string
 }
 
-export interface TrailerType {
+export type TrailerType = {
   _id: string,
   name: string,
   language: string,

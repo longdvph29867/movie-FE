@@ -1,6 +1,6 @@
 import ArticleList from "../../components/BlogComponents/ArticleList";
 import BlogSearch from "../../components/BlogComponents/BlogSearch";
-import PageNavigation from "../../components/Pagination/Pagination";
+// import PageNavigation from "../../components/PaginationPage/PaginationPage";
 import BlogCategories from "../../components/BlogComponents/BlogCategories";
 import TagItem from "../../components/Sidebar/TagList/TagItem/TagItem";
 
@@ -31,7 +31,7 @@ const BlogPage = () => {
           <div className="flex flex-col gap-10 xl:gap-16 lg:gap-12 lg:flex-row">
             <div className="lg:w-3/4">
               <ArticleList />
-              <PageNavigation />
+              {/* <PageNavigation /> */}
             </div>
             <div className=" lg:w-1/4">
               <div className="ml-[60px]">

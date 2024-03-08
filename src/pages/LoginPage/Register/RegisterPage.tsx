@@ -12,7 +12,7 @@ const RegisterPage = () => {
       email: values.email,
       password: values.password,
     };
-    const postProduct = async () => {
+    const postRegister = async () => {
       try {
         const res = await loginService.register(data);
         if (res) {
@@ -23,7 +23,7 @@ const RegisterPage = () => {
           message.success("Sign in successfully!");
           if (infoUser.user.role === "admin") {
             setTimeout(() => {
-              window.location.href = "/admin/products";
+              window.location.href = "/admin/movies";
             }, 1200);
           } else {
             setTimeout(() => {
@@ -36,14 +36,14 @@ const RegisterPage = () => {
         message.error(error.response.data.message);
       }
     };
-    postProduct();
+    postRegister();
   };
   const onFinishFailed = (errorInfo: unknown) => {
     console.log("Failed:", errorInfo);
   };
   return (
     <>
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="login-page sm:mx-auto sm:w-full sm:max-w-sm">
         <img
           className="w-auto h-10 mx-auto"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/FPT_Polytechnic.png/1200px-FPT_Polytechnic.png"
