@@ -1,8 +1,8 @@
 import { https } from "../config/axios";
 
 const actorService={
-    getAllActor(){
-        return https.get('/actors')
+    getAllActor(limit=10){
+        return https.get(`/actors?limit=${limit}`)
     },
 }
 
