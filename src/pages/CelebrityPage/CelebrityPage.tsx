@@ -28,7 +28,7 @@ const CelebrityPage = () => {
       >
         <div className="pt-14">
           <h1 className="text-4xl font-semibold text-white uppercase">
-            BLOG LISTING - LIST
+            CELEBRITY - LIST
           </h1>
           <ul className="flex items-center justify-center gap-4 mt-3">
             <li className="">
@@ -37,22 +37,24 @@ const CelebrityPage = () => {
               </Link>
             </li>
             <i className="text-[#abb7c4] fa-solid fa-chevron-right" />
-            <li className="uppercase text-[#abb7c4]"> BLOG LISTING</li>
+            <li className="uppercase text-[#abb7c4]"> CELEBRITY</li>
           </ul>
         </div>
       </div>
-      <div className="flex justify-between py-10 container gap-8">
-        <div>
-          <div className="grid grid-cols-3 w-full gap-5">
-            {celebritys.map((celebrity) => (
-              <CelebrityItem celebrity={celebrity} />
-            ))}
-          </div>
+      <div className="lg:flex justify-between py-10 container gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-5">
+          {celebritys.map((celebrity, index) => (
+            <CelebrityItem key={index} celebrity={celebrity} />
+          ))}
         </div>
-        <div className="w-1/4">
-          <SearchCelebrity />
-          <div className="my-7">
-            <img src="ads1.png" alt="" />
+        <div className="lg:w-1/4 mt-20 lg:mt-0">
+          <div className="sm:flex lg:block justify-between mb-5 gap-4">
+            <div className="sm:w-1/2 lg:w-full">
+              <SearchCelebrity />
+            </div>
+            <div className="my-7">
+              <img src="ads1.png" alt="" />
+            </div>
           </div>
           <ActorList />
         </div>

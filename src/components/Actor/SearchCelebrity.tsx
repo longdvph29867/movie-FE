@@ -1,6 +1,6 @@
 const SearchCelebrity = () => {
   return (
-    <div>
+    <div className="w-full">
       <h1 className="font-bold text-white text-xl mb-3">SearchCelebrity</h1>
       <div className="border-t text-[#abb7c4] py-3">
         <div className="mt-3">
