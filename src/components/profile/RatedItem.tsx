@@ -1,9 +1,9 @@
-const RatedMovie = () => {
+const RatedItem = () => {
   return (
-    <div>
+    <div className="border-b border-gray-600 my-5 py-5">
       <div className="text-sm flex gap-5">
         <img
-          className="w-[100px] h-max"
+          className="w-[100px] h-max rounded"
           src="https://lumiere-a.akamaihd.net/v1/images/p_disneymovies_avatarthewayofwater_streamingupdate_2096_0908fa1b.jpeg"
         />
         <div className="text-sm text-[#abb7c4]">
@@ -30,4 +30,4 @@ const RatedMovie = () => {
   );
 };
 
-export default RatedMovie;
+export default RatedItem;

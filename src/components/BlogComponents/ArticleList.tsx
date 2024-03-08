@@ -1,20 +1,22 @@
+import { Link } from "react-router-dom";
+
 const ArticleList = () => {
   return (
     <div className="flex flex-col gap-[15px]">
-      <div className=" group flex flex-col lg:flex-row w-auto lg:w-full bg-[#071829] overflow-hidden mb-[30px]">
+      <div className="group flex flex-col sm:flex-row w-auto lg:w-full bg-[#071829] overflow-hidden mb-[30px]">
         <img
-          className="transition-all duration-500 ease-out group-hover:scale-110 w-[35%] rounded-[5px]"
+          className="transition-all duration-500 ease-out group-hover:scale-110 sm:w-[35%] rounded-[5px]"
           src="/bloglist-1.jpg"
           alt=""
         />
-        <div className="p-[30px] ">
+        <div className="p-5 sm:p-[30px]">
           <h3 className="mt-[15px] text-[24px]">
-            <a
-              href="#"
+            <Link
+              to="/blog-detail"
               className="group-hover:text-[#dcf836] transition-all duration-500 ease-out text-lg font-bold text-[#4280bf]"
             >
               Godzilla: King Of The Monsters Adds O’Shea Jackson Jr
-            </a>
+            </Link>
           </h3>
           <span className="text-[#abb7c4] font-light text-xs  ">
             27 Mar 2017
@@ -26,20 +28,20 @@ const ArticleList = () => {
           </p>
         </div>
       </div>
-      <div className=" group flex flex-col lg:flex-row w-auto lg:w-full bg-[#071829] overflow-hidden mb-[30px]">
+      <div className=" group flex flex-col sm:flex-row w-auto lg:w-full bg-[#071829] overflow-hidden mb-[30px]">
         <img
-          className="transition-all duration-500 ease-out group-hover:scale-110 w-[35%] rounded-[5px]"
+          className="transition-all duration-500 ease-out group-hover:scale-110 sm:w-[35%] rounded-[5px]"
           src="/bloglist-2.jpg"
           alt=""
         />
-        <div className="p-[30px] ">
+        <div className="p-5 sm:p-[30px]">
           <h3 className="mt-[15px] text-[24px]">
-            <a
-              href="#"
+            <Link
+              to="/blog-detail"
               className="group-hover:text-[#dcf836] transition-all duration-500 ease-out text-lg font-bold text-[#4280bf]"
             >
               India’s National Film Awards: ‘Kaasav’ Wins Best Picture
-            </a>
+            </Link>
           </h3>
           <span className="text-[#abb7c4] font-light text-xs  ">
             27 Mar 2017
@@ -51,21 +53,21 @@ const ArticleList = () => {
           </p>
         </div>
       </div>
-      <div className=" group flex flex-col lg:flex-row w-auto lg:w-full bg-[#071829] overflow-hidden mb-[30px]">
+      <div className=" group flex flex-col sm:flex-row w-auto lg:w-full bg-[#071829] overflow-hidden mb-[30px]">
         <img
-          className="transition-all duration-500 ease-out group-hover:scale-110 w-[35%] rounded-[5px]"
+          className="transition-all duration-500 ease-out group-hover:scale-110 sm:w-[35%] rounded-[5px]"
           src="/bloglist-3.jpg"
           alt=""
         />
-        <div className="p-[30px] ">
+        <div className="p-5 sm:p-[30px]">
           <h3 className="mt-[15px] text-[24px]">
-            <a
-              href="#"
+            <Link
+              to="/blog-detail"
               className="group-hover:text-[#dcf836] transition-all duration-500 ease-out text-lg font-bold text-[#4280bf]"
             >
               ‘Going in Style’ Tops ‘Smurfs: The Lost Village’ at Thursday Box
               Office
-            </a>
+            </Link>
           </h3>
           <span className="text-[#abb7c4] font-light text-xs  ">
             27 Mar 2017
@@ -77,20 +79,20 @@ const ArticleList = () => {
           </p>
         </div>
       </div>
-      <div className=" group flex flex-col lg:flex-row w-auto lg:w-full bg-[#071829] overflow-hidden mb-[30px]">
+      <div className=" group flex flex-col sm:flex-row w-auto lg:w-full bg-[#071829] overflow-hidden mb-[30px]">
         <img
-          className="transition-all duration-500 ease-out group-hover:scale-110 w-[35%] rounded-[5px]"
+          className="transition-all duration-500 ease-out group-hover:scale-110 sm:w-[35%] rounded-[5px]"
           src="/bloglist-4.jpg"
           alt=""
         />
-        <div className="p-[30px] ">
+        <div className="p-5 sm:p-[30px]">
           <h3 className="mt-[15px] text-[24px]">
-            <a
-              href="#"
+            <Link
+              to="/blog-detail"
               className="group-hover:text-[#dcf836] transition-all duration-500 ease-out text-lg font-bold text-[#4280bf]"
             >
               India’s National Film Awards: ‘Kaasav’ Wins Best Picture
-            </a>
+            </Link>
           </h3>
           <span className="text-[#abb7c4] font-light text-xs  ">
             27 Mar 2017
@@ -102,20 +104,20 @@ const ArticleList = () => {
           </p>
         </div>
       </div>
-      <div className=" group flex flex-col lg:flex-row w-auto lg:w-full bg-[#071829] overflow-hidden mb-[30px]">
+      <div className=" group flex flex-col sm:flex-row w-auto lg:w-full bg-[#071829] overflow-hidden mb-[30px]">
         <img
-          className="transition-all duration-500 ease-out group-hover:scale-110 w-[35%] rounded-[5px]"
+          className="transition-all duration-500 ease-out group-hover:scale-110 sm:w-[35%] rounded-[5px]"
           src="/bloglist-5.jpg"
           alt=""
         />
-        <div className="p-[30px] ">
+        <div className="p-5 sm:p-[30px]">
           <h3 className="mt-[15px] text-[24px]">
-            <a
-              href="#"
+            <Link
+              to="/blog-detail"
               className="group-hover:text-[#dcf836] transition-all duration-500 ease-out text-lg font-bold text-[#4280bf]"
             >
               ‘Kong: Skull Island’ Tops $500 Million at Worldwide Box Office
-            </a>
+            </Link>
           </h3>
           <span className="text-[#abb7c4] font-light text-xs  ">
             27 Mar 2017
@@ -127,20 +129,20 @@ const ArticleList = () => {
           </p>
         </div>
       </div>
-      <div className=" group flex flex-col lg:flex-row w-auto lg:w-full bg-[#071829] overflow-hidden mb-[30px]">
+      <div className=" group flex flex-col sm:flex-row w-auto lg:w-full bg-[#071829] overflow-hidden mb-[30px]">
         <img
-          className="transition-all duration-500 ease-out group-hover:scale-110 w-[35%] rounded-[5px]"
+          className="transition-all duration-500 ease-out group-hover:scale-110 sm:w-[35%] rounded-[5px]"
           src="/bloglist-6.jpg"
           alt=""
         />
-        <div className="p-[30px] ">
+        <div className="p-5 sm:p-[30px]">
           <h3 className="mt-[15px] text-[24px]">
-            <a
-              href="#"
+            <Link
+              to="/blog-detail"
               className="group-hover:text-[#dcf836] transition-all duration-500 ease-out text-lg font-bold text-[#4280bf]"
             >
               Film Review: ‘Aftermath’
-            </a>
+            </Link>
           </h3>
           <span className="text-[#abb7c4] font-light text-xs  ">
             27 Mar 2017
