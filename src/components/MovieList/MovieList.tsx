@@ -6,20 +6,26 @@ import TabLink from "../TabLink/TabLink";
 import { movieService } from "../../services/movieService";
 import { useDispatch, useSelector } from "react-redux";
 import { setMovieList } from "../../Toolkits/movieSlice";
+import { useLoading } from "../../hooks/useSpinner";
 
 const MovieList = () => {
   const dispatch = useDispatch();
+  const { startSpinner, stopSpinner } = useLoading();
   const movies: Movie[] = useSelector(
     (state: any) => state.movieSlice.movieList
   );
   useEffect(() => {
+    startSpinner();
     movieService
       .getMovies()
       .then((data) => {
-        // setMovies(data.data.results);
+        stopSpinner();
         dispatch(setMovieList(data.data.results));
       })
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => {
+        stopSpinner();
+        console.error("Error fetching data:", error);
+      });
   }, []);
 
   return (

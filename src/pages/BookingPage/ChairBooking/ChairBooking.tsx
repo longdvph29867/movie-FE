@@ -51,9 +51,11 @@ const ChairBooking = ({ idShowing }: Props) => {
       <table className="w-full text-center">
         <thead>
           <tr>
-            <th className="border-2 py-1 border-white/50 leading-8">Số ghế</th>
-            <th className="border-2 py-1 border-white/50 leading-8">Giá</th>
-            <th className="border-2 py-1 border-white/50 leading-8">Huỷ</th>
+            <th className="border-2 py-1 border-white/50 leading-8">
+              Seat number
+            </th>
+            <th className="border-2 py-1 border-white/50 leading-8">Price</th>
+            <th className="border-2 py-1 border-white/50 leading-8">Cancel</th>
           </tr>
         </thead>
         <tbody className="text-[#F27221]">

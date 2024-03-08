@@ -14,6 +14,10 @@ import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import RegisterPage from "./pages/LoginPage/Register/RegisterPage";
 import BookingPage from "./pages/BookingPage/BookingPage";
+import Spinner from "./components/Spinner/Spinner";
+import AdminListMovie from "./pages/Admin/Movie/AdminListMovie";
+import AdminAddMovie from "./pages/Admin/Movie/AdminAddMovie";
+import AdminUpdateMovie from "./pages/Admin/Movie/AdminUpdateMovie";
 import GenreList from "./pages/Admin/Genres/GenreList";
 import CreateGenre from "./pages/Admin/Genres/CreateGenre";
 import UpdateGenre from "./pages/Admin/Genres/UpdateGenre";
@@ -37,7 +41,7 @@ function App() {
           <Route path="/" element={<WebsiteLayout />}>
             <Route index element={<HomePage />} />
             <Route path="/detail/:id" element={<DetailPage />} />
-            <Route path="/list" element={<ListPage />} />
+            <Route path="/movies" element={<ListPage />} />
             <Route path="/blog" element={<PageBlog />} />
             <Route path="/blog-detail" element={<BlogDetailPage />} />
             <Route path="/booking/:id" element={<BookingPage />} />
@@ -88,6 +92,19 @@ function App() {
             element={<AdminLayout Component={UpdateGenre} />}
           />
           <Route
+            path="/admin/movies"
+            element={<AdminLayout Component={AdminListMovie} />}
+          />
+          <Route
+            path="/admin/movies/add"
+            element={<AdminLayout Component={AdminAddMovie} />}
+          />
+          <Route
+            path="/admin/movies/update/:id"
+            element={<AdminLayout Component={AdminUpdateMovie} />}
+          />
+
+          <Route
             path="/admin/users"
             element={<AdminLayout Component={UserList} />}
           />
@@ -101,6 +118,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+      <Spinner />
     </>
   );
 }

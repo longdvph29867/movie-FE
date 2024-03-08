@@ -3,15 +3,43 @@ import { useEffect, useState } from "react";
 import { Movie } from "../../types/movies";
 import SideBar from "../../components/Sidebar/SideBar";
 import { movieService } from "../../services/movieService";
+import DropdownFilter from "../../components/DropdownFilter/DropdownFilter";
+import { useLocation } from "react-router-dom";
+import genreSevice from "../../services/genreSevice";
+import { Genre } from "../../types/genres";
+import useDataFetcher from "../../hooks/useDataFetcher";
+import PaginationPage from "../../components/PaginationPage/PaginationPage";
 
 const ListPage = () => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [totalMovies, setTotalMovies] = useState(0);
+  const [genres] = useDataFetcher<Genre>(() => genreSevice.getAllGenre());
+  const currentPage = params.get("page") ? Number(params.get("page")) : 1;
+  const filterGenre = params.get("genres")
+    ? params.get("genres")?.split(",")
+    : [];
+  const filterSearch = params.get("search");
+  const filterTime = params.get("filterTime");
+  const limit = 24;
   useEffect(() => {
     movieService
-      .getMovies()
-      .then((data) => setMovies(data.data.results))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+      .getMovies(
+        limit,
+        currentPage,
+        filterGenre?.join(","),
+        filterTime,
+        filterSearch
+      )
+      .then((data) => {
+        setMovies(data.data.results);
+        setTotalMovies(data.data.totalResults);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, [location.search]);
   return (
     <>
       <section className="relative">
@@ -38,11 +66,28 @@ const ListPage = () => {
           <div className="container mx-auto">
             <div className="flex flex-col gap-10 xl:gap-16 lg:gap-12 lg:flex-row">
               <div className="lg:w-3/4">
+                <div className="mb-4 flex items-center justify-between">
+                  <h2 className="uppercase text-white text-xl px-2">
+                    {movies.length} movies
+                  </h2>
+                  <DropdownFilter
+                    genres={genres as Genre[]}
+                    filterGenre={filterGenre as string[]}
+                    filterTime={filterTime}
+                  />
+                </div>
                 <div className="grid gap-6 place-items-center md:grid-cols-4 sm:grid-cols-2 ">
                   {movies.map((movie, index) => (
                     <MovieListItem key={index} movie={movie} />
                   ))}
                 </div>
+
+                <PaginationPage
+                  current={currentPage}
+                  total={totalMovies}
+                  pageSize={limit}
+                  theme="dark"
+                />
               </div>
               <div className="text-white lg:w-1/4">
                 <SideBar />

@@ -18,4 +18,4 @@ const genreSevice={
     }
 }
 
-export default genreSevice
+export default genreSevice;

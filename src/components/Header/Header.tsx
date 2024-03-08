@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Navigation from "./Navigation/Navigation";
-import Search from "./Search/Search";
+import Search from "../Search/Search";
 import Login from "./Login/Login";
 import { Genre } from "../../types/genres";
 import genreSevice from "../../services/genreSevice";
@@ -59,7 +59,7 @@ const Header = () => {
             }`}
           >
             <Navigation genreList={genreList} />
-            <Search />
+            <Search type="user" />
             <Login />
           </div>
         </div>

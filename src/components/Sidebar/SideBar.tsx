@@ -5,11 +5,11 @@ const SideBar = () => {
   return (
     <div className="space-y-10">
       <div>
-        <img src="./image-sidebar1.jpeg" alt="" />
+        <img src="../image-sidebar1.jpeg" alt="" />
       </div>
       <ActorList />
       <div>
-        <img src="./image-sidebar2.jpeg" alt="" />
+        <img src="../image-sidebar2.jpeg" alt="" />
       </div>
       <TagList />
     </div>

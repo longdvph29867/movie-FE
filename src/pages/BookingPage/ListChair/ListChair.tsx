@@ -47,21 +47,21 @@ const ListChair = ({ idShowing }: Props) => {
         <div className="flex flex-col sm:flex-row">
           <div className="w-full sm:w-1/2 flex items-center">
             <span className="inline-block mr-3 w-9 h-9 rounded bg-white"></span>
-            <span>Ghế thường</span>
+            <span>Regular seat</span>
           </div>
           <div className="w-full sm:w-1/2 flex items-center mt-2 sm:mt-0">
             <span className="inline-block mr-3 w-9 h-9 rounded bg-[#F27221]"></span>
-            <span>Ghế VIP</span>
+            <span>VIP seat</span>
           </div>
         </div>
         <div className="flex flex-col sm:flex-row">
           <div className="w-full sm:w-1/2 flex items-center">
             <span className="inline-block mr-3 w-9 h-9 rounded bg-gray-500"></span>
-            <span>Ghế đã đặt</span>
+            <span>Reserved seat</span>
           </div>
           <div className="w-full sm:w-1/2 flex items-center mt-2 sm:mt-0">
             <span className="inline-block mr-3 w-9 h-9 rounded bg-green-500"></span>
-            <span>Ghế đang chọn</span>
+            <span>Selected seat</span>
           </div>
         </div>
       </div>

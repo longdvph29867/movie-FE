@@ -10,7 +10,7 @@ const ActorItem = ({ actor }: Props) => {
         <img
           src={actor.image}
           alt=""
-          className="w-[70px] h-[70px] object-cover mr-4 rounded"
+          className="w-[70px] h-[70px] object-cover mr-4 rounded object-top"
         />
         <div className="text-sm">
           <h5 className="text-white uppercase font-medium duration-300 group-hover/actor:text-[#DCF836]">

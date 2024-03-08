@@ -35,13 +35,13 @@ const InfoMovie = ({ idShowing }: Props) => {
         </div>
         <div className="border- border-white p-4 rounded-xl">
           <div className="flex justify-between mb-5">
-            <h4>Cụm rạp:</h4>
+            <h4>Cinema:</h4>
             <p className="w-2/3 text-right">
               {detailSchedule?.cinemaBranch.cinemaBranchName}
             </p>
           </div>
           <div className="flex justify-between mb-5">
-            <h4>Địa chỉ:</h4>
+            <h4>Address:</h4>
             <p className="w-2/3 text-right">
               {detailSchedule?.cinemaBranch.location}
             </p>
@@ -51,7 +51,7 @@ const InfoMovie = ({ idShowing }: Props) => {
             <p className="w-2/3 text-right">movie</p>
           </div> */}
           <div className="flex justify-between mb-5">
-            <h4>Ngày giờ chiếu:</h4>
+            <h4>Showtime:</h4>
             <p className="w-2/3 text-right">
               {moment(detailSchedule?.showTime).format("hh:mm ~ DD-MM-YYYY")}
             </p>

@@ -1,0 +1,19 @@
+.ant-pagination .ant-pagination-item-active,
+.ant-pagination .ant-pagination-item-active:hover {
+  border-color: #F27221;
+}
+.ant-pagination .ant-pagination-item-active a,
+.ant-pagination .ant-pagination-item-active:hover a {
+  color: #F27221;
+}
+.pagination-dark .ant-pagination .ant-pagination-item a {
+  color: white;
+}
+.pagination-dark .ant-pagination .ant-pagination-item {
+  background-color: transparent;
+}
+.pagination-dark .ant-pagination .ant-pagination-prev button,
+.pagination-dark .ant-pagination .ant-pagination-next button,
+.pagination-dark .ant-pagination .ant-pagination-disabled .ant-pagination-item-link {
+  color: white;
+}
