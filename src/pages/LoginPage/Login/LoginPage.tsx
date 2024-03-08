@@ -11,7 +11,7 @@ const LoginPage = () => {
       email: values.email,
       password: values.password,
     };
-    const postProduct = async () => {
+    const postLogin = async () => {
       try {
         const res = await loginService.login(data);
         if (res) {
@@ -35,14 +35,14 @@ const LoginPage = () => {
         message.error(error.response.data.message);
       }
     };
-    postProduct();
+    postLogin();
   };
   const onFinishFailed = (errorInfo: unknown) => {
     console.log("Failed:", errorInfo);
   };
   return (
     <>
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="login-page sm:mx-auto sm:w-full sm:max-w-sm">
         <img
           className="w-auto h-10 mx-auto"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/FPT_Polytechnic.png/1200px-FPT_Polytechnic.png"

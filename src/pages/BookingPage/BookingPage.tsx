@@ -18,7 +18,8 @@ const BookingPage = () => {
   }, []);
   return (
     <div
-      className={`pt-36 pb-20 bg-slate-800 min-h-screen bg-[url('./bg-2.jpg')]`}
+      className={`pt-36 pb-20 bg-slate-800 min-h-screen`}
+      style={{ backgroundImage: "url(/bg-2.jpg)" }}
     >
       <div className="container mx-auto flex flex-col xl:flex-row">
         <div className="xl:w-2/3 w-full">

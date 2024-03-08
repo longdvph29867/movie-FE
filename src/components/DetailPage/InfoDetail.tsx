@@ -131,9 +131,9 @@ const InfoDetail = ({ movieDetail, scrollToComponent }: Props) => {
             </div>
             <div>
               <h6 className="text-[#abb7c4] font-semibold capitalize mb-1">
-                Plot Keywords:{" "}
+                Plot Keywords:
               </h6>
-              <p className="text-[#abb7c4] ">
+              <p className="text-[#abb7c4] space-x-1">
                 <span className="time">
                   <a href="#" className="py-[2px] px-[5px] bg-[#233a50]">
                     superhero
