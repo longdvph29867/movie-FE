@@ -41,7 +41,7 @@ const Login = () => {
         ) : (
           <>
             <Link
-              to="/"
+              to="/profile"
               className="text-[#F27221] text-xl w-10 h-10 ml-4 flex items-center justify-center border border-[#F27221] rounded-full cursor-pointer"
             >
               <i className="fa-solid fa-user"></i>

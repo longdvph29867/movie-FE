@@ -26,7 +26,7 @@ const DetailPage = () => {
       });
 
     showingService
-      .getCinemaVyMovie(id)
+      .getCinemaVyMovie(id as string)
       .then((response) => {
         setcinemasShowing(response.data);
       })

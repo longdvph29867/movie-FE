@@ -1,9 +1,9 @@
 const FavoriteItem = () => {
   return (
-    <div>
+    <div className="my-5">
       <div className="sm:flex gap-5 items-center">
         <img
-          className="w-[180px]"
+          className="w-[180px] rounded"
           src="https://lumiere-a.akamaihd.net/v1/images/p_disneymovies_avatarthewayofwater_streamingupdate_2096_0908fa1b.jpeg"
         />
         <div className="text-sm text-[#abb7c4]">

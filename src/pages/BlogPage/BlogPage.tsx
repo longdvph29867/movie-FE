@@ -9,7 +9,7 @@ const BlogPage = () => {
     <section className="relative font-['Dosis', sans-serif'] ">
       <div
         className="h-[300px] bg-cover bg-top flex items-center justify-center"
-        style={{ backgroundImage: 'url("./img//banner-bg.jpeg")' }}
+        style={{ backgroundImage: "url(/bg-2.jpg)" }}
       >
         <div className="pt-14">
           <h1 className="text-4xl font-semibold text-white uppercase">
@@ -34,7 +34,7 @@ const BlogPage = () => {
               {/* <PageNavigation /> */}
             </div>
             <div className=" lg:w-1/4">
-              <div className="ml-[60px]">
+              <div className="lg:ml-[60px]">
                 <BlogSearch />
                 <BlogCategories />
 

@@ -1,26 +1,35 @@
 import NavbarUser from "../components/Profile/NavbarUser";
 import ProfileTitle from "../components/Profile/ProfileTitle";
-import FavoriteItem from "../components/Profile/FavoriteItem";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import { FC } from "react";
+import { localUserService } from "../services/localService";
 
-const ProfileLayout = () => {
+type Props = {
+  Component: FC;
+};
+const ProfileLayout = ({ Component }: Props) => {
+  const user = localUserService.get()?.user;
   return (
-    <div className="bg-[#020d18] relative pt-48">
-      <div
-        className="absolute w-full h-[320px] top-0 left-0
-      bg-[url(https://dims.apnews.com/dims4/default/0a73f78/2147483647/strip/true/crop/3000x1688+0+156/resize/1440x810!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fc0%2Fd7%2F8952bf0805373c77af588787a7fd%2Fca0bfc7687ac42fa8f4c10c46d5623ad)]"
-      >
-        <div className="bg-black/80 h-full"></div>
-      </div>
-      <div className="flex flex-col md:flex-row items-center md:items-start justify-between container lg:gap-0 gap-x-4 relative z-10">
-        <NavbarUser />
-        {/*profile user */}
-        <div className="w-full md:w-3/4">
-          <ProfileTitle />
-          <div className=" bg-[#020d18] mt-10  md:mt-32">
-            <FavoriteItem />
+    <div>
+      <Header />
+      <div className="bg-[#020d18] relative">
+        <div
+          className="absolute w-full h-[350px] top-0 left-0"
+          style={{ backgroundImage: "url(/bg-2.jpg)" }}
+        ></div>
+        <div className="pt-60 py-20 flex mt-5 flex-col lg:flex-row items-center md:items-start justify-between container lg:gap-0 gap-x-4 relative z-10">
+          <NavbarUser />
+          {/*profile user */}
+          <div className="w-full lg:w-3/4">
+            <ProfileTitle userName={user?.name} />
+            <div className=" bg-[#020d18] mt-10 lg:mt-20 relative">
+              <Component />
+            </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

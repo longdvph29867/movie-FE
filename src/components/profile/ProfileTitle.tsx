@@ -1,14 +1,19 @@
-const ProfileTitle = () => {
+import { Link } from "react-router-dom";
+
+type Props = {
+  userName?: string;
+};
+const ProfileTitle = ({ userName = "Your" }: Props) => {
   return (
-    <div className="absolute md:static -top-44 left-4">
-      <h1 className="text-4xl font-bold text-white uppercase">
-        Edward kennedy’s profile
+    <div className="absolute lg:static top-28 left-4">
+      <h1 className="text-2xl sm:text-4xl font-bold text-white uppercase">
+        {userName} profile
       </h1>
       <ul className="flex gap-4 mt-5">
         <li>
-          <a className="text-[#4280bf]" href="#">
+          <Link className="text-[#4280bf]" to="">
             Home
-          </a>
+          </Link>
         </li>
         <li className="text-[#abb7c4] uppercase">
           {" "}
