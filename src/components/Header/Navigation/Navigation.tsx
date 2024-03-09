@@ -56,10 +56,10 @@ const Navigation: React.FC<NavigationProps> = ({ genreList }) => {
         </li>
         <li className="hover:text-[#DCF836]">
           <Link
-            to="#"
+            to="/celebrity"
             className="xl:px-4 px-3 py-2.5 font-semibold duration-300"
           >
-            COMMUNITY
+            CELEBRITY
           </Link>
         </li>
       </ul>
