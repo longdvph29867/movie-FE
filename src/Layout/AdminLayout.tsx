@@ -1,13 +1,10 @@
-import { FC, useEffect } from "react";
+import { useEffect } from "react";
 import Login from "../components/Header/Login/Login";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import Search from "../components/Search/Search";
 import { localUserService } from "../services/localService";
 
-type Props = {
-  Component: FC;
-};
-const AdminLayout = ({ Component }: Props) => {
+const AdminLayout = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const infoUser = localUserService.get();
@@ -36,9 +33,13 @@ const AdminLayout = ({ Component }: Props) => {
           <div className="mt-4">
             <ul className="flex flex-col">
               <li>
-                <a
-                  className="text-sm flex items-center lg:px-4 py-2.5 rounded-lg lg:bg-white lg:shadow-xl"
-                  href="#"
+                <Link
+                  className={`text-sm flex items-center lg:px-4 py-2.5 rounded-lg ${
+                    location.pathname.includes("/admin/movies")
+                      ? "lg:bg-white lg:shadow-xl"
+                      : ""
+                  }`}
+                  to="/admin/movies"
                 >
                   <div className="lg:mr-2 flex h-8 w-8 items-center justify-center rounded-lg">
                     <i className="fa-solid fa-house" />
@@ -46,11 +47,15 @@ const AdminLayout = ({ Component }: Props) => {
                   <span className="ml-1 opacity-100 hidden lg:block">
                     Movies
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
                 <Link
-                  className="text-sm flex items-center lg:px-4 py-2.5 rounded-lg"
+                  className={`text-sm flex items-center lg:px-4 py-2.5 rounded-lg ${
+                    location.pathname.includes("/admin/genres")
+                      ? "lg:bg-white lg:shadow-xl"
+                      : ""
+                  }`}
                   to="/admin/genres"
                 >
                   <div className="lg:mr-2 flex h-8 w-8 items-center justify-center rounded-lg">
@@ -75,15 +80,19 @@ const AdminLayout = ({ Component }: Props) => {
                 </Link>
               </li>
               <li>
-                <a
-                  className="text-sm flex items-center lg:px-4 py-2.5 rounded-lg"
-                  href="#"
+                <Link
+                  className={`text-sm flex items-center lg:px-4 py-2.5 rounded-lg ${
+                    location.pathname.includes("/admin/users")
+                      ? "lg:bg-white lg:shadow-xl"
+                      : ""
+                  }`}
+                  to="/admin/users"
                 >
                   <div className="lg:mr-2 flex h-8 w-8 items-center justify-center rounded-lg">
                     <i className="fa-solid fa-user" />
                   </div>
                   <span className="ml-1 opacity-100 hidden lg:block">Uers</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -103,7 +112,7 @@ const AdminLayout = ({ Component }: Props) => {
           </div>
         </nav>
         <div className="flex-grow relative flex flex-col min-w-0 mb-6 bg-white shadow-sm rounded-2xl">
-          <Component />
+          <Outlet />
         </div>
       </div>
     </div>

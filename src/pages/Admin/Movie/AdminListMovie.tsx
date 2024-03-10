@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { movieService } from "../../../services/movieService";
 import { useLoading } from "../../../hooks/useSpinner";
 import { Movie } from "../../../types/movies";
@@ -74,7 +74,7 @@ const AdminListMovie = () => {
           to="/admin/movies/add"
           className="inline-block text-white text-base font-semibold bg-green-500 py-2 px-2 rounded my-5"
         >
-          <span>Thêm mới</span>
+          <span>Add movie</span>
         </Link>
         <DropdownFilter
           genres={genres as Genre[]}
@@ -147,13 +147,13 @@ const AdminListMovie = () => {
                       to={`/admin/movies/update/${movie._id}`}
                       className="text-sm font-semibold text-yellow-500"
                     >
-                      Sửa
+                      Edit
                     </Link>
                     <button
                       onClick={() => handleDelete(movie._id)}
                       className="text-sm font-semibold text-red-500"
                     >
-                      Xoá
+                      Delete
                     </button>
                   </div>
                 </div>

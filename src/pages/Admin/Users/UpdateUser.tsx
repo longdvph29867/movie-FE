@@ -37,7 +37,7 @@ const UpdateUser = () => {
   };
   return (
     <div className="max-w-lg w-full mx-auto px-5 pb-5 mt-20">
-      <h3 className=" text-2xl text-slate-700 text-center mt-6 mb-3">
+      <h3 className=" text-2xl text-yellow-400 text-center mt-6 mb-3">
         Update user
       </h3>
       <Form
@@ -87,9 +87,9 @@ const UpdateUser = () => {
           <Button
             type="primary"
             htmlType="submit"
-            className="text-white bg-green-500"
+            className="text-white bg-yellow-400"
           >
-            Thêm mới
+            Update
           </Button>
         </Form.Item>
       </Form>

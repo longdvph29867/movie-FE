@@ -7,8 +7,10 @@ import { movieService } from "../../services/movieService";
 import { useDispatch, useSelector } from "react-redux";
 import { setMovieList } from "../../Toolkits/movieSlice";
 import { useLoading } from "../../hooks/useSpinner";
-
-const MovieList = () => {
+type Props = {
+  col?: number;
+};
+const MovieList = ({ col = 6 }: Props) => {
   const dispatch = useDispatch();
   const { startSpinner, stopSpinner } = useLoading();
   const movies: Movie[] = useSelector(
@@ -34,7 +36,11 @@ const MovieList = () => {
         <div className="container mx-auto">
           <TitleTheater />
           <TabLink />
-          <div className="grid gap-6 place-items-center lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 ">
+          <div
+            className={`grid gap-6 place-items-center lg:grid-cols-${
+              col ? col : "6"
+            } md:grid-cols-4 sm:grid-cols-2`}
+          >
             {movies.map((movie, index) => (
               <MovieListItem key={index} movie={movie} />
             ))}

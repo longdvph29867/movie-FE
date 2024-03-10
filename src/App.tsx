@@ -50,76 +50,40 @@ function App() {
             <Route path="/celebrity" element={<CelebrityPage />} />
             <Route path="/celebrity/:id" element={<DetailCelebrityPage />} />
           </Route>
-          <Route
-            path="/login"
-            element={<LoginLayout Component={LoginPage} />}
-          />
-          <Route
-            path="/register"
-            element={<LoginLayout Component={RegisterPage} />}
-          />
-          <Route
-            path="/profile"
-            element={<ProfileLayout Component={ProfileDetail} />}
-          />
-          <Route
-            path="/profile/purcharsed-tickets"
-            element={<ProfileLayout Component={PurchasedTicketsPage} />}
-          />
-          <Route
-            path="/profile/farovite-movie"
-            element={<ProfileLayout Component={FavoritePage} />}
-          />
-          <Route
-            path="/profile/rated-movies"
-            element={<ProfileLayout Component={RatedPage} />}
-          />
-          <Route path="/verify-email/:token" element={<BlogPage />} />
-          <Route
-            path="/profile/change-password"
-            element={<ProfileLayout Component={ChangePassword} />}
-          />
-          <Route
-            path="/admin"
-            element={<AdminLayout Component={DashBoard} />}
-          />
-          <Route
-            path="/admin/genres"
-            element={<AdminLayout Component={GenreList} />}
-          />
-          <Route
-            path="/admin/genres/add"
-            element={<AdminLayout Component={CreateGenre} />}
-          />
-          <Route
-            path="/admin/genres/:genreSlug"
-            element={<AdminLayout Component={UpdateGenre} />}
-          />
-          <Route
-            path="/admin/movies"
-            element={<AdminLayout Component={AdminListMovie} />}
-          />
-          <Route
-            path="/admin/movies/add"
-            element={<AdminLayout Component={AdminAddMovie} />}
-          />
-          <Route
-            path="/admin/movies/update/:id"
-            element={<AdminLayout Component={AdminUpdateMovie} />}
-          />
+          <Route path="/" element={<LoginLayout />}>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Route>
 
-          <Route
-            path="/admin/users"
-            element={<AdminLayout Component={UserList} />}
-          />
-          <Route
-            path="/admin/users/add"
-            element={<AdminLayout Component={CreateUser} />}
-          />
-          <Route
-            path="/admin/users/:userId"
-            element={<AdminLayout Component={UpdateUser} />}
-          />
+          <Route path="/" element={<LoginLayout />}>
+            <Route path="/profile" element={<ProfileDetail />} />
+            <Route
+              path="/profile/purcharsed-tickets"
+              element={<PurchasedTicketsPage />}
+            />
+            <Route path="/profile/farovite-movie" element={<FavoritePage />} />
+            <Route path="/profile/rated-movies" element={<RatedPage />} />
+            <Route path="/verify-email/:token" element={<BlogPage />} />
+            <Route
+              path="/profile/change-password"
+              element={<ChangePassword />}
+            />
+          </Route>
+          <Route path="/" element={<AdminLayout />}>
+            <Route path="/admin" element={<DashBoard />} />
+            <Route path="/admin/genres" element={<GenreList />} />
+            <Route path="/admin/genres/add" element={<CreateGenre />} />
+            <Route path="/admin/genres/:genreSlug" element={<UpdateGenre />} />
+            <Route path="/admin/movies" element={<AdminListMovie />} />
+            <Route path="/admin/movies/add" element={<AdminAddMovie />} />
+            <Route
+              path="/admin/movies/update/:id"
+              element={<AdminUpdateMovie />}
+            />
+            <Route path="/admin/users" element={<UserList />} />
+            <Route path="/admin/users/add" element={<CreateUser />} />
+            <Route path="/admin/users/:userId" element={<UpdateUser />} />
+          </Route>
         </Routes>
       </BrowserRouter>
       <Spinner />

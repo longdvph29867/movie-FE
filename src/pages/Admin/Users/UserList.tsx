@@ -3,18 +3,23 @@ import userService from "../../../services/userSevice";
 import { Button, Popconfirm, Space, Table, TableProps, message } from "antd";
 import { Link } from "react-router-dom";
 import { User } from "../../../types/users";
+import { useLoading } from "../../../hooks/useSpinner";
 
 const UserList = () => {
   const [users, setUsers] = useState<User[]>([]);
+  const { startSpinner, stopSpinner } = useLoading();
   useEffect(() => {
     fetchUsers();
   }, []);
 
   const fetchUsers = async () => {
+    startSpinner();
     try {
       const response = await userService.getAllUser();
+      stopSpinner();
       setUsers(response.data.results);
     } catch (error) {
+      stopSpinner();
       message.error(error.response.data.message);
     }
   };
@@ -51,9 +56,11 @@ const UserList = () => {
       key: "action",
       render: (recod: User) => (
         <Space size="middle">
-          <Button className="bg-blue-600" type="primary">
-            <a href={`/admin/users/${recod.id}`}>Edit</a>
-          </Button>
+          <Link to={`/admin/users/${recod.id}`}>
+            <Button className="bg-blue-600" type="primary">
+              Edit
+            </Button>
+          </Link>
           <Popconfirm
             title="Delete user"
             description="Are you sure you want to delete this user?"
@@ -71,11 +78,14 @@ const UserList = () => {
     },
   ];
   return (
-    <div className="mt-20">
-      <div className="mb-10 ml-2">
-        <button className="px-3 py-1 rounded-md cursor-pointer text-white font-medium bg-green-600 hover:bg-green-500">
-          <Link to="/admin/users/add">Add new user</Link>
-        </button>
+    <>
+      <div className="px-4">
+        <Link
+          to="/admin/users/add"
+          className="inline-block text-white text-base font-semibold bg-green-500 py-2 px-2 rounded my-5"
+        >
+          <span>Add user</span>
+        </Link>
       </div>
       <Table
         columns={columns}
@@ -83,7 +93,7 @@ const UserList = () => {
         pagination={false}
         rowKey={renderRowKey}
       />
-    </div>
+    </>
   );
 };
 

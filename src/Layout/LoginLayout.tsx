@@ -1,9 +1,6 @@
-import { FC } from "react";
+import { Outlet } from "react-router-dom";
 
-type Props = {
-  Component: FC;
-};
-const LoginLayout = ({ Component }: Props) => {
+const LoginLayout = () => {
   return (
     <>
       <div
@@ -12,7 +9,7 @@ const LoginLayout = ({ Component }: Props) => {
       >
         <div className="absolute w-full h-full" />
         <div className="relative flex flex-col justify-center min-h-screen px-6 py-12 lg:px-8">
-          <Component />
+          <Outlet />
         </div>
       </div>
     </>

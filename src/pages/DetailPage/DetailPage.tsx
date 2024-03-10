@@ -70,7 +70,7 @@ const DetailPage = () => {
                 <Showtimes cinemasShowing={cinemasShowing} />
               </div>
               <ListComment />
-              <MovieList />
+              <MovieList col={4} />
             </div>
             <div className="lg:w-1/4 lg:pt-[440px]">
               <SideBar />

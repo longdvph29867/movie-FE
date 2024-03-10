@@ -14,10 +14,11 @@ import { FormMovieType, FormMovieValue, Movie } from "../../../types/movies";
 import genreSevice from "../../../services/genreSevice";
 import { useEffect, useState } from "react";
 import { Genre } from "../../../types/genres";
-import "./adminMovie.css";
 import imageService from "../../../services/imageServices";
 import { movieService } from "../../../services/movieService";
 import { useNavigate, useParams } from "react-router-dom";
+
+import "./adminMovie.css";
 const AdminUpdateMovie = () => {
   const { id: idMovie } = useParams();
   const navigate = useNavigate();

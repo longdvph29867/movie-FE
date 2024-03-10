@@ -19,7 +19,7 @@ const CreateUser = () => {
   };
   return (
     <div className="max-w-lg w-full mx-auto px-5 pb-5">
-      <h3 className=" text-2xl text-slate-700 text-center mt-6 mb-3">
+      <h3 className=" text-2xl text-green-500 text-center mt-6 mb-3">
         Create new user
       </h3>
       <Form
@@ -83,7 +83,7 @@ const CreateUser = () => {
             htmlType="submit"
             className="text-white bg-green-500"
           >
-            Thêm mới
+            Add user
           </Button>
         </Form.Item>
       </Form>

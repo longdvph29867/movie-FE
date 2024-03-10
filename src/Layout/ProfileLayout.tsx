@@ -2,13 +2,10 @@ import NavbarUser from "../components/Profile/NavbarUser";
 import ProfileTitle from "../components/Profile/ProfileTitle";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import { FC } from "react";
 import { localUserService } from "../services/localService";
+import { Outlet } from "react-router-dom";
 
-type Props = {
-  Component: FC;
-};
-const ProfileLayout = ({ Component }: Props) => {
+const ProfileLayout = () => {
   const user = localUserService.get()?.user;
   return (
     <div>
@@ -24,7 +21,7 @@ const ProfileLayout = ({ Component }: Props) => {
           <div className="w-full lg:w-3/4">
             <ProfileTitle userName={user?.name} />
             <div className=" bg-[#020d18] mt-10 lg:mt-20 relative">
-              <Component />
+              <Outlet />
             </div>
           </div>
         </div>
