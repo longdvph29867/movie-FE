@@ -23,8 +23,8 @@ const DetailPage = () => {
     movieService
       .getMovieDetail(id as string)
       .then((response) => {
-        stopSpinner();
         setMovieDetail(response.data);
+        stopSpinner();
       })
       .catch((error) => {
         stopSpinner();

@@ -13,7 +13,7 @@ const ProfileLayout = () => {
       <div className="bg-[#020d18] relative">
         <div
           className="absolute w-full h-[350px] top-0 left-0"
-          style={{ backgroundImage: "url(/bg-2.jpg)" }}
+          style={{ backgroundImage: "url(./bg-2.jpg)" }}
         ></div>
         <div className="pt-60 py-20 flex mt-5 flex-col lg:flex-row items-center md:items-start justify-between container lg:gap-0 gap-x-4 relative z-10">
           <NavbarUser />

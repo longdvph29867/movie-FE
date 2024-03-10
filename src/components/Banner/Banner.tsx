@@ -61,7 +61,7 @@ const Banner = () => {
   return (
     <section
       className="pt-44 pb-16 bg-cover bg-center"
-      style={{ backgroundImage: "url(/bg-2.jpg)" }}
+      style={{ backgroundImage: "url(./bg-2.jpg)" }}
     >
       <Slider {...settings} className="">
         {movies.slice(0, 5).map((movie, index) => (

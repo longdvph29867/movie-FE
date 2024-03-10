@@ -19,6 +19,7 @@ import { movieService } from "../../../services/movieService";
 import { useNavigate, useParams } from "react-router-dom";
 
 import "./adminMovie.css";
+import { useLoading } from "../../../hooks/useSpinner";
 const AdminUpdateMovie = () => {
   const { id: idMovie } = useParams();
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ const AdminUpdateMovie = () => {
   const [form] = Form.useForm();
   const [imgPoster, setImgPoster] = useState<string>("");
   const [imgBanner, setImgBanner] = useState<string>("");
+  const { startSpinner, stopSpinner } = useLoading();
 
   const fetchGenre = () => {
     genreSevice
@@ -39,6 +41,7 @@ const AdminUpdateMovie = () => {
   };
 
   const fetchMovie = async () => {
+    startSpinner();
     try {
       const { data } = await movieService.getMovieDetail(idMovie as string);
       const movie: Movie = data;
@@ -54,10 +57,11 @@ const AdminUpdateMovie = () => {
         description: movie.description,
       });
       // console.log(form.getFieldValue());
-
+      stopSpinner();
       setImgPoster(movie.poster);
       setImgBanner(movie.imgBanner);
     } catch (error) {
+      stopSpinner();
       console.log(error);
     }
   };
@@ -69,29 +73,33 @@ const AdminUpdateMovie = () => {
   const onFinish = (values: FormMovieValue) => {
     // console.log(values);
     const updateMovie = async () => {
-      let urlPoster: string = "";
-      let urlBanner: string = "";
-      if (values.imagePoster && values.imagePoster.length > 0) {
-        const formData = new FormData();
-        const { originFileObj: imagePoster } = values.imagePoster[0] as any;
-        formData.append("images", imagePoster);
-        const { data: dataImages } = await imageService.postImage(formData);
-        const urlImages: { url: string; publicId: string }[] = dataImages.data;
-        urlPoster = urlImages[0].url;
-      } else {
-        urlPoster = imgPoster;
-      }
-      if (values.imgBanner && values.imgBanner.length > 0) {
-        const formData = new FormData();
-        const { originFileObj: imgBanner } = values.imgBanner[0] as any;
-        formData.append("images", imgBanner);
-        const { data: dataImages } = await imageService.postImage(formData);
-        const urlImages: { url: string; publicId: string }[] = dataImages.data;
-        urlBanner = urlImages[0].url;
-      } else {
-        urlBanner = imgBanner;
-      }
+      startSpinner();
       try {
+        let urlPoster: string = "";
+        let urlBanner: string = "";
+        if (values.imagePoster && values.imagePoster.length > 0) {
+          const formData = new FormData();
+          const { originFileObj: imagePoster } = values.imagePoster[0] as any;
+          formData.append("images", imagePoster);
+          const { data: dataImages } = await imageService.postImage(formData);
+          const urlImages: { url: string; publicId: string }[] =
+            dataImages.data;
+          urlPoster = urlImages[0].url;
+        } else {
+          urlPoster = imgPoster;
+        }
+        if (values.imgBanner && values.imgBanner.length > 0) {
+          const formData = new FormData();
+          const { originFileObj: imgBanner } = values.imgBanner[0] as any;
+          formData.append("images", imgBanner);
+          const { data: dataImages } = await imageService.postImage(formData);
+          const urlImages: { url: string; publicId: string }[] =
+            dataImages.data;
+          urlBanner = urlImages[0].url;
+        } else {
+          urlBanner = imgBanner;
+        }
+
         const data: FormMovieType = {
           name: values.name,
           poster: urlPoster,
@@ -106,11 +114,13 @@ const AdminUpdateMovie = () => {
           description: values.description,
         };
         const res = await movieService.putMovie(idMovie as string, data);
+        stopSpinner();
         if (res) {
           message.success("Update movie successfully!");
           navigate("/admin/movies");
         }
       } catch (error) {
+        stopSpinner();
         console.log(error);
         message.error(error.response.data.message);
       }

@@ -25,10 +25,13 @@ const GenreList = () => {
       });
   };
   const deleteGenre = async (id: string) => {
+    startSpinner();
     try {
       await genreSevice.deleteGenre(id);
+      stopSpinner();
       fetchGenres();
     } catch (error) {
+      stopSpinner();
       message.error(error.response.data);
     }
   };
@@ -45,6 +48,7 @@ const GenreList = () => {
       title: "Quantity Movie",
       dataIndex: "quantityMovie",
       key: "quantityMovie",
+      responsive: ["md"],
     },
     {
       title: "Action",

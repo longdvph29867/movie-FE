@@ -4,14 +4,17 @@ import { Link } from "react-router-dom";
 import "./loginPage.css";
 import { localUserService } from "../../../services/localService";
 import loginService from "../../../services/loginService";
+import { useLoading } from "../../../hooks/useSpinner";
 
 const LoginPage = () => {
+  const { startSpinner, stopSpinner } = useLoading();
   const onFinish = (values: LoginType) => {
     const data = {
       email: values.email,
       password: values.password,
     };
     const postLogin = async () => {
+      startSpinner();
       try {
         const res = await loginService.login(data);
         if (res) {
@@ -20,9 +23,10 @@ const LoginPage = () => {
           };
           localUserService.set(infoUser);
           message.success("Login successfully!");
+          stopSpinner();
           if (infoUser.user.role === "admin") {
             setTimeout(() => {
-              window.location.href = "/";
+              window.location.href = "/admin/movies";
             }, 1200);
           } else {
             setTimeout(() => {
@@ -31,6 +35,7 @@ const LoginPage = () => {
           }
         }
       } catch (error) {
+        stopSpinner();
         console.log(error);
         message.error(error.response.data.message);
       }
@@ -96,7 +101,7 @@ const LoginPage = () => {
                 >
                   Password
                 </label>
-                <div className="text-xs">
+                <div className="text-xs ml-2">
                   <a
                     href="#"
                     className="text-[#F27221] hover:text-[#F27221] hover:opacity-90"

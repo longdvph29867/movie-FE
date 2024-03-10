@@ -17,10 +17,12 @@ import "./adminMovie.css";
 import imageService from "../../../services/imageServices";
 import { movieService } from "../../../services/movieService";
 import { useNavigate } from "react-router-dom";
+import { useLoading } from "../../../hooks/useSpinner";
 
 const AdminAddMovie = () => {
   const navigate = useNavigate();
   const [genres, setListGenres] = useState<Genre[]>([]);
+  const { startSpinner, stopSpinner } = useLoading();
 
   const fetchGenre = () => {
     genreSevice
@@ -43,6 +45,7 @@ const AdminAddMovie = () => {
       const formData = new FormData();
       formData.append("images", imagePoster);
       formData.append("images", imgBanner);
+      startSpinner();
       try {
         const { data: dataImages } = await imageService.postImage(formData);
         const urlImages: { url: string; publicId: string }[] = dataImages.data;
@@ -61,11 +64,13 @@ const AdminAddMovie = () => {
           description: values.description,
         };
         const res = await movieService.postMovie(data);
+        stopSpinner();
         if (res) {
           message.success("Add movie successfully!");
           navigate("/admin/movies");
         }
       } catch (error) {
+        stopSpinner();
         console.log(error);
         message.error(error.response.data.message);
       }

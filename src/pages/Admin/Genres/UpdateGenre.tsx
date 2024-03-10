@@ -1,29 +1,41 @@
 import { Button, Form, Input, message } from "antd";
 import genreSevice from "../../../services/genreSevice";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Genre } from "../../../types/genres";
+import { useLoading } from "../../../hooks/useSpinner";
 const UpdateGenre = () => {
+  const navigate = useNavigate();
   const [genreId, setGenreId] = useState("");
   const { genreSlug } = useParams();
   const [form] = Form.useForm();
+  const { startSpinner, stopSpinner } = useLoading();
   useEffect(() => {
     if (genreSlug) {
-      genreSevice.getGenreDetail(genreSlug).then((res) => {
-        const data: Genre = res.data;
-        setGenreId(data._id);
-        form.setFieldsValue({ genreName: data.genreName });
-      });
+      startSpinner();
+      genreSevice
+        .getGenreDetail(genreSlug)
+        .then((res) => {
+          stopSpinner();
+          const data: Genre = res.data;
+          setGenreId(data._id);
+          form.setFieldsValue({ genreName: data.genreName });
+        })
+        .catch((error) => {
+          stopSpinner();
+          console.log(error);
+        });
     }
   }, [form, genreSlug]);
   const onFinish = async (values: object) => {
+    startSpinner();
     try {
       await genreSevice.updateGenre(genreId, values);
       message.success("Update genre successfully");
-      setTimeout(() => {
-        window.location.href = "/admin/genres";
-      }, 1200);
+      stopSpinner();
+      navigate("/admin/genres");
     } catch (error) {
+      stopSpinner();
       message.error(error);
     }
   };

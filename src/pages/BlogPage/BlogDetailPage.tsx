@@ -20,7 +20,7 @@ const BlogDetailPage = () => {
     <section className="relative font-['Dosis', sans-serif'] ">
       <div
         className="h-[300px] bg-cover bg-top flex items-center justify-center"
-        style={{ backgroundImage: "url(/bg-2.jpg)" }}
+        style={{ backgroundImage: "url(./bg-2.jpg)" }}
       >
         <div className="pt-14">
           <h1 className="text-4xl font-semibold text-white uppercase">
@@ -51,7 +51,7 @@ const BlogDetailPage = () => {
                   src="http://busterhtml.mbkip3ms9u-e92498n216kr.p.temp-site.link/images/uploads/blog-detail.jpg"
                   alt=""
                 />
-                <p className="mb-3">
+                <p className="mb-3 text-justify">
                   Joss Whedon has a little bit of a history with superhero
                   movies, and for creating layered female characters. After his
                   documented frustrations with Wonder Woman, he's getting
@@ -59,7 +59,7 @@ const BlogDetailPage = () => {
                   closing in on a deal to write direct and produce a Batgirl
                   movie.
                 </p>
-                <p className="mb-3">
+                <p className="mb-3 text-justify">
                   It's a somewhat surprising, but welcome move, given that
                   Whedon has taken a long break to write something original, but
                   has now pivoted to focus on developing the Batgirl project.
@@ -70,7 +70,7 @@ const BlogDetailPage = () => {
                   Simmons' take on Gordon to appear along with other Bat-related
                   characters.
                 </p>
-                <p className="mb-3">
+                <p className="mb-3 text-justify">
                   Based on Lissa Evans' novel “Their Finest Hour and a Half” and
                   directed by Lone Scherfig (“An Education”), the film is set in
                   London during World War II when the British ministry was
@@ -82,7 +82,7 @@ const BlogDetailPage = () => {
                   Catrin's fellow writer and sparring partner.
                 </p>
                 <div className="md:flex items-center justify-between py-3">
-                  <div>
+                  <div className=" text-justify">
                     <p>
                       Arterton is next set to play Vita Sackville-West in Vita
                       and Virginia about her relationship with Virginia Woolf.
@@ -106,7 +106,7 @@ const BlogDetailPage = () => {
                     alt=""
                   />
                 </div>
-                <p className="mb-3">
+                <p className="mb-3 text-justify">
                   Man Down debuted simultaneously on digital platforms in the
                   U.K., meaning it was never going to be a big earner in
                   theaters. But no one expected only one ticket sale. As of
@@ -114,7 +114,7 @@ const BlogDetailPage = () => {
                   Down, which also stars Gary Oldman, Jai Courtney and Kate
                   Mara.
                 </p>
-                <p>
+                <p className="text-justify">
                   In the film, LaBeouf stars as a war veteran suffering from
                   PTSD following his return from Afghanistan. The indie project,
                   reuniting the star with A Guide to Recognizing Your Saints

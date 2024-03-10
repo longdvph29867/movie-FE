@@ -1,14 +1,21 @@
 import { Button, Form, Input, message } from "antd";
 import genreSevice from "../../../services/genreSevice";
+import { useLoading } from "../../../hooks/useSpinner";
+import { useNavigate } from "react-router-dom";
 const CreateGenre = () => {
+  const navigate = useNavigate();
+  const { startSpinner, stopSpinner } = useLoading();
   const onFinish = async (values: object) => {
+    startSpinner();
     try {
-      await genreSevice.createGenre(values);
-      message.success("Create genre successfully");
-      setTimeout(() => {
-        window.location.href = "/admin/genres";
-      }, 1200);
+      const genre = await genreSevice.createGenre(values);
+      stopSpinner();
+      if (genre) {
+        message.success("Create genre successfully");
+        navigate("/admin/genres");
+      }
     } catch (error) {
+      stopSpinner();
       message.error(error.response.data.message);
     }
   };

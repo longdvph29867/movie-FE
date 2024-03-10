@@ -6,13 +6,13 @@ import { DetailActor } from "../../types/actors";
 import InfoActorDetail from "./InfoActorDetail/InfoActorDetail";
 import Rating from "../../components/Rating/Rating";
 import { useLoading } from "../../hooks/useSpinner";
-type Props = {};
 
-const DetailCelebrityPage = (props: Props) => {
+const DetailCelebrityPage = () => {
   const { id = "65e1e6f43fdbf667f171d3ce" } = useParams();
   const [actorDetail, setActorDetail] = useState<DetailActor | null>(null);
   const { startSpinner, stopSpinner } = useLoading();
   useEffect(() => {
+    window.scrollTo(0, 0);
     startSpinner();
     actorService
       .getDetailActor(id as string)
@@ -24,7 +24,7 @@ const DetailCelebrityPage = (props: Props) => {
         stopSpinner();
         console.log(error);
       });
-  }, []);
+  }, [id]);
   return (
     <div className="bg-[#020d18]">
       <section className="relative">
@@ -36,13 +36,14 @@ const DetailCelebrityPage = (props: Props) => {
           <div className="flex xl:gap-16 lg:gap-12 gap-10 lg:flex-row flex-col">
             <div className="lg:w-3/4">
               <InfoActorDetail actorDetail={actorDetail as DetailActor} />
-              {/* <ListComment /> */}
-              {/* <MovieList /> */}
               <div className="mt-5">
                 <h3 className="text-white text-2xl mb-2">Movies</h3>
-                <div className="grid grid-cols-4">
+                <div className="grid md:grid-cols-4 sm:grid-cols-3">
                   {actorDetail?.movies.map((movie) => (
-                    <div className="relative max-w-[190px] group/item-movie w-full">
+                    <div
+                      key={movie._id}
+                      className="relative max-w-[190px] group/item-movie w-full mx-auto"
+                    >
                       <img
                         src={movie.poster}
                         alt={movie.name}

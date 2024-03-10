@@ -25,10 +25,12 @@ const UserList = () => {
   };
 
   const deleteUser = async (id: string) => {
+    startSpinner();
     try {
       await userService.deleteUser(id);
       fetchUsers();
     } catch (error) {
+      stopSpinner();
       message.error(error.response.data.message);
     }
   };
@@ -45,11 +47,13 @@ const UserList = () => {
       title: "Email",
       dataIndex: "email",
       key: "email",
+      responsive: ["md"],
     },
     {
       title: "Role",
       dataIndex: "role",
       key: "role",
+      responsive: ["sm"],
     },
     {
       title: "Action",

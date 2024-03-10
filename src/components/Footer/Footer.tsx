@@ -105,7 +105,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-[#405266] py-4">
           <div className="container mx-auto text-center">
-            © 2023 FPT Polytechnic. All rights reserved.
+            © 2024 FPT Polytechnic. All rights reserved.
           </div>
         </div>
       </footer>

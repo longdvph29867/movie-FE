@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import "../Login/loginPage.css";
 import { localUserService } from "../../../services/localService";
 import loginService from "../../../services/loginService";
+import { useLoading } from "../../../hooks/useSpinner";
 
 const RegisterPage = () => {
+  const { startSpinner, stopSpinner } = useLoading();
   const onFinish = (values: RegisterType) => {
     const data = {
       name: values.name,
@@ -13,6 +15,7 @@ const RegisterPage = () => {
       password: values.password,
     };
     const postRegister = async () => {
+      startSpinner();
       try {
         const res = await loginService.register(data);
         if (res) {
@@ -20,7 +23,8 @@ const RegisterPage = () => {
             ...res.data,
           };
           localUserService.set(infoUser);
-          message.success("Sign in successfully!");
+          stopSpinner();
+          message.success("Register successfully!");
           if (infoUser.user.role === "admin") {
             setTimeout(() => {
               window.location.href = "/admin/movies";
@@ -32,6 +36,7 @@ const RegisterPage = () => {
           }
         }
       } catch (error) {
+        stopSpinner();
         console.log(error);
         message.error(error.response.data.message);
       }

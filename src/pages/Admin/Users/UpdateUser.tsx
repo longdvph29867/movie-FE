@@ -2,8 +2,11 @@ import { useEffect } from "react";
 import userService from "../../../services/userSevice";
 import { Button, Form, Input, Radio, message } from "antd";
 import { Updateuser, User } from "../../../types/users";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useLoading } from "../../../hooks/useSpinner";
 const UpdateUser = () => {
+  const navigate = useNavigate();
+  const { startSpinner, stopSpinner } = useLoading();
   const [form] = Form.useForm();
   const { userId } = useParams();
 
@@ -20,15 +23,16 @@ const UpdateUser = () => {
     }
   }, [userId]);
   const onFinish = async (values: Updateuser) => {
+    startSpinner();
     try {
       if (userId) {
         await userService.updateUser(userId, values);
+        stopSpinner();
         message.success("Update user successfully");
-        setTimeout(() => {
-          window.location.href = "/admin/users";
-        }, 1200);
+        navigate("/admin/users");
       }
     } catch (error) {
+      stopSpinner();
       message.error(error.response.data.message);
     }
   };

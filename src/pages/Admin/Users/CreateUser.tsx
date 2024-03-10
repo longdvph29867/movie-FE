@@ -1,16 +1,21 @@
 import userService from "../../../services/userSevice";
 import { Button, Form, Input, Radio, message } from "antd";
 import { Createuser } from "../../../types/users";
+import { useNavigate } from "react-router-dom";
+import { useLoading } from "../../../hooks/useSpinner";
 
 const CreateUser = () => {
+  const navigate = useNavigate();
+  const { startSpinner, stopSpinner } = useLoading();
   const onFinish = async (values: Createuser) => {
+    startSpinner();
     try {
       await userService.createUser(values);
+      stopSpinner();
       message.success("Create user successfully");
-      setTimeout(() => {
-        window.location.href = "/admin/users";
-      }, 1200);
+      navigate("/admin/users");
     } catch (error) {
+      stopSpinner();
       message.error(error.response.data.message);
     }
   };
