@@ -19,7 +19,7 @@ const Banner = () => {
     slidesToScroll: 1,
     fade: true,
     cssEase: "linear",
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: false,
     beforeChange: (current: number, next: number) => {

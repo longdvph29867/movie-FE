@@ -11,6 +11,7 @@ import showingService from "../../../services/showingService";
 import ItemTabMovie from "./ItemTabMovie/ItemTabMovie";
 import { TabsPosition } from "antd/es/tabs";
 import useWindowResize from "../../../hooks/useWindowResize";
+import { HashLoader } from "react-spinners";
 
 const TabMovie = () => {
   const [listCinemaChain, setListCinemaChain] = useState<CinemaChainType[]>([]);
@@ -21,7 +22,10 @@ const TabMovie = () => {
     ListShowingByBranchType[]
   >([]);
 
+  const [showLoading, setShowLoading] = useState<boolean>(false);
+
   const fetchCinemaChain = () => {
+    setShowLoading(true);
     cinemaService
       .getAllCinemaChain()
       .then((response) => {
@@ -29,10 +33,12 @@ const TabMovie = () => {
         fetchCinemaBranch(response.data[0].cinemaCode);
       })
       .catch((error) => {
+        setShowLoading(false);
         console.log(error);
       });
   };
   const fetchCinemaBranch = (code: string) => {
+    setShowLoading(true);
     cinemaService
       .getAllCinemaBranch(code)
       .then((response) => {
@@ -40,16 +46,20 @@ const TabMovie = () => {
         fetchShowingByBranch(response.data[0].slug);
       })
       .catch((error) => {
+        setShowLoading(false);
         console.log(error);
       });
   };
   const fetchShowingByBranch = (slug: string) => {
+    setShowLoading(true);
     showingService
       .getCinemaByBranch(slug)
       .then((response) => {
+        setShowLoading(false);
         setListShowingByBranch(response.data.showingList);
       })
       .catch((error) => {
+        setShowLoading(false);
         console.log(error);
       });
   };
@@ -111,10 +121,19 @@ const TabMovie = () => {
                 </div>
               ),
               children: (
-                <div className="w-full h-[700px] overflow-x-scroll">
+                <div className="w-full h-[700px] overflow-x-scroll relative">
                   {listShowingByBranch.map((item, index) => (
                     <ItemTabMovie key={index} moive={item} />
                   ))}
+                  {showLoading ? (
+                    <>
+                      <div className="absolute w-full h-full top-0 left-0 bg-white/60 flex items-center justify-center">
+                        <HashLoader color="#F27221" />
+                      </div>
+                    </>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               ),
             };
