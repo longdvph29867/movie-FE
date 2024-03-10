@@ -15,7 +15,7 @@ const ArticleList = () => {
               to="/blog-detail"
               className="group-hover:text-[#dcf836] transition-all duration-500 ease-out text-lg font-bold text-[#4280bf]"
             >
-              Godzilla: King Of The Monsters Adds O’Shea Jackson Jr
+              Godzilla: King Of The Monsters Adds O'Shea Jackson Jr
             </Link>
           </h3>
           <span className="text-[#abb7c4] font-light text-xs  ">

@@ -15,7 +15,7 @@ const BlogList = () => {
         </div>
       </div>
       <div className="grid gap-5 mt-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-items-center">
-        {listBlog.slice(0, 1).map((blog, index) => (
+        {listBlog.slice(0, 4).map((blog, index) => (
           <BlogItem key={index} blog={blog} />
         ))}
       </div>

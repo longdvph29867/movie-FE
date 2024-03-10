@@ -5,12 +5,12 @@ import { Movie } from "../../types/movies";
 import { movieService } from "../../services/movieService";
 import showingService from "../../services/showingService";
 import { Showing } from "../../types/showing";
-import "./detailPage.css";
 import SideBar from "../../components/Sidebar/SideBar";
 import { useParams } from "react-router-dom";
 import Showtimes from "./Showtimes/Showtimes";
 import ListComment from "../../components/ListComment/ListComment";
 import { useLoading } from "../../hooks/useSpinner";
+import "./detailPage.css";
 
 const DetailPage = () => {
   const { id = "659682f87ccc34bb2e8e75c2" } = useParams();
@@ -18,6 +18,7 @@ const DetailPage = () => {
   const [movieDetail, setMovieDetail] = useState<Movie | null>(null);
   const [cinemasShowing, setcinemasShowing] = useState<Showing[]>([]);
   useEffect(() => {
+    window.scrollTo(0, 0);
     startSpinner();
     movieService
       .getMovieDetail(id as string)
@@ -38,7 +39,7 @@ const DetailPage = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [id]);
 
   const myRef = useRef<HTMLDivElement>(null);
 

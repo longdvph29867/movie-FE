@@ -5,10 +5,12 @@ import { localUserService } from "../../../services/localService";
 import { Ticket } from "../../../types/booking";
 import { Modal, message } from "antd";
 import { TbTicketOff } from "react-icons/tb";
+import { useLoading } from "../../../hooks/useSpinner";
 
 const PurchasedTicketsPage = () => {
   const userLocal = localUserService.get()?.user;
   const [tickets, setTickets] = useState<Ticket[]>([]);
+  const { startSpinner, stopSpinner } = useLoading();
 
   useEffect(() => {
     if (userLocal) {
@@ -16,10 +18,13 @@ const PurchasedTicketsPage = () => {
     }
   }, []);
   const fetchData = async (idUser: string) => {
+    startSpinner();
     try {
       const response = await bookingService.getAllByUser(idUser);
+      stopSpinner();
       setTickets(response.data);
     } catch (error) {
+      stopSpinner();
       console.log(error);
     }
   };

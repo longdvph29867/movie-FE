@@ -1,6 +1,5 @@
 import ArticleList from "../../components/BlogComponents/ArticleList";
 import BlogSearch from "../../components/BlogComponents/BlogSearch";
-// import PageNavigation from "../../components/PaginationPage/PaginationPage";
 import BlogCategories from "../../components/BlogComponents/BlogCategories";
 import TagItem from "../../components/Sidebar/TagList/TagItem/TagItem";
 

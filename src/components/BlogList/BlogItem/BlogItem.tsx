@@ -1,14 +1,19 @@
+import { Link } from "react-router-dom";
 import { Movie } from "../../../types/movies";
 
 const BlogItem: React.FC<{ blog: Movie }> = ({ blog }) => {
   return (
-    <>
+    <Link to="/blog-detail">
       <div className="max-w-xs">
         <div className="overflow-hidden rounded-lg">
-          <img src="/blogv1.jpeg" alt="" className="w-full" />
+          <img
+            src={blog.imgBanner}
+            alt=""
+            className="w-full h-[120px] object-cover"
+          />
         </div>
         <div className="pt-6 text-[#abb7c4] space-y-3">
-          <h3 className="two-line text-lg text-[#4280bf] font-bold">
+          <h3 className="one-line text-lg text-[#4280bf] font-bold">
             {blog.name}
           </h3>
           <p className="text-xs">27 Mar 2017</p>
@@ -18,52 +23,7 @@ const BlogItem: React.FC<{ blog: Movie }> = ({ blog }) => {
           </p>
         </div>
       </div>
-      <div className="max-w-xs">
-        <div className="overflow-hidden rounded-lg">
-          <img src="/blogv1.jpeg" alt="" className="w-full" />
-        </div>
-        <div className="pt-6 text-[#abb7c4] space-y-3">
-          <h3 className="two-line text-lg text-[#4280bf] font-bold">
-            Godzilla: King Of The Monsters Adds O'Shea Jackson Jr
-          </h3>
-          <p className="text-xs">27 Mar 2017</p>
-          <p className="text-sm three-line">
-            Looks like Kong: Skull Island started a tradition with its casting
-            of Straight ...
-          </p>
-        </div>
-      </div>
-      <div className="max-w-xs">
-        <div className="overflow-hidden rounded-lg">
-          <img src="/blogv1.jpeg" alt="" className="w-full" />
-        </div>
-        <div className="pt-6 text-[#abb7c4] space-y-3">
-          <h3 className="two-line text-lg text-[#4280bf] font-bold">
-            Godzilla: King Of The Monsters Adds O'Shea Jackson Jr
-          </h3>
-          <p className="text-xs">27 Mar 2017</p>
-          <p className="text-sm three-line">
-            Looks like Kong: Skull Island started a tradition with its casting
-            of Straight ...
-          </p>
-        </div>
-      </div>
-      <div className="max-w-xs">
-        <div className="overflow-hidden rounded-lg">
-          <img src="/blogv1.jpeg" alt="" className="w-full" />
-        </div>
-        <div className="pt-6 text-[#abb7c4] space-y-3">
-          <h3 className="two-line text-lg text-[#4280bf] font-bold">
-            Godzilla: King Of The Monsters Adds O'Shea Jackson Jr
-          </h3>
-          <p className="text-xs">27 Mar 2017</p>
-          <p className="text-sm three-line">
-            Looks like Kong: Skull Island started a tradition with its casting
-            of Straight ...
-          </p>
-        </div>
-      </div>
-    </>
+    </Link>
   );
 };
 

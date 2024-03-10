@@ -44,7 +44,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="/detail/:id" element={<DetailPage />} />
             <Route path="/movies" element={<ListPage />} />
-            <Route path="/blog" element={<PageBlog />} />
+            <Route path="/blogs" element={<PageBlog />} />
             <Route path="/blog-detail" element={<BlogDetailPage />} />
             <Route path="/booking/:id" element={<BookingPage />} />
             <Route path="/celebrity" element={<CelebrityPage />} />
@@ -55,7 +55,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
           </Route>
 
-          <Route path="/" element={<LoginLayout />}>
+          <Route path="/" element={<ProfileLayout />}>
             <Route path="/profile" element={<ProfileDetail />} />
             <Route
               path="/profile/purcharsed-tickets"

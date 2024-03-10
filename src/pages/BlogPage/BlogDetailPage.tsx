@@ -9,8 +9,13 @@ import BlogSearch from "../../components/BlogComponents/BlogSearch";
 import BlogCategories from "../../components/BlogComponents/BlogCategories";
 import TagItem from "../../components/Sidebar/TagList/TagItem/TagItem";
 import BlogPopular from "../../components/BlogComponents/BlogPopular";
+import { useEffect } from "react";
 
 const BlogDetailPage = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <section className="relative font-['Dosis', sans-serif'] ">
       <div
@@ -66,15 +71,15 @@ const BlogDetailPage = () => {
                   characters.
                 </p>
                 <p className="mb-3">
-                  Based on Lissa Evans’ novel “Their Finest Hour and a Half” and
+                  Based on Lissa Evans' novel “Their Finest Hour and a Half” and
                   directed by Lone Scherfig (“An Education”), the film is set in
                   London during World War II when the British ministry was
                   utilizing propaganda films to boost morale. Arterton plays
                   Catrin Cole, a scriptwriter who is brought on to handle the
-                  women’s dialogue — commonly referred to as “the nausea.” The
+                  women's dialogue — commonly referred to as “the nausea.” The
                   film, opening this week, features an outstanding ensemble,
                   including Bill Nighy as a washed-up actor and Sam Claflin as
-                  Catrin’s fellow writer and sparring partner.
+                  Catrin's fellow writer and sparring partner.
                 </p>
                 <div className="md:flex items-center justify-between py-3">
                   <div>
@@ -86,17 +91,17 @@ const BlogDetailPage = () => {
                       “strong female character.”
                     </p>
                     <p>
-                      I’m friends with the producer who I worked with on
+                      I'm friends with the producer who I worked with on
                       Byzantium and he sent it to me. I read the book as well,
-                      which is fantastic. You’re always looking for untold
-                      stories and many times they’re women’s stories. What
-                      surprised me is that it centers around a woman who’s
-                      really quite timid. I guess she’s allowed to be because
+                      which is fantastic. You're always looking for untold
+                      stories and many times they're women's stories. What
+                      surprised me is that it centers around a woman who's
+                      really quite timid. I guess she's allowed to be because
                       all of the other characters.
                     </p>
                   </div>
                   <img
-                    className="rounded w-full my-3 md:w-auto md:my-0"
+                    className="rounded w-full my-3 md:w-auto md:my-0 ml-3"
                     src="http://busterhtml.mbkip3ms9u-e92498n216kr.p.temp-site.link/images/uploads/blog-detail2.jpg"
                     alt=""
                   />

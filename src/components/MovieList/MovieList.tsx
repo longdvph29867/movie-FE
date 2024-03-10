@@ -37,8 +37,8 @@ const MovieList = ({ col = 6 }: Props) => {
           <TitleTheater />
           <TabLink />
           <div
-            className={`grid gap-6 place-items-center lg:grid-cols-${
-              col ? col : "6"
+            className={`grid gap-6 place-items-center ${
+              col ? `lg:grid-cols-${col}` : "lg:grid-cols-6"
             } md:grid-cols-4 sm:grid-cols-2`}
           >
             {movies.map((movie, index) => (

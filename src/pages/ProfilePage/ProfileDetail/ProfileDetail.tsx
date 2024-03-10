@@ -4,11 +4,13 @@ import { useState } from "react";
 import userService from "../../../services/userSevice";
 import authService from "../../../services/authService";
 import { MdMarkEmailRead } from "react-icons/md";
+import { useLoading } from "../../../hooks/useSpinner";
 
 const ProfileDetail = () => {
   const [form] = Form.useForm();
   const USER = localUserService.get();
   const infoUser = USER?.user;
+  const { startSpinner, stopSpinner } = useLoading();
   useState(() => {
     form.setFieldsValue({
       name: infoUser?.name,
@@ -17,13 +19,16 @@ const ProfileDetail = () => {
   });
 
   const onFinish = async (values: object) => {
+    startSpinner();
     try {
       if (infoUser) {
         const res = await userService.updateUser(infoUser.id, values);
+        stopSpinner();
         message.success("Update information successfully");
         localUserService.set({ ...USER, user: res.data });
       }
     } catch (error) {
+      stopSpinner();
       message.error(error.response.data.message);
     }
   };
@@ -90,11 +95,11 @@ const ProfileDetail = () => {
           </Form.Item>
           {infoUser?.isEmailVerified || (
             <div className="border-[#0f2133] rounded w-max py-1">
-              <p className="text-sm text-[#dcf836]">
+              <p className="text-sm text-slate-400">
                 Your email has not been verified!
                 <span
                   onClick={veryfied}
-                  className="hover:underline cursor-pointer"
+                  className="hover:underline cursor-pointer text-[#F27221] ml-1"
                 >
                   Verify now.
                 </span>
@@ -103,7 +108,7 @@ const ProfileDetail = () => {
           )}
           <Form.Item className="mt-5">
             <Button type="primary" htmlType="submit" className="bg-[#F27221]">
-              Submit
+              Update
             </Button>
           </Form.Item>
         </Form>
