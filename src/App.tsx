@@ -33,6 +33,7 @@ import CreateUser from "./pages/Admin/Users/CreateUser";
 import UpdateUser from "./pages/Admin/Users/UpdateUser";
 import PurchasedTicketsPage from "./pages/ProfilePage/PurchasedTicketsPage/PurchasedTicketsPage";
 import CelebrityPage from "./pages/CelebrityPage/CelebrityPage";
+import DetailCelebrityPage from "./pages/DetailCelebrityPage/DetailCelebrityPage";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             <Route path="/blog-detail" element={<BlogDetailPage />} />
             <Route path="/booking/:id" element={<BookingPage />} />
             <Route path="/celebrity" element={<CelebrityPage />} />
+            <Route path="/celebrity/:id" element={<DetailCelebrityPage />} />
           </Route>
           <Route
             path="/login"

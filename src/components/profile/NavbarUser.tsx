@@ -17,7 +17,7 @@ const NavbarUser = () => {
         </a>
         <a
           href="#"
-          className="px-3 py-1 sm:px-4 sm:py-2 lg:px-6 bg-[#ff4d4f] text-white font-bold text-xs sm:text-sm uppercase rounded-md hover:text-black duration-300"
+          className="px-3 py-1 sm:px-4 sm:py-2 lg:px-6 bg-[#F27221] text-white font-bold text-xs sm:text-sm uppercase rounded-md hover:text-black duration-300"
         >
           Change avatar
         </a>
@@ -43,7 +43,7 @@ const NavbarUser = () => {
                 } mb-3 hover:text-[#dcf836] duration-300`}
                 to="/profile/purcharsed-tickets"
               >
-                Favorite movies
+                Tickets Booked
               </Link>
             </li>
             <li className="mb-3">

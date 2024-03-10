@@ -62,7 +62,7 @@ const SearchCelebrity = () => {
             </select>
           </div>
         </div>
-        <button className="mt-3 w-full h-10 text-white bg-red-500 rounded font-bold uppercase">
+        <button className="mt-3 w-full h-10 text-white bg-[#F27221] rounded font-bold uppercase">
           Submit
         </button>
       </div>

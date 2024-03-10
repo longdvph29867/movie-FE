@@ -5,6 +5,7 @@ import { localUserService } from "../../../services/localService";
 import { message } from "antd";
 import { BookingType } from "../../../types/booking";
 import bookingService from "../../../services/bookingService";
+import { useLoading } from "../../../hooks/useSpinner";
 type Props = {
   idShowing: string;
 };
@@ -13,6 +14,8 @@ const ChairBooking = ({ idShowing }: Props) => {
   const handleDeleteChair = (chair: ChairType) => {
     dispatch(setSelectedChair(chair));
   };
+
+  const { startSpinner, stopSpinner } = useLoading();
   const selectedChair: ChairType[] = useSelector(
     (state: any) => state.chairSlice.selectedChair
   );
@@ -35,13 +38,16 @@ const ChairBooking = ({ idShowing }: Props) => {
       })),
       totalPrice,
     };
+    startSpinner();
     bookingService
       .postBooking(data)
       .then((res) => {
+        stopSpinner();
         console.log(res);
-        location.href = "/";
+        location.href = "/profile/purcharsed-tickets";
       })
       .catch((err) => {
+        startSpinner();
         console.log(err);
       });
   };

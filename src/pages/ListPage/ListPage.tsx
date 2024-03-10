@@ -9,11 +9,13 @@ import genreSevice from "../../services/genreSevice";
 import { Genre } from "../../types/genres";
 import useDataFetcher from "../../hooks/useDataFetcher";
 import PaginationPage from "../../components/PaginationPage/PaginationPage";
+import { useLoading } from "../../hooks/useSpinner";
 
 const ListPage = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const [movies, setMovies] = useState<Movie[]>([]);
+  const { startSpinner, stopSpinner } = useLoading();
   const [totalMovies, setTotalMovies] = useState(0);
   const [genres] = useDataFetcher<Genre>(() => genreSevice.getAllGenre());
   const currentPage = params.get("page") ? Number(params.get("page")) : 1;
@@ -24,6 +26,7 @@ const ListPage = () => {
   const filterTime = params.get("filterTime");
   const limit = 24;
   useEffect(() => {
+    startSpinner();
     movieService
       .getMovies(
         limit,
@@ -33,10 +36,12 @@ const ListPage = () => {
         filterSearch
       )
       .then((data) => {
+        stopSpinner();
         setMovies(data.data.results);
         setTotalMovies(data.data.totalResults);
       })
       .catch((error) => {
+        stopSpinner();
         console.error("Error fetching data:", error);
       });
   }, [location.search]);
