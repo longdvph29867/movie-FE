@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ActorType } from "../../types/actors";
 
 type Props = {
@@ -5,20 +6,24 @@ type Props = {
 };
 const CelebrityItem = ({ celebrity }: Props) => {
   return (
-    <div className="bg-[#091a2c] flex h-[100px] w-full group">
-      <img
-        src={
-          celebrity.image == "Updating..." ? "avatar-none.jpg" : celebrity.image
-        }
-        className="w-20 h-full object-cover"
-      />
-      <div className="py-3 px-6">
-        <h1 className="font-bold text-white uppercase group-hover:text-[#dcf836]">
-          {celebrity.name}
-        </h1>
-        <p className="text-gray-500 text-sm">{celebrity.nationality}</p>
+    <Link to={`/celebrity/${celebrity.id}`}>
+      <div className="bg-[#091a2c] group">
+        <img
+          src={
+            celebrity.image == "Updating..."
+              ? "avatar-none.jpg"
+              : celebrity.image
+          }
+          className="h-[400px] w-full object-cover object-top brightness-90"
+        />
+        <div className="py-3 px-6">
+          <h1 className="font-bold text-white uppercase group-hover:text-[#dcf836]">
+            {celebrity.name}
+          </h1>
+          <p className="text-gray-500 text-sm">{celebrity.nationality}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

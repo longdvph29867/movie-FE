@@ -2,6 +2,7 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { DetailScheduleType } from "../../../types/movies";
 import showingService from "../../../services/showingService";
+import { useLoading } from "../../../hooks/useSpinner";
 
 type Props = {
   idShowing: string;
@@ -10,13 +11,18 @@ type Props = {
 const InfoMovie = ({ idShowing }: Props) => {
   const [detailSchedule, setDetailSchedule] =
     useState<DetailScheduleType | null>(null);
+
+  const { startSpinner, stopSpinner } = useLoading();
   useEffect(() => {
+    startSpinner();
     showingService
       .getDetailSchedule(idShowing)
       .then((res) => {
+        stopSpinner();
         setDetailSchedule(res.data);
       })
       .catch((err) => {
+        stopSpinner();
         console.log(err);
       });
   }, []);

@@ -39,17 +39,15 @@ const PurchasedTicketsItem = ({ ticket, showDeleteConfirm }: Props) => {
             </div>
             <div className="flex justify-around sm:grid grid-cols-3 text-[#4a437e]  font-bold text-center sm:px-3">
               <p>
-                Time:{" "}
+                Time:
                 {moment(ticket.showTime).utcOffset("+00:00").format("HH:mm")}
               </p>
               <p>
-                Seat:{""}
-                {ticket.seats.map((seat, index) => (
-                  <span key={index}>{seat.seatNumber}</span>
-                ))}
+                Seat:
+                {ticket.seats.map((seat, index) => seat.seatNumber).join(", ")}
               </p>
               <p>
-                Prices:{""}
+                Prices:
                 {convertVND(
                   ticket.seats.reduce((total, price) => total + price.price, 0)
                 )}

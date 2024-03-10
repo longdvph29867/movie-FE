@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import chairService from "../../../services/chairService";
 import ItemChair from "./ItemChair/ItemChair";
 import { ChairType } from "../../../types/chair";
+import { useLoading } from "../../../hooks/useSpinner";
 
 const ListChair = ({ idShowing }: Props) => {
   const dynamicStyles: React.CSSProperties = {
@@ -13,13 +14,17 @@ const ListChair = ({ idShowing }: Props) => {
   };
   const [chairList, setChairList] = useState<ChairType[]>([]);
 
+  const { startSpinner, stopSpinner } = useLoading();
   useEffect(() => {
+    startSpinner();
     chairService
       .getChairByShowing(idShowing)
       .then((res) => {
+        stopSpinner();
         setChairList(res.data.seatList);
       })
       .catch((err) => {
+        stopSpinner();
         console.log(err);
       });
   }, []);

@@ -10,7 +10,7 @@ const CelebrityPage = () => {
   const [celebritys, setCelebritys] = useState<ActorType[]>([]);
   const fetchData = async () => {
     try {
-      const response = await actorService.getAllActor(30);
+      const response = await actorService.getAllActor(20);
       setCelebritys(response.data.results);
     } catch (error) {
       console.log(error);

@@ -102,7 +102,7 @@ const ProfileDetail = () => {
             </div>
           )}
           <Form.Item className="mt-5">
-            <Button type="primary" htmlType="submit" danger>
+            <Button type="primary" htmlType="submit" className="bg-[#F27221]">
               Submit
             </Button>
           </Form.Item>

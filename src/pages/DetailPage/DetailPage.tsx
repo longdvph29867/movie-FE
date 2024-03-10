@@ -10,18 +10,23 @@ import SideBar from "../../components/Sidebar/SideBar";
 import { useParams } from "react-router-dom";
 import Showtimes from "./Showtimes/Showtimes";
 import ListComment from "../../components/ListComment/ListComment";
+import { useLoading } from "../../hooks/useSpinner";
 
 const DetailPage = () => {
   const { id = "659682f87ccc34bb2e8e75c2" } = useParams();
+  const { startSpinner, stopSpinner } = useLoading();
   const [movieDetail, setMovieDetail] = useState<Movie | null>(null);
   const [cinemasShowing, setcinemasShowing] = useState<Showing[]>([]);
   useEffect(() => {
+    startSpinner();
     movieService
       .getMovieDetail(id as string)
       .then((response) => {
+        stopSpinner();
         setMovieDetail(response.data);
       })
       .catch((error) => {
+        stopSpinner();
         console.log(error);
       });
 
