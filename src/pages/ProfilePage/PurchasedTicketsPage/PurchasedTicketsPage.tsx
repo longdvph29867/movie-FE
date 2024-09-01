@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import PurchasedTicketsItem from "../../../components/Profile/PurchasedTickets/PurchasedTicketsItem";
+import PurchasedTicketsItem from "../../../components/Profiles/PurchasedTickets/PurchasedTicketsItem";
 import bookingService from "../../../services/bookingService";
 import { localUserService } from "../../../services/localService";
 import { Ticket } from "../../../types/booking";

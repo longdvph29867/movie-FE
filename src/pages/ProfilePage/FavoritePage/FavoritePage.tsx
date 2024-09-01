@@ -1,4 +1,4 @@
-import FavoriteItem from "../../../components/Profile/FavoriteItem";
+import FavoriteItem from "../../../components/Profiles/FavoriteItem";
 
 const FavoritePage = () => {
   return (

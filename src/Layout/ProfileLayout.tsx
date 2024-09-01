@@ -1,5 +1,5 @@
-import NavbarUser from "../components/Profile/NavbarUser";
-import ProfileTitle from "../components/Profile/ProfileTitle";
+import NavbarUser from "../components/Profiles/NavbarUser";
+import ProfileTitle from "../components/Profiles/ProfileTitle";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { localUserService } from "../services/localService";
