@@ -1,9 +1,7 @@
 import { useSelector } from "react-redux";
 import { HashLoader } from "react-spinners";
 
-type Props = {};
-
-const Spinner = (props: Props) => {
+const Spinner = () => {
   const isLoading = useSelector((state: any) => state.spinnerSlice.loading);
   return isLoading ? (
     <>

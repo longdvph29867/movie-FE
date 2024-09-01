@@ -21,7 +21,7 @@ const chairSlice = createSlice({
     }
     state.selectedChair = newSelectChair;
     },
-    clearSelectedChair: (state, action) => {
+    clearSelectedChair: (state) => {
       state.selectedChair = [];
       },
   },

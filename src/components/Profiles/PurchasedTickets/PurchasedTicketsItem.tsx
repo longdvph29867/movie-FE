@@ -44,7 +44,7 @@ const PurchasedTicketsItem = ({ ticket, showDeleteConfirm }: Props) => {
               </p>
               <p>
                 Seat:
-                {ticket.seats.map((seat, index) => seat.seatNumber).join(", ")}
+                {ticket.seats.map((seat) => seat.seatNumber).join(", ")}
               </p>
               <p>
                 Prices:
