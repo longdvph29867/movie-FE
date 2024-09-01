@@ -13,7 +13,7 @@ const BookingPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     return () => {
-      dispatch(clearSelectedChair(null));
+      dispatch(clearSelectedChair());
     };
   }, []);
   return (
